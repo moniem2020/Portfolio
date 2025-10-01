@@ -28,10 +28,7 @@ const logos = ["LangChain", "LangGraph", "n8n", "Python", "TypeScript"];
 
 export default function Home() {
   return (
-    <div className="relative isolate overflow-hidden">
-      <div className="pointer-events-none absolute inset-x-0 top-[-180px] -z-10 flex justify-center blur-3xl">
-        <div className="h-[360px] w-[680px] bg-gradient-to-r from-indigo-400 via-purple-300 to-sky-300 opacity-60" />
-      </div>
+    <div className="relative isolate overflow-hidden bg-gradient-to-b from-[#f5f3ff] via-white to-[#e0f2fe]">
       <section className="mx-auto flex max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 lg:px-8 lg:pt-28">
         <div className="grid gap-16 lg:grid-cols-[1.15fr,0.85fr]">
           <div className="space-y-8">
@@ -50,13 +47,17 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/projects"
-                  className="btn-animate rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/30 hover:bg-slate-900"
+                  className="rounded-full px-6 py-3 text-sm font-semibold text-[#1f254d] transition-transform duration-200 hover:-translate-y-0.5"
+                  style={{
+                    background: "linear-gradient(90deg, #a5b4fc 0%, #c4b5fd 50%, #bae6fd 100%)",
+                    boxShadow: "0 12px 30px rgba(99, 102, 241, 0.18)"
+                  }}
                 >
                   Explore projects
                 </Link>
                 <Link
                   href="/#contact"
-                  className="btn-animate rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-indigo-700"
+                  className="rounded-full border border-[#a5b4fc] bg-white/35 px-6 py-3 text-sm font-semibold text-[#313284] backdrop-blur-md transition hover:bg-white/55 hover:text-[#1f254d] hover:-translate-y-0.5"
                 >
                   Schedule a chat
                 </Link>
@@ -146,14 +147,28 @@ export default function Home() {
               >
                 <h3 className="text-xl font-semibold text-indigo-700">{project.title}</h3>
                 <p className="flex-1 text-sm leading-relaxed text-slate-600">{project.description}</p>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-indigo-600 transition hover:text-indigo-500"
-                >
-                  View case study &gt;
-                </a>
+                <div className="flex flex-wrap items-center gap-3">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-indigo-600 shadow-sm ring-1 ring-indigo-100 transition hover:bg-indigo-50"
+                    >
+                      See demo
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center rounded-full border border-indigo-200 bg-white/70 px-4 py-2 text-sm font-semibold text-indigo-700 transition hover:border-indigo-300 hover:bg-white"
+                    >
+                      View GitHub
+                    </a>
+                  )}
+                </div>
               </Reveal>
             ))}
           </div>
@@ -169,13 +184,17 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3 text-sm">
               <a
                 href="mailto:hello@moniemghazal.com"
-                className="btn-animate rounded-full bg-slate-950 px-6 py-3 font-semibold text-white shadow-lg shadow-slate-900/25 hover:bg-slate-900"
+                className="rounded-full px-6 py-3 font-semibold text-[#303179] transition-transform duration-200 hover:-translate-y-0.5"
+                style={{
+                  background: "linear-gradient(90deg, #a5b4fc 0%, #c4b5fd 50%, #bae6fd 100%)",
+                  boxShadow: "0 12px 30px rgba(99, 102, 241, 0.18)"
+                }}
               >
                 Email Moniem
               </a>
               <Link
                 href="/projects"
-                className="btn-animate rounded-full border border-white/50 px-6 py-3 font-semibold text-white hover:border-white/80"
+                className="rounded-full border border-white/65 bg-white/15 px-6 py-3 font-semibold text-white backdrop-blur-md transition hover:bg-white/25 hover:-translate-y-0.5"
               >
                 Browse portfolio
               </Link>
