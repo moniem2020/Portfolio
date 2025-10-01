@@ -24,7 +24,7 @@ const stats = [
   { label: "Avg. time saved / project", value: "35%" },
 ];
 
-const logos = ["LangChain", "LangGraph", "n8n", "Python", "Machine Learning", "Statistics"];
+const logos = ["LangChain", "LangGraph", "n8n", "Python", "TypeScript"];
 
 export default function Home() {
   return (
@@ -41,7 +41,7 @@ export default function Home() {
             <AnimatedText
               text="Moniem Ghazal"
               align="left"
-              className="text-5xl font-semibold tracking-tight text-slate-900 sm:text-6xl"
+              className="text-5xl font-semibold tracking-tight text-indigo-700 sm:text-6xl"
             />
             <div className="space-y-6 text-lg text-slate-600">
               <p className="max-w-xl leading-relaxed">
@@ -50,13 +50,13 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-4">
                 <Link
                   href="/projects"
-                  className="rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-500"
+                  className="btn-animate rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-950/30 hover:bg-slate-900"
                 >
                   Explore projects
                 </Link>
                 <Link
                   href="/#contact"
-                  className="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:text-slate-900"
+                  className="btn-animate rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-indigo-700"
                 >
                   Schedule a chat
                 </Link>
@@ -73,7 +73,7 @@ export default function Home() {
               {stats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white/60 p-5 shadow-sm shadow-slate-900/5">
                   <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{stat.label}</p>
-                  <p className="mt-2 text-2xl font-semibold text-slate-900">{stat.value}</p>
+                  <p className="mt-2 text-2xl font-semibold text-indigo-700">{stat.value}</p>
                 </div>
               ))}
             </div>
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-100 via-white to-violet-100" />
             <div className="space-y-4 text-slate-700">
               <p className="text-sm font-semibold uppercase tracking-[0.26em] text-indigo-500">Latest sprint</p>
-              <h3 className="text-2xl font-semibold text-slate-900">
+              <h3 className="text-2xl font-semibold text-indigo-700">
                 Shipping autonomous support flows at Intercom Enterprises
               </h3>
               <p className="leading-relaxed">
@@ -114,7 +114,7 @@ export default function Home() {
               key={area.title}
               className="flex flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white/70 p-6 transition-transform duration-200 hover:-translate-y-1"
             >
-              <h4 className="text-lg font-semibold text-slate-900">{area.title}</h4>
+              <h4 className="text-lg font-semibold text-indigo-700">{area.title}</h4>
               <p className="text-sm leading-relaxed text-slate-600">{area.description}</p>
             </div>
           ))}
@@ -129,7 +129,7 @@ export default function Home() {
         <section className="space-y-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="text-3xl font-semibold text-slate-900">Selected work</h2>
+              <h2 className="text-3xl font-semibold text-indigo-700">Selected work</h2>
               <p className="text-sm text-slate-600">A snapshot of recent projects that pair automation with tangible business outcomes.</p>
             </div>
             <Link href="/projects" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
@@ -144,7 +144,7 @@ export default function Home() {
                 delay={index * 0.08}
                 className="flex h-full flex-col gap-4 rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-sm shadow-slate-900/5"
               >
-                <h3 className="text-xl font-semibold text-slate-900">{project.title}</h3>
+                <h3 className="text-xl font-semibold text-indigo-700">{project.title}</h3>
                 <p className="flex-1 text-sm leading-relaxed text-slate-600">{project.description}</p>
                 <a
                   href={project.link}
@@ -158,7 +158,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section id="contact" className="relative overflow-hidden rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-500 p-10 text-white">
+        <section id="contact" className="relative overflow-hidden rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-600 via-indigo-500 to-violet-500 p-10 text-white scroll-mt-28 md:scroll-mt-36">
           <div className="absolute inset-y-0 right-0 hidden h-full w-1/2 translate-x-1/4 rounded-full bg-indigo-400/40 blur-3xl lg:block" />
           <div className="relative max-w-3xl space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Let&apos;s build</p>
@@ -169,13 +169,13 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3 text-sm">
               <a
                 href="mailto:hello@moniemghazal.com"
-                className="rounded-full bg-white px-6 py-3 font-semibold text-indigo-600 shadow-lg shadow-indigo-900/20 transition hover:text-indigo-700"
+                className="btn-animate rounded-full bg-slate-950 px-6 py-3 font-semibold text-white shadow-lg shadow-slate-900/25 hover:bg-slate-900"
               >
                 Email Moniem
               </a>
               <Link
                 href="/projects"
-                className="rounded-full border border-white/50 px-6 py-3 font-semibold text-white transition hover:border-white"
+                className="btn-animate rounded-full border border-white/50 px-6 py-3 font-semibold text-white hover:border-white/80"
               >
                 Browse portfolio
               </Link>
