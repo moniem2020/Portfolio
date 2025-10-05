@@ -19,10 +19,16 @@ export default function ContactForm() {
   const [formState, setFormState] = useState<FormState>(defaultState);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
-  const updateField = (field: Field) => (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { value } = event.target;
-    setFormState((current) => ({ ...current, [field]: value }));
-  };
+  const updateField =
+    (field: Field) =>
+    (
+      event: ChangeEvent<
+        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      >,
+    ) => {
+      const { value } = event.target;
+      setFormState((current) => ({ ...current, [field]: value }));
+    };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,11 +43,15 @@ export default function ContactForm() {
       formState.name
         ? `I'm ${formState.name}${formState.company ? ` from ${formState.company}` : ""}.`
         : formState.company
-        ? `I'm reaching out from ${formState.company}.`
-        : "I'm reaching out about automation work.",
+          ? `I'm reaching out from ${formState.company}.`
+          : "I'm reaching out about automation work.",
       "",
-      formState.projectSummary ? `Project context: ${formState.projectSummary}` : undefined,
-      formState.timeline ? `Desired timeline: ${formState.timeline}` : undefined,
+      formState.projectSummary
+        ? `Project context: ${formState.projectSummary}`
+        : undefined,
+      formState.timeline
+        ? `Desired timeline: ${formState.timeline}`
+        : undefined,
       formState.email ? `You can reach me at ${formState.email}.` : undefined,
       "",
       "Looking forward to connecting!",
@@ -53,7 +63,8 @@ export default function ContactForm() {
     setHasSubmitted(true);
   };
 
-  const isSubmitDisabled = !formState.email.trim() || !formState.projectSummary.trim();
+  const isSubmitDisabled =
+    !formState.email.trim() || !formState.projectSummary.trim();
 
   return (
     <form
@@ -116,13 +127,23 @@ export default function ContactForm() {
           onChange={updateField("timeline")}
           className="mt-2 w-full rounded-xl border border-white/20 bg-white/15 px-3 py-2 text-sm text-white focus:border-white/60 focus:outline-none focus:ring-0"
         >
-          <option value="" className="text-slate-600">Select an option</option>
-          <option value="0-2 weeks" className="text-slate-600">0-2 weeks (rapid)</option>
-          <option value="1-2 months" className="text-slate-600">1-2 months</option>
-          <option value="Exploring options" className="text-slate-600">Exploring options</option>
+          <option value="" className="text-slate-600">
+            Select an option
+          </option>
+          <option value="0-2 weeks" className="text-slate-600">
+            0-2 weeks (rapid)
+          </option>
+          <option value="1-2 months" className="text-slate-600">
+            1-2 months
+          </option>
+          <option value="Exploring options" className="text-slate-600">
+            Exploring options
+          </option>
         </select>
       </label>
-      <p className="text-[11px] uppercase tracking-[0.3em] text-white/60">* Required fields</p>
+      <p className="text-[11px] uppercase tracking-[0.3em] text-white/60">
+        * Required fields
+      </p>
       <button
         type="submit"
         disabled={isSubmitDisabled}
@@ -132,7 +153,8 @@ export default function ContactForm() {
       </button>
       {hasSubmitted && (
         <p className="text-xs text-white/70">
-          Thanks for the details! Your email client should have opened - if not, reach me at hello@moniemghazal.com.
+          Thanks for the details! Your email client should have opened - if not,
+          reach me at hello@moniemghazal.com.
         </p>
       )}
     </form>
