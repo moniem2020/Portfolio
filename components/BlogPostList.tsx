@@ -19,6 +19,13 @@ interface BlogPostListProps {
   posts: PostItem[];
 }
 
+const dateFormatter = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+function formatDate(value: string) {
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? value : dateFormatter.format(parsed);
+}
+
 export default function BlogPostList({ posts }: BlogPostListProps) {
   return (
     <div className="space-y-6">
@@ -36,7 +43,7 @@ export default function BlogPostList({ posts }: BlogPostListProps) {
               <span className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-600">
                 {post.frontMatter.category ?? "Automation"}
               </span>
-              <p className="text-sm font-medium text-slate-500">{post.frontMatter.date}</p>
+              <p className="text-sm font-medium text-slate-500">{formatDate(post.frontMatter.date)}</p>
             </div>
             <h2 className="text-2xl font-semibold text-slate-900 transition group-hover:text-indigo-600">
               {post.frontMatter.title}
@@ -53,3 +60,5 @@ export default function BlogPostList({ posts }: BlogPostListProps) {
     </div>
   );
 }
+
+

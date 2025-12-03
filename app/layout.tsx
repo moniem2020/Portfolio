@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Moniem Ghazal - Portfolio",
-  description: "AI & Automation Engineer",
+  title: "Abdelmoniem Ghazal – AI & Automation Engineer",
+  description: "Building intelligent AI systems with LangChain, RAG pipelines, and workflow automation. Specializing in production-ready AI agents.",
 };
 
 export default function RootLayout({
@@ -26,13 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen flex-col antialiased bg-transparent text-slate-900`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         <TransitionEffect />
         <Navbar />
-        <main className="flex-1 pt-24 md:pt-28">
+        <main className="relative">
           {children}
         </main>
         <Footer />

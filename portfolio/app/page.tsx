@@ -1,69 +1,94 @@
+'use client';
 import { useState } from "react";
 import Link from "next/link";
 import AnimatedText from "@/components/AnimatedText";
 import Reveal from "@/components/Reveal";
+import CircularProgress from "@/components/CircularProgress";
 import { projects } from "@/data/projects";
 
 const focusAreas = [
   {
-    title: "Agentic systems",
-    description: "Designing human-in-the-loop AI agents that handle research, summarisation, and execution across complex workflows.",
+    title: "Operational automations",
+    description:
+      "Mapping customer support, ECM, and talent workflows to spot the highest-leverage automation loops.",
   },
   {
-    title: "Automation playbooks",
-    description: "Building resilient automation pipelines with n8n, LangChain, and custom orchestration to remove operational drag.",
+    title: "RAG knowledge systems",
+    description:
+      "Shipping retrieval pipelines with LangChain and LangGraph that keep answers current, governed, and observable.",
   },
   {
-    title: "Insightful tooling",
-    description: "Shipping dashboards and internal tools that surface the right signal for product, GTM, and support teams.",
+    title: "Remote team enablement",
+    description:
+      "Designing playbooks and analytics so distributed teams can deliver without micromanagement.",
   },
 ];
 
 const stats = [
-  { label: "Automation launches", value: "20+" },
-  { label: "Agent workflows shipped", value: "15" },
-  { label: "Avg. time saved / project", value: "35%" },
+  { label: "Automation pilots delivered", value: "6" },
+  { label: "Startup awards", value: "1" },
+  { label: "Cohort programs completed", value: "3" },
 ];
 
-const logos = ["LangChain", "LangGraph", "n8n", "Python", "Machine Learning", "Statistics"];
+const logos = [
+  "LangChain",
+  "LangGraph",
+  "Gemini API",
+  "ARIS BPM",
+  "n8n",
+  "Power BI",
+  "RAG Systems",
+  "Remote Ops",
+];
 
 const heroProfiles = [
   {
-    id: "architect",
-    label: "Workflow architect",
-    headline: "I turn ambiguous operational pains into orchestrated AI workflows.",
+    id: "intern",
+    label: "Intercom intern",
+    headline: "Automating ECM and support operations with LangChain, LangGraph, and Gemini.",
     description:
-      "Co-designing with operators, I map the happy path, plug agentic guardrails, and ship reliable assistants that people trust on day one.",
-    signal: "Launched a multi-modal support agent that drafts responses in <6 seconds.",
+      "Document generation, retrieval pipelines, and n8n orchestration that keep analysts in the loop.",
+    signal: "Automation delivered across CX, ECM, and analytics teams.",
     highlights: [
-      { label: "Latest stack", value: "LangGraph / Supabase / Vercel" },
-      { label: "Team impact", value: "Freed 35% of CX hours weekly" },
+      { label: "Stack", value: "ARIS BPM / LangChain / n8n" },
+      { label: "Focus", value: "ECM & support automation" },
     ],
   },
   {
-    id: "partner",
-    label: "Product partner",
-    headline: "I embed with product pods to translate fuzzy AI ideas into testable pilots.",
+    id: "founder",
+    label: "Remotized founder",
+    headline: "Built a remote talent platform connecting GCC SMEs with Egyptian specialists.",
     description:
-      "From prototype prompts to live metrics, I help PMs scope the right experiment, validate quickly, and iterate without drowning in tooling complexity.",
-    signal: "Shipped 4 go-to-market pilots in a single quarter.",
+      "Led product, growth, and ops automation to get Remotized from MVP to award-winning marketplace.",
+    signal: "Winner of Startup Power Egypt 2025.",
     highlights: [
-      { label: "Experiment tempo", value: "Weekly pilot cadence" },
-      { label: "Funnel unlocked", value: "+18% activation lift" },
+      { label: "Team enablement", value: "Remote playbooks & analytics" },
+      { label: "Acquisition", value: "Zero paid marketing" },
     ],
   },
   {
-    id: "coach",
-    label: "Team coach",
-    headline: "I level up teams so the automation keeps evolving after launch.",
+    id: "analyst",
+    label: "Data scientist",
+    headline: "Power BI dashboards and ML pricing models for real-estate decisions.",
     description:
-      "Playbooks, enablement, and instrumentation keep the organisation confident. I leave behind documented systems that stay maintainable.",
-    signal: "Upskilled 12-person ops team to own their AI roadmap.",
+      "Combined Python, machine learning, and BI storytelling to surface market signals for Phoenix Consulting clients.",
+    signal: "Interactive pricing models piloted within 3 months.",
     highlights: [
-      { label: "Enablement", value: "Hands-on playbooks & office hours" },
-      { label: "Sustainability", value: "3 month self-serve transition" },
+      { label: "Tooling", value: "Power BI / Python / ML" },
+      { label: "Outcome", value: "Faster pricing iteration" },
     ],
   },
+];
+
+const skills = [
+  { name: "LangChain", percentage: 95, color: "#6366f1" },
+  { name: "LangGraph", percentage: 90, color: "#8b5cf6" },
+  { name: "Python", percentage: 92, color: "#3b82f6" },
+  { name: "TypeScript", percentage: 88, color: "#06b6d4" },
+  { name: "n8n Automation", percentage: 93, color: "#10b981" },
+  { name: "Power BI", percentage: 85, color: "#f59e0b" },
+  { name: "RAG Systems", percentage: 90, color: "#ec4899" },
+  { name: "ARIS BPM", percentage: 87, color: "#6366f1" },
 ];
 
 export default function Home() {
@@ -83,21 +108,21 @@ export default function Home() {
           className="pointer-events-none absolute -right-24 top-1/3 hidden h-72 w-72 rounded-full bg-sky-200/70 blur-3xl lg:block"
           style={{ animation: "float-medium 28s ease-in-out infinite" }}
         />
-        <section className="mx-auto flex max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 lg:px-8 lg:pt-28">
-          <div className="grid gap-16 lg:grid-cols-[1.15fr,0.85fr]">
-            <div className="space-y-10">
+        <section className="mx-auto flex w-full max-w-6xl flex-col gap-20 overflow-hidden px-4 pb-24 pt-16 sm:px-6 lg:px-8 lg:pt-28">
+          <div className="grid gap-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+            <div className="space-y-10 min-w-0">
               <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-700 shadow-sm shadow-indigo-500/10">
-                AI & Automation Engineer
+                AI & Automation Intern
                 <span className="inline-flex h-2 w-2 rounded-full bg-indigo-400 shadow-sm shadow-indigo-400/80" />
               </div>
               <AnimatedText
-                text="Moniem Ghazal"
+                text="Abdelmoniem Ghazal"
                 align="left"
                 className="text-5xl font-semibold tracking-tight text-slate-900 sm:text-6xl"
               />
               <div className="space-y-6 text-lg text-slate-600">
                 <p className="max-w-xl leading-relaxed">
-                  I help teams move from ideas to production-ready AI experiences. From orchestrating multi-agent workflows to automating the unglamorous ops, I focus on shipping quickly without sacrificing reliability.
+                  I help ECM, CX, and remote talent teams automate the repetitive work so people stay focused on decisions, delivery, and people.
                 </p>
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
@@ -117,7 +142,26 @@ export default function Home() {
                     Schedule a chat
                   </Link>
                 </div>
+                <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-slate-600">
+                    Cairo, Egypt
+                  </span>
+                  <a
+                    href="mailto:moniemghazal@gmail.com"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-slate-600 transition hover:border-indigo-200 hover:bg-white"
+                  >
+                    moniemghazal@gmail.com
+                  </a>
+                  <a
+                    href="tel:+201009441336"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-slate-600 transition hover:border-indigo-200 hover:bg-white"
+                  >
+                    +20 100 944 1336
+                  </a>
+                </div>
               </div>
+
+
 
               <div className="relative overflow-hidden rounded-3xl border border-indigo-100/70 bg-white/75 p-6 shadow-xl shadow-indigo-500/10 backdrop-blur-sm">
                 <span
@@ -132,16 +176,14 @@ export default function Home() {
                         key={profile.id}
                         type="button"
                         onClick={() => setActiveProfile(profile)}
-                        className={`group relative inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 ${
-                          isActive
-                            ? "border-indigo-500/60 bg-indigo-500/10 text-indigo-700 shadow-sm shadow-indigo-500/20"
-                            : "border-slate-200 bg-white/70 text-slate-600 hover:border-indigo-200 hover:text-indigo-600"
-                        }`}
+                        className={`group relative inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 ${isActive
+                          ? "border-indigo-500/60 bg-indigo-500/10 text-indigo-700 shadow-sm shadow-indigo-500/20"
+                          : "border-slate-200 bg-white/70 text-slate-600 hover:border-indigo-200 hover:text-indigo-600"
+                          }`}
                       >
                         <span
-                          className={`h-2 w-2 rounded-full transition ${
-                            isActive ? "bg-indigo-500" : "bg-slate-300 group-hover:bg-indigo-300"
-                          }`}
+                          className={`h-2 w-2 rounded-full transition ${isActive ? "bg-indigo-500" : "bg-slate-300 group-hover:bg-indigo-300"
+                            }`}
                         />
                         {profile.label}
                       </button>
@@ -175,13 +217,13 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="relative overflow-hidden rounded-full border border-indigo-100 bg-white/70 py-3 shadow-sm">
+              <div className="relative w-full overflow-hidden rounded-full border border-indigo-100 bg-white/70 px-6 py-3 shadow-sm">
                 <div
-                  className="flex min-w-full items-center gap-6 whitespace-nowrap px-6 text-sm font-medium text-slate-600"
-                  style={{ animation: "marquee 22s linear infinite" }}
+                  className="flex w-max items-center whitespace-nowrap text-sm font-medium text-slate-600 will-change-transform"
+                  style={{ animation: "marquee 22s linear infinite", minWidth: "200%" }}
                 >
                   {marqueeLogos.map((logo, index) => (
-                    <span key={`${logo}-${index}`} className="inline-flex items-center gap-2">
+                    <span key={`${logo}-${index}`} className="inline-flex items-center gap-2 px-4">
                       <span className="h-1.5 w-1.5 rounded-full bg-indigo-300" />
                       {logo}
                     </span>
@@ -208,7 +250,7 @@ export default function Home() {
               trigger="load"
               offset={40}
               duration={0.7}
-              className="relative overflow-hidden rounded-3xl border border-indigo-100 bg-white/80 p-10 shadow-xl shadow-indigo-500/10"
+              className="relative min-w-0 overflow-hidden rounded-3xl border border-indigo-100 bg-white/80 p-10 shadow-xl shadow-indigo-500/10"
             >
               <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-100 via-white to-violet-100" />
               <div className="absolute -right-10 -top-12 h-44 w-44 rounded-full bg-indigo-200/50 blur-3xl" />
@@ -236,35 +278,83 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-6 rounded-2xl border border-indigo-100 bg-white/70 p-4 text-sm font-medium text-slate-600">
-                  "Moniem helped us move from an unwieldy ops backlog to a self-serve automation engine in weeks, not months. The team finally has bandwidth to focus on high-touch moments."
+                  &ldquo;Abdelmoniem helped us move from an unwieldy ops backlog to a self-serve automation engine in weeks, not months. The team finally has bandwidth to focus on high-touch moments.&rdquo;
                 </div>
               </div>
             </Reveal>
           </div>
 
-          <section className="grid gap-10 lg:grid-cols-[1fr,1.1fr]">
-            <div className="space-y-6">
+          <section className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+            <div className="space-y-6 min-w-0">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-500/80">Where I focus</p>
               <h2 className="text-3xl font-semibold text-slate-900">From messy processes to measurable automation wins</h2>
               <p className="text-base leading-relaxed text-slate-600">
                 Every engagement pairs deep discovery with fast experimentation. I meet teams where they are, co-design the right guardrails, and deliver automation people actually adopt.
               </p>
             </div>
-            <div className="grid gap-4">
+            <div className="grid min-w-0 w-full gap-4">
               {focusAreas.map((area) => (
                 <Reveal
                   key={area.title}
                   delay={0.1}
-                  className="flex h-full flex-col gap-3 rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm shadow-slate-900/5"
+                  className="flex h-full w-full min-w-0 flex-col gap-3 rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm shadow-slate-900/5"
                 >
                   <h3 className="text-xl font-semibold text-slate-900">{area.title}</h3>
-                  <p className="flex-1 text-sm leading-relaxed text-slate-600">{area.description}</p>
-                  <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-indigo-500">
+                  <p className="flex-1 min-w-0 text-sm leading-relaxed text-slate-600">{area.description}</p>
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-indigo-500">
                     <span className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
                     Built for humans first
                   </div>
                 </Reveal>
               ))}
+            </div>
+          </section>
+
+          {/* Skills Section with Circular Progress */}
+          <section className="relative overflow-hidden rounded-3xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-violet-50 p-8 shadow-xl shadow-indigo-500/10 sm:p-12">
+            {/* Background decoration */}
+            <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-200/30 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-violet-200/30 blur-3xl" />
+
+            <div className="relative space-y-8">
+              {/* Section Header */}
+              <div className="text-center">
+                <Reveal>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-indigo-500/80">Technical Expertise</p>
+                  <h2 className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl">Skills &amp; Proficiency</h2>
+                  <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
+                    Hands-on experience building production-ready AI systems and automation workflows
+                  </p>
+                </Reveal>
+              </div>
+
+              {/* Circular Progress Bars Grid */}
+              <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-4">
+                {skills.map((skill, index) => (
+                  <Reveal key={skill.name} delay={index * 0.1}>
+                    <div className="group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/60 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-indigo-200 hover:bg-white/80 hover:shadow-lg hover:shadow-indigo-500/20">
+                      <CircularProgress
+                        percentage={skill.percentage}
+                        label={skill.name}
+                        size={120}
+                        strokeWidth={8}
+                        delay={index * 100}
+                        color={skill.color}
+                      />
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              {/* Bottom CTA */}
+              <Reveal delay={0.5}>
+                <div className="mt-8 text-center">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/70 px-6 py-3 text-sm font-semibold text-indigo-700 shadow-sm backdrop-blur-sm transition hover:bg-white hover:shadow-md">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-indigo-500" />
+                    Always learning and expanding my toolkit
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </section>
 
@@ -287,7 +377,7 @@ export default function Home() {
                   className="flex h-full flex-col gap-4 rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-sm shadow-slate-900/5"
                 >
                   <h3 className="text-xl font-semibold text-slate-900">{project.title}</h3>
-                  <p className="flex-1 text-sm leading-relaxed text-slate-600">{project.description}</p>
+                  <p className="flex-1 min-w-0 text-sm leading-relaxed text-slate-600">{project.description}</p>
                   <div className="flex flex-wrap items-center gap-3">
                     {project.demo && (
                       <a
@@ -321,10 +411,25 @@ export default function Home() {
             <div className="absolute inset-y-0 right-0 hidden h-full w-1/2 translate-x-1/4 rounded-full bg-indigo-400/40 blur-3xl lg:block" />
             <div className="relative max-w-3xl space-y-6">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Let&apos;s build</p>
-              <h2 className="text-3xl font-semibold">Ready to unlock the next automation lever?</h2>
+              <h2 className="text-3xl font-semibold">Ready to launch your next automation sprint?</h2>
               <p className="text-base leading-relaxed text-white/80">
-                Whether you need to prototype an AI assistant, automate mission-critical workflows, or audit an existing pipeline, I can help scope, build, and iterate alongside your team.
+                From ECM scripting to RAG copilots and remote ops dashboards, I can help scope the opportunity, build the automation, and hand it over with clarity.
               </p>
+              <ul className="space-y-2 text-sm text-white/75">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/60" />
+                  Process walkthroughs to map ECM and CX flows, document tooling, and define success metrics.
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/60" />
+                  RAG pipelines, document generators, and n8n automations delivered with observability and guardrails.
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/60" />
+                  Remote-first playbooks and enablement so your teams keep shipping after hand-off.
+                </li>
+              </ul>
+
               <div className="flex flex-wrap items-center gap-3 text-sm">
                 <a
                   href="mailto:moniemghazal@gmail.com"
@@ -334,7 +439,7 @@ export default function Home() {
                     boxShadow: "0 12px 30px rgba(99, 102, 241, 0.18)",
                   }}
                 >
-                  Email Moniem
+                  Email Abdelmoniem
                 </a>
                 <Link
                   href="/projects"
@@ -347,6 +452,11 @@ export default function Home() {
           </section>
         </section>
       </div>
+      <style jsx global>{`
+        html, body {
+          overflow-x: hidden !important;
+        }
+      `}</style>
       <style jsx>{`
         @keyframes float-slow {
           0%,
@@ -380,6 +490,3 @@ export default function Home() {
     </>
   );
 }
-
-
-

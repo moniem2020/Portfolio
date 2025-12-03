@@ -1,4 +1,4 @@
-import fs from "fs";
+﻿import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -6,26 +6,41 @@ import { notFound } from "next/navigation";
 import AnimatedText from "@/components/AnimatedText";
 import ArticleReveal from "@/components/ArticleReveal";
 
+const postsDirectory = path.join(process.cwd(), "app/blog/posts");
+
+const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+
+function formatDate(value: string) {
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? value : dateFormatter.format(parsed);
+}
+
 export async function generateStaticParams() {
-  const files = fs.readdirSync(path.join(process.cwd(), "app/blog/posts"));
-  return files.map((file) => ({
-    slug: file.replace(".mdx", ""),
-  }));
+  const files = await fs.readdir(postsDirectory);
+  return files
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => ({ slug: file.replace(".mdx", "") }));
 }
 
-async function getPost({ slug }: { slug: string }) {
-  const markdownFile = fs.readFileSync(path.join(process.cwd(), "app/blog/posts", slug + ".mdx"), "utf-8");
+async function getPost(slug: string) {
+  const markdownFile = await fs.readFile(path.join(postsDirectory, `${slug}.mdx`), "utf-8");
   const { data: frontMatter, content } = matter(markdownFile);
-  return {
-    frontMatter,
-    slug,
-    content,
-  };
+  return { frontMatter, slug, content };
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   try {
-    const props = await getPost(params);
+    const { slug } = await params;
+    const props = await getPost(slug);
+
     return (
       <article className="relative isolate overflow-hidden">
         <div className="pointer-events-none absolute inset-x-0 top-[-160px] -z-10 flex justify-center blur-3xl">
@@ -38,7 +53,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
               className="text-4xl font-semibold text-slate-900 md:text-5xl"
             />
             <p className="text-sm font-medium uppercase tracking-[0.26em] text-indigo-500">
-              {props.frontMatter.date}
+              {formatDate(props.frontMatter.date)}
             </p>
             {props.frontMatter.summary && (
               <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-600">

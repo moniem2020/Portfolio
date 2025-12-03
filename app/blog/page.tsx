@@ -1,4 +1,4 @@
-﻿import fs from "fs";
+import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import AnimatedText from "@/components/AnimatedText";
@@ -36,15 +36,15 @@ export default async function Blog() {
       <section className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pb-24 pt-12 lg:px-8">
         <header className="space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-indigo-700">
-            Insights and riffs
+            Learning log
           </span>
           <AnimatedText
-            text="Sharing experiments, learnings, and frameworks from the automation trenches"
+            text="Field notes from automation internships, remote ops builds, and RAG experiments"
             align="left"
             className="text-4xl font-semibold text-slate-900 md:text-5xl"
           />
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            Occasional deep dives into agent design, automation strategy, and the craft behind shipping reliable AI-driven experiences.
+            Writing about the automations I ship, the teams behind them, and the rituals that keep RAG systems and remote talent programs reliable.
           </p>
         </header>
         <BlogPostList posts={posts} />
@@ -52,3 +52,4 @@ export default async function Blog() {
     </div>
   );
 }
+

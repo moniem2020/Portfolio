@@ -1,42 +1,87 @@
-﻿import AnimatedText from "@/components/AnimatedText";
+import AnimatedText from "@/components/AnimatedText";
 import Reveal from "@/components/Reveal";
+
+const certifications = [
+  {
+    provider: "McKinsey Forward",
+    badge: "Forward",
+    course: "Forward Program",
+    year: "Jul 2025",
+    highlight: "Leadership labs, issue prioritisation, and decision sprints for fast-moving teams.",
+    credentialId: "122c2c51-df55-4169-924f-1a0fba322cdc",
+  },
+  {
+    provider: "DeepLearning.AI",
+    badge: "Replit",
+    course: "Vibe Coding 101 with Replit",
+    year: "2024",
+    highlight: "Creative coding experiments that combine prompt design with realtime feedback loops.",
+  },
+  {
+    provider: "DeepLearning.AI",
+    badge: "LangChain",
+    course: "LangChain for LLM Application Development",
+    year: "2024",
+    highlight: "Built retrieval-augmented workflows, guardrails, and evaluation harnesses for production LLM apps.",
+  },
+];
 
 const milestones = [
   {
+    year: "2025",
+    title: "AI & Automation Intern - Intercom Enterprises",
+    description: "Delivering cross-department automations: ARIS BPM scripting, document generation, and LangChain/LangGraph RAG pipelines integrated with n8n.",
+  },
+  {
     year: "2024",
-    title: "Automation Engineer Intern - Intercom Enterprises",
-    description: "Partnering with product and CX leads to design and deploy agentic support flows, automations, and data insights that scale with demand.",
+    title: "Co-founded Remotized",
+    description: "Launched a managed remote talent platform for GCC SMEs, led growth and partnerships, and won Startup Power Egypt 2025.",
+  },
+  {
+    year: "2024",
+    title: "Data Scientist - Phoenix Consulting",
+    description: "Built Power BI dashboards and ML pricing models that help real-estate clients act on market signals in real time.",
   },
   {
     year: "2023",
-    title: "Graduated - Ain Shams University",
-    description: "B.Sc. in Computer Science with a focus on applied machine learning, reinforcement learning, and distributed systems.",
-  },
-  {
-    year: "2022",
-    title: "AI Project Fellowships",
-    description: "Shipped open-source experiments with LangChain, contributed to ML communities, and facilitated workshops on automation orchestration.",
+    title: "Data Science Intern - Phoenix Consulting",
+    description: "Strengthened the toolkit with Python, web scraping, and data cleaning foundations while supporting analytics teams.",
   },
 ];
 
 const skillStack = [
-  { category: "AI & ML", skills: ["LangChain", "LangGraph", "LLM orchestration", "Retrieval augmentation"] },
-  { category: "Automation", skills: ["n8n", "Zapier", "Workflow design", "Systems integration"] },
-  { category: "Engineering", skills: ["TypeScript", "Next.js", "Python", "Framer Motion"] },
+  {
+    category: "AI & Automation",
+    skills: [
+      "LangChain",
+      "LangGraph",
+      "Gemini API",
+      "Retrieval-augmented generation",
+      "Prompt engineering",
+    ],
+  },
+  {
+    category: "Automation & Ops",
+    skills: ["ARIS BPM", "n8n", "Workflow design", "Document generation"],
+  },
+  {
+    category: "Data & Strategy",
+    skills: ["Power BI", "Machine learning", "Lean startup", "Cross-team facilitation"],
+  },
 ];
 
 const principles = [
   {
-    title: "Lead with clarity",
-    description: "Define success criteria upfront and translate ideas into measurable outcomes everyone can rally behind.",
+    title: "Start with the operator",
+    description: "Understand the people in the loop before designing the agent. Clear roles unlock adoption.",
   },
   {
-    title: "Prototype in public",
-    description: "Ship early, collect qualitative feedback quickly, and let the data guide the next iteration.",
+    title: "Ship transparent automation",
+    description: "Every workflow needs observability, guardrails, and documentation so teams trust it on day two.",
   },
   {
-    title: "Make it maintainable",
-    description: "Operational excellence beats flash. I focus on resilient systems with the documentation and instrumentation operators need.",
+    title: "Iterate in the open",
+    description: "Prototype quickly, share learnings, and let data and conversations steer the roadmap.",
   },
 ];
 
@@ -49,39 +94,80 @@ export default function About() {
       <section className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pb-24 pt-10 md:pt-20 lg:px-8">
         <header className="space-y-6">
           <AnimatedText
-            text="Building systems that scale knowledge work"
+            text="Learning fast, shipping faster"
             align="left"
             className="text-4xl font-semibold text-slate-900 md:text-5xl"
           />
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            I am Moniem Ghazal, an AI and Automation Engineer focused on helping ambitious teams operationalise AI. I specialise in orchestrating agentic workflows, automating data-rich processes, and translating research into products that feel effortless to use.
+            I&apos;m Abdelmoniem Ghazal, an AI & Automation intern at Intercom Enterprises. I build retrieval systems, document automations, and ops dashboards so teams can focus on decisions-not busywork. Previously, I co-founded Remotized, a remote talent platform connecting GCC SMEs with Egyptian specialists, and worked as a data scientist at Phoenix Consulting.
           </p>
         </header>
+
+        <section className="rounded-3xl border border-indigo-100 bg-white/70 px-6 py-10 shadow-sm shadow-indigo-200/30 sm:px-10">
+          <div className="mx-auto flex max-w-4xl flex-col gap-5 text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-500">Certified by</span>
+            <h2 className="text-2xl font-semibold text-slate-900">Continuous learning that keeps my automation stack current</h2>
+            <p className="text-sm text-slate-600">
+              Cohort-based programs and labs that sharpen leadership, experimentation, and LLM delivery.
+            </p>
+            <div className="relative flex flex-wrap justify-center gap-4 pt-4">
+              {certifications.map((cert) => (
+                <div key={cert.course} className="group relative">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-5 py-2 text-sm font-semibold text-slate-700 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 group-hover:border-indigo-200 group-hover:bg-white"
+                  >
+                    <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.26em] text-indigo-500">
+                      {cert.badge}
+                    </span>
+                    {cert.provider}
+                  </button>
+                  <div className="pointer-events-none absolute left-1/2 top-full z-20 mt-3 hidden w-64 -translate-x-1/2 rounded-xl border border-slate-200 bg-white/95 p-4 text-left shadow-xl shadow-indigo-300/20 transition group-hover:block group-focus-within:block">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-400">{cert.provider}</p>
+                    <p className="mt-1 text-sm font-semibold text-slate-900">{cert.course}</p>
+                    <p className="text-xs text-slate-500">{cert.year}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-600">{cert.highlight}</p>
+                    {cert.credentialId && (
+                      <p className="mt-2 text-[11px] text-slate-400">Credential ID: {cert.credentialId}</p>
+                    )}
+                  </div>
+                  <div className="mt-3 space-y-1 rounded-xl border border-slate-200/70 bg-white/80 p-4 text-left text-xs text-slate-600 sm:hidden">
+                    <p className="font-semibold text-slate-900">{cert.course}</p>
+                    <p className="text-slate-500">{cert.year}</p>
+                    <p>{cert.highlight}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="grid gap-8 lg:grid-cols-[1.25fr,0.75fr]">
           <div className="space-y-6 rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-lg shadow-slate-900/5">
             <h2 className="text-xl font-semibold text-slate-900">A quick snapshot</h2>
             <p className="text-base leading-relaxed text-slate-600">
-              I focus on identifying the right level of automation, mapping the surrounding ecosystem, and ensuring every release actually lands with end users. My work spans strategy, experimentation, and production delivery.
+              I focus on pairing automation pilots with clear operators, measurable telemetry, and documentation people will actually use. Whether it&apos;s ECM scripting, RAG copilots, or remote talent ops, I translate messy needs into reliable workflows.
             </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-slate-200 bg-white/70 p-5">
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Craft</p>
-                <p className="mt-2 text-sm text-slate-600">Rapid prototyping, agent design, workflow orchestration, human-in-the-loop optimisation.</p>
+                <p className="mt-2 text-sm text-slate-600">Automation audits, LangChain/LangGraph builds, ARIS BPM scripting, and n8n orchestration.</p>
               </div>
               <div className="rounded-2xl border border-slate-200 bg-white/70 p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Industry focus</p>
-                <p className="mt-2 text-sm text-slate-600">Customer support, product operations, go-to-market enablement, internal knowledge platforms.</p>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Impact zones</p>
+                <p className="mt-2 text-sm text-slate-600">Customer support, ECM, remote talent operations, and analytics-driven decision support.</p>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-6 rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-500 via-indigo-400 to-violet-400 p-8 text-white">
-            <p className="text-sm font-semibold uppercase tracking-[0.26em] text-white/80">Currently</p>
-            <h3 className="text-2xl font-semibold">Intercom Enterprises - AI and Automation Engineer Intern</h3>
+            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-white/80">Currently</p>
+            <h3 className="text-2xl font-semibold">AI & Automation Intern - Intercom Enterprises</h3>
             <p className="text-sm leading-relaxed text-white/80">
-              Translating support operations into a fully instrumented automation stack. Collaborating with designers, engineers, and go-to-market leads to deliver reliable experiences at scale.
+              Delivering automation for ECM and CX teams: ARIS BPM scripts, LangChain/LangGraph retrieval systems, Gemini-powered document pipelines, and n8n hand-offs that keep humans in control.
             </p>
           </div>
         </section>
+
         <section className="space-y-6">
           <h2 className="text-2xl font-semibold text-slate-900">Milestones</h2>
           <div className="space-y-6">
@@ -100,6 +186,7 @@ export default function About() {
             ))}
           </div>
         </section>
+
         <section className="grid gap-6 lg:grid-cols-2">
           <div className="space-y-5 rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-sm shadow-slate-900/5">
             <h2 className="text-2xl font-semibold text-slate-900">Principles</h2>

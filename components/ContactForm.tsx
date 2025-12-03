@@ -38,7 +38,7 @@ export default function ContactForm() {
       : "Automation project inquiry";
 
     const bodyLines = [
-      "Hi Moniem,",
+      "Hi Abdelmoniem,",
       "",
       formState.name
         ? `I'm ${formState.name}${formState.company ? ` from ${formState.company}` : ""}.`
@@ -57,7 +57,7 @@ export default function ContactForm() {
       "Looking forward to connecting!",
     ].filter(Boolean);
 
-    const mailtoUrl = `mailto:hello@moniemghazal.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    const mailtoUrl = `mailto:moniemghazal@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
 
     window.location.href = mailtoUrl;
     setHasSubmitted(true);
@@ -69,10 +69,10 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 rounded-3xl border border-white/20 bg-white/10 p-6 shadow-lg shadow-indigo-900/20 backdrop-blur"
+      className="flex flex-col gap-5 rounded-3xl border border-indigo-100 bg-white p-6 shadow-xl shadow-indigo-200/40 sm:p-8"
     >
-      <div className="flex flex-wrap gap-4">
-        <label className="flex-1 min-w-[12rem] text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
+      <div className="flex flex-wrap gap-5">
+        <label className="flex-1 min-w-[12rem] text-xs font-semibold uppercase tracking-[0.24em] text-slate-600">
           Name
           <input
             type="text"
@@ -80,10 +80,10 @@ export default function ContactForm() {
             value={formState.name}
             onChange={updateField("name")}
             placeholder="Your name"
-            className="mt-2 w-full rounded-xl border border-white/20 bg-white/15 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:border-white/60 focus:outline-none focus:ring-0"
+            className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
           />
         </label>
-        <label className="flex-1 min-w-[12rem] text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
+        <label className="flex-1 min-w-[12rem] text-xs font-semibold uppercase tracking-[0.24em] text-slate-600">
           Company
           <input
             type="text"
@@ -91,12 +91,12 @@ export default function ContactForm() {
             value={formState.company}
             onChange={updateField("company")}
             placeholder="Where you work"
-            className="mt-2 w-full rounded-xl border border-white/20 bg-white/15 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:border-white/60 focus:outline-none focus:ring-0"
+            className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
           />
         </label>
       </div>
-      <label className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
-        Email<span className="text-white/60"> *</span>
+      <label className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-600">
+        Email<span className="text-indigo-400"> *</span>
         <input
           type="email"
           name="email"
@@ -104,11 +104,11 @@ export default function ContactForm() {
           value={formState.email}
           onChange={updateField("email")}
           placeholder="you@company.com"
-          className="mt-2 w-full rounded-xl border border-white/20 bg-white/15 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:border-white/60 focus:outline-none focus:ring-0"
+          className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
         />
       </label>
-      <label className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
-        Project context<span className="text-white/60"> *</span>
+      <label className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-600">
+        Project context<span className="text-indigo-400"> *</span>
         <textarea
           name="projectSummary"
           required
@@ -116,45 +116,45 @@ export default function ContactForm() {
           onChange={updateField("projectSummary")}
           placeholder="What are you hoping to build or improve?"
           rows={4}
-          className="mt-2 w-full rounded-xl border border-white/20 bg-white/15 px-3 py-2 text-sm text-white placeholder:text-white/50 focus:border-white/60 focus:outline-none focus:ring-0"
+          className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
         />
       </label>
-      <label className="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">
+      <label className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-600">
         Timeline
         <select
           name="timeline"
           value={formState.timeline}
           onChange={updateField("timeline")}
-          className="mt-2 w-full rounded-xl border border-white/20 bg-white/15 px-3 py-2 text-sm text-white focus:border-white/60 focus:outline-none focus:ring-0"
+          className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-100"
         >
-          <option value="" className="text-slate-600">
+          <option value="" className="text-slate-500">
             Select an option
           </option>
-          <option value="0-2 weeks" className="text-slate-600">
+          <option value="0-2 weeks" className="text-slate-500">
             0-2 weeks (rapid)
           </option>
-          <option value="1-2 months" className="text-slate-600">
+          <option value="1-2 months" className="text-slate-500">
             1-2 months
           </option>
-          <option value="Exploring options" className="text-slate-600">
+          <option value="Exploring options" className="text-slate-500">
             Exploring options
           </option>
         </select>
       </label>
-      <p className="text-[11px] uppercase tracking-[0.3em] text-white/60">
+      <p className="text-[11px] uppercase tracking-[0.3em] text-slate-400">
         * Required fields
       </p>
       <button
         type="submit"
         disabled={isSubmitDisabled}
-        className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-600 shadow-md shadow-indigo-900/20 transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:bg-white/40 disabled:text-white/60"
+        className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-sky-400 px-5 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-white shadow-md shadow-indigo-300/40 transition-transform duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:from-slate-200 disabled:via-slate-200 disabled:to-slate-200 disabled:text-slate-400"
       >
         Share project brief
       </button>
       {hasSubmitted && (
-        <p className="text-xs text-white/70">
+        <p className="text-xs text-slate-500">
           Thanks for the details! Your email client should have opened - if not,
-          reach me at hello@moniemghazal.com.
+          reach me at moniemghazal@gmail.com.
         </p>
       )}
     </form>
