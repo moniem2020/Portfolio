@@ -65,7 +65,7 @@ export default function Navbar() {
               href="/#contact"
               className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
             >
-              Let's Talk
+              Let&apos;s Talk
             </Link>
           </div>
 
@@ -102,7 +102,7 @@ export default function Navbar() {
           >
             <div className="container-custom py-6">
               <div className="flex flex-col gap-4">
-                {navLinks.map((link, i) => (
+                {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -117,7 +117,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3 text-center text-sm font-semibold text-white"
                 >
-                  Let's Talk
+                  Let&apos;s Talk
                 </Link>
               </div>
             </div>
