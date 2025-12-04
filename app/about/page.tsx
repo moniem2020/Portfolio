@@ -96,7 +96,7 @@ export default function About() {
           <AnimatedText
             text="Learning fast, shipping faster"
             align="left"
-            className="text-4xl font-semibold text-slate-900 md:text-5xl"
+            className="text-4xl font-semibold text-slate-900 md:text-5xl pb-2"
           />
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
             I&apos;m Abdelmoniem Ghazal, pursuing an MSc in Scientific Computing at Ain Shams University while working as an AI & Automation intern at Intercom Enterprises. I build retrieval-augmented generation systems, automation workflows, and data-driven solutions. Previously interned at Phoenix Consulting, developing Power BI dashboards and ML pricing models.
