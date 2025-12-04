@@ -1,219 +1,192 @@
-﻿@tailwind base;
-@tailwind components;
-@tailwind utilities;
+﻿@import "tailwindcss";
 
-@layer base {
-  :root {
-    /* Brand Colors - Modern Vibrant Palette */
-    --brand-primary: #6366f1;
-    --brand-secondary: #8b5cf6;
-    --brand-accent: #06b6d4;
-    --brand-success: #10b981;
-    --brand-warning: #f59e0b;
+/* Custom CSS Variables */
+:root {
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-cosmic: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-ocean: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-sunset: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --gradient-aurora: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-mesh: radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+}
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-cosmic: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    --gradient-ocean: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    --gradient-sunset: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-    --gradient-aurora: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-    --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-mesh: radial-gradient(at 40% 20%, hsla(28, 100%, 74%, 1) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
-      radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
-      radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
-      radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
 
-    /* Spacing */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
-    --spacing-2xl: 4rem;
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
-    /* Typography */
-    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-2xl;
+}
+
+.glass-dark {
+  @apply bg-slate-900/70 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+/* Text Gradients */
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: var(--gradient-primary);
+}
+
+.text-gradient-cosmic {
+  @apply bg-clip-text text-transparent;
+  background-image: var(--gradient-cosmic);
+}
+
+.text-gradient-ocean {
+  @apply bg-clip-text text-transparent;
+  background-image: var(--gradient-ocean);
+}
+
+/* Premium Buttons */
+.btn-primary {
+  @apply relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white transition-all duration-300;
+  @apply hover:scale-105 hover:shadow-2xl;
+  background: var(--gradient-primary);
+}
+
+.btn-primary::before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.btn-primary:hover::before {
+  @apply opacity-100;
+}
+
+.btn-secondary {
+  @apply rounded-full border-2 border-indigo-200 bg-white/50 px-8 py-4 font-semibold text-indigo-700;
+  @apply backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-indigo-400 hover:bg-white/80;
+}
+
+/* Premium Cards */
+.card-hover {
+  @apply transition-all duration-500;
+  @apply hover:-translate-y-2 hover:shadow-2xl;
+}
+
+.card-3d {
+  @apply transform-gpu transition-all duration-500;
+  transform-style: preserve-3d;
+}
+
+/* Bento Grid */
+.bento-grid {
+  @apply grid gap-4 md:gap-6;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Section Spacing */
+.section-spacing {
+  @apply py-20 md:py-32;
+}
+
+.container-custom {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Custom Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
   }
 
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    @apply bg-slate-50 text-slate-900 antialiased;
-    font-family: var(--font-body);
-  }
-
-  html {
-    scroll-behavior: smooth;
+  50% {
+    transform: translateY(-20px);
   }
 }
 
-@layer components {
+@keyframes pulse-glow {
 
-  /* Glassmorphism Utilities */
-  .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-2xl;
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
   }
 
-  .glass-dark {
-    @apply bg-slate-900/70 backdrop-blur-xl border border-white/10 shadow-2xl;
-  }
-
-  /* Text Gradients */
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
-  }
-
-  .text-gradient-cosmic {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-cosmic);
-  }
-
-  .text-gradient-ocean {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-ocean);
-  }
-
-  /* Premium Buttons */
-  .btn-primary {
-    @apply relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white transition-all duration-300;
-    @apply hover:scale-105 hover:shadow-2xl;
-    background: var(--gradient-primary);
-  }
-
-  .btn-primary::before {
-    content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  }
-
-  .btn-primary:hover::before {
-    @apply opacity-100;
-  }
-
-  .btn-secondary {
-    @apply rounded-full border-2 border-indigo-200 bg-white/50 px-8 py-4 font-semibold text-indigo-700;
-    @apply backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-indigo-400 hover:bg-white/80;
-  }
-
-  /* Premium Cards */
-  .card-hover {
-    @apply transition-all duration-500;
-    @apply hover:-translate-y-2 hover:shadow-2xl;
-  }
-
-  .card-3d {
-    @apply transform-gpu transition-all duration-500;
-    transform-style: preserve-3d;
-  }
-
-  /* Bento Grid */
-  .bento-grid {
-    @apply grid gap-4 md:gap-6;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-
-  /* Section Spacing */
-  .section-spacing {
-    @apply py-20 md:py-32;
-  }
-
-  .container-custom {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
   }
 }
 
-@layer utilities {
-
-  /* Custom Animations */
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-
-    50% {
-      transform: translateY(-20px);
-    }
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
   }
 
-  @keyframes pulse-glow {
-
-    0%,
-    100% {
-      opacity: 1;
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-    }
-
-    50% {
-      opacity: 0.8;
-      box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
-    }
+  50% {
+    background-position: 100% 50%;
   }
 
-  @keyframes gradient-shift {
-    0% {
-      background-position: 0% 50%;
-    }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-    50% {
-      background-position: 100% 50%;
-    }
-
-    100% {
-      background-position: 0% 50%;
-    }
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
   }
 
-  @keyframes shimmer {
-    0% {
-      background-position: -1000px 0;
-    }
-
-    100% {
-      background-position: 1000px 0;
-    }
+  100% {
+    background-position: 1000px 0;
   }
+}
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
 
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
 
-  .animate-shimmer {
-    animation: shimmer 3s infinite;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.3) 50%,
-        transparent 100%);
-    background-size: 1000px 100%;
-  }
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
+  background-size: 1000px 100%;
+}
 
-  /* Mesh Gradient Background */
-  .bg-mesh {
-    background: var(--gradient-mesh);
-  }
+/* Mesh Gradient Background */
+.bg-mesh {
+  background: var(--gradient-mesh);
+}
 
-  /* Parallax */
-  .parallax {
-    transform: translateZ(0);
-    will-change: transform;
-  }
+/* Parallax */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* Custom Scrollbar */

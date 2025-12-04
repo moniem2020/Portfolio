@@ -34,11 +34,6 @@ const milestones = [
   },
   {
     year: "2024",
-    title: "Co-founded Remotized",
-    description: "Launched a managed remote talent platform for GCC SMEs, led growth and partnerships, and won Startup Power Egypt 2025.",
-  },
-  {
-    year: "2024",
     title: "Data Scientist - Phoenix Consulting",
     description: "Built Power BI dashboards and ML pricing models that help real-estate clients act on market signals in real time.",
   },
@@ -99,7 +94,7 @@ export default function About() {
             className="text-4xl font-semibold text-slate-900 md:text-5xl"
           />
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            I&apos;m Abdelmoniem Ghazal, an AI & Automation intern at Intercom Enterprises. I build retrieval systems, document automations, and ops dashboards so teams can focus on decisions-not busywork. Previously, I co-founded Remotized, a remote talent platform connecting GCC SMEs with Egyptian specialists, and worked as a data scientist at Phoenix Consulting.
+            I&apos;m Abdelmoniem Ghazal, an AI & Automation intern at Intercom Enterprises. I build retrieval systems, document automations, and ops dashboards so teams can focus on decisions-not busywork. Previously, I worked as a data scientist at Phoenix Consulting.
           </p>
         </header>
 

@@ -1,16 +1,19 @@
 ﻿import Link from 'next/link';
+import Image from 'next/image';
+import { Linkedin, Github, Mail, MapPin, Phone } from 'lucide-react';
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdelmoniem-ghazal-40613925a', icon: '💼' },
-  { name: 'GitHub', href: 'https://github.com/moniem', icon: '💻' },
-  { name: 'Email', href: 'mailto:moniemghazal@gmail.com', icon: '📧' },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdelmoniem-ghazal-40613925a', icon: Linkedin },
+  { name: 'GitHub', href: 'https://github.com/moniem2020', icon: Github },
+  { name: 'Email', href: 'mailto:moniemghazal@gmail.com', icon: Mail },
 ];
 
 const quickLinks = [
-  { name: 'Experience', href: '#experience' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'About', href: '/about' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Skills', href: '/skills' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Blog', href: '/blog' },
 ];
 
 export default function Footer() {
@@ -24,8 +27,14 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 font-bold text-white shadow-lg">
-                AG
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl">
+                <Image
+                  src="/logo.png"
+                  alt="Abdelmoniem Ghazal"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
               </div>
               <span className="text-xl font-bold">Abdelmoniem Ghazal</span>
             </div>
@@ -42,7 +51,7 @@ export default function Footer() {
                   className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/20"
                   title={link.name}
                 >
-                  <span>{link.icon}</span>
+                  <link.icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
@@ -54,12 +63,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-slate-300 transition-colors hover:text-white"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -69,15 +78,20 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-300">Get In Touch</h3>
             <ul className="space-y-3 text-sm text-slate-300">
-              <li>📍 Cairo, Egypt</li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                <span>Cairo, Egypt</span>
+              </li>
               <li>
-                <a href="mailto:moniemghazal@gmail.com" className="hover:text-white">
-                  📧 moniemghazal@gmail.com
+                <a href="mailto:moniemghazal@gmail.com" className="flex items-center gap-2 hover:text-white">
+                  <Mail className="h-4 w-4" />
+                  <span>moniemghazal@gmail.com</span>
                 </a>
               </li>
               <li>
-                <a href="tel:+201009441336" className="hover:text-white">
-                  📞 +20 100 944 1336
+                <a href="tel:+201009441336" className="flex items-center gap-2 hover:text-white">
+                  <Phone className="h-4 w-4" />
+                  <span>+20 100 944 1336</span>
                 </a>
               </li>
             </ul>

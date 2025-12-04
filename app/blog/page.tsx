@@ -29,7 +29,7 @@ async function getAllPosts(): Promise<{ frontMatter: FrontMatter; slug: string; 
 export default async function Blog() {
   const posts = await getAllPosts();
   return (
-    <div className="relative isolate overflow-hidden">
+    <div className="relative isolate overflow-hidden pt-24">
       <div className="pointer-events-none absolute inset-x-0 top-[-140px] -z-10 flex justify-center blur-3xl">
         <div className="h-[320px] w-[620px] bg-gradient-to-r from-indigo-300 via-violet-200 to-sky-200 opacity-60" />
       </div>

@@ -2,17 +2,18 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import CircularProgress from '@/components/CircularProgress';
+import { Rocket, Bot, BarChart3, MapPin, Mail, Phone, Sparkles } from 'lucide-react';
+import RotatingSkills from '@/components/RotatingSkills';
 
 const skills = [
-  { name: 'LangChain', percentage: 95, color: '#6366f1', category: 'AI/ML' },
-  { name: 'Python', percentage: 92, color: '#3b82f6', category: 'Programming' },
-  { name: 'TypeScript', percentage: 90, color: '#06b6d4', category: 'Programming' },
-  { name: 'LangGraph', percentage: 88, color: '#8b5cf6', category: 'AI/ML' },
-  { name: 'n8n', percentage: 93, color: '#10b981', category: 'Automation' },
-  { name: 'Power BI', percentage: 85, color: '#f59e0b', category: 'Analytics' },
-  { name: 'RAG Systems', percentage: 90, color: '#ec4899', category: 'AI/ML' },
-  { name: 'ARIS BPM', percentage: 87, color: '#6366f1', category: 'Automation' },
+  'LangChain',
+  'Python',
+  'TypeScript',
+  'LangGraph',
+  'n8n',
+  'Power BI',
+  'RAG Systems',
+  'ARIS BPM',
 ];
 
 const projects = [
@@ -22,13 +23,6 @@ const projects = [
     impact: '65% ticket deflection',
     tags: ['LangChain', 'RAG', 'n8n'],
     gradient: 'from-violet-500 to-purple-600',
-  },
-  {
-    title: 'Remotized Platform',
-    description: 'Remote talent marketplace connecting GCC SMEs with Egyptian specialists',
-    impact: 'Startup Power Egypt Winner 2025',
-    tags: ['Product', 'Growth', 'Ops'],
-    gradient: 'from-cyan-500 to-blue-600',
   },
   {
     title: 'ECM Automation Suite',
@@ -52,21 +46,14 @@ const experiences = [
     company: 'Intercom Enterprises',
     period: 'Current',
     description: 'Building autonomous support workflows with LangChain, LangGraph, and Gemini API',
-    icon: '🤖',
-  },
-  {
-    role: 'Co-Founder & CEO',
-    company: 'Remotized',
-    period: '2024',
-    description: 'Led product and ops for award-winning remote talent platform',
-    icon: '🚀',
+    icon: Bot,
   },
   {
     role: 'Data Scientist',
     company: 'Phoenix Consulting',
     period: '2023',
     description: 'Power BI dashboards and ML pricing models for real-estate',
-    icon: '📊',
+    icon: BarChart3,
   },
 ];
 
@@ -138,10 +125,10 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Link href="#projects" className="btn-primary z-10">
+              <Link href="/projects" className="btn-primary z-10">
                 <span className="relative z-10">View My Work</span>
               </Link>
-              <Link href="#contact" className="btn-secondary">
+              <Link href="/#contact" className="btn-secondary">
                 Let's Connect
               </Link>
             </div>
@@ -183,8 +170,8 @@ export default function Home() {
 
               <div className="relative space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-2xl shadow-lg">
-                    🚀
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
+                    <Rocket className="h-8 w-8 text-white" />
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wide text-indigo-600">Current Role</h3>
@@ -247,7 +234,9 @@ export default function Home() {
                 transition={{ delay: i * 0.1 }}
                 className="glass card-hover group rounded-2xl p-6"
               >
-                <div className="mb-4 text-4xl">{exp.icon}</div>
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600">
+                  <exp.icon className="h-8 w-8 text-white" />
+                </div>
                 <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-indigo-600">{exp.period}</div>
                 <h3 className="mb-1 text-xl font-bold text-slate-900">{exp.role}</h3>
                 <p className="mb-3 font-semibold text-purple-600">{exp.company}</p>
@@ -273,30 +262,7 @@ export default function Home() {
             <p className="mt-4 text-lg text-slate-600">Proficiency across the AI & automation stack</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-            {skills.map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="glass card-hover rounded-2xl p-6"
-              >
-                <CircularProgress
-                  percentage={skill.percentage}
-                  label={skill.name}
-                  size={120}
-                  strokeWidth={8}
-                  delay={i * 100}
-                  color={skill.color}
-                />
-                <div className="mt-3 text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  {skill.category}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <RotatingSkills skills={skills} />
         </motion.div>
       </section>
 
@@ -330,7 +296,7 @@ export default function Home() {
                 <div className="relative space-y-4">
                   <div className="flex items-start justify-between">
                     <h3 className="text-2xl font-bold text-slate-900">{project.title}</h3>
-                    <div className="text-2xl">✨</div>
+                    <Sparkles className="h-6 w-6 text-indigo-600" />
                   </div>
 
                   <p className="leading-relaxed text-slate-600">{project.description}</p>
@@ -389,12 +355,29 @@ export default function Home() {
               >
                 LinkedIn
               </a>
+              <a
+                href="https://github.com/moniem2020"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 font-semibold backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/20"
+              >
+                GitHub
+              </a>
             </div>
 
             <div className="mt-8 flex justify-center gap-8 text-sm text-white/80">
-              <div>📍 Cairo, Egypt</div>
-              <div>📧 moniemghazal@gmail.com</div>
-              <div>📞 +20 100 944 1336</div>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                <span>Cairo, Egypt</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4" />
+                <span>moniemghazal@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="h-4 w-4" />
+                <span>+20 100 944 1336</span>
+              </div>
             </div>
           </div>
         </motion.div>
