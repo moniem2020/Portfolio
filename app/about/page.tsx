@@ -82,11 +82,11 @@ const principles = [
 
 export default function About() {
   return (
-    <div className="relative isolate overflow-hidden">
+    <div className="relative isolate overflow-hidden pt-24">
       <div className="pointer-events-none absolute inset-x-0 top-[-140px] -z-10 flex justify-center blur-3xl">
         <div className="h-[280px] w-[540px] bg-gradient-to-r from-indigo-300 via-violet-200 to-sky-200 opacity-60" />
       </div>
-      <section className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pb-24 pt-10 md:pt-20 lg:px-8">
+      <section className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pb-24 pt-12 lg:px-8">
         <header className="space-y-6">
           <AnimatedText
             text="Learning fast, shipping faster"

@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 const navLinks = [
   { label: 'About', href: '/about' },
-  { label: 'Experience', href: '/experience' },
   { label: 'Skills', href: '/skills' },
   { label: 'Projects', href: '/projects' },
   { label: 'Blog', href: '/blog' },
@@ -37,12 +36,11 @@ export default function Navbar() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="group flex items-center space-x-2">
-            <div className="flex h-12 w-12 items-center justify-center transition-transform group-hover:scale-110">
+            <div className="relative h-14 w-14 transition-transform group-hover:scale-110">
               <Image
                 src="/logo.png"
                 alt="Abdelmoniem Ghazal"
-                width={48}
-                height={48}
+                fill
                 className="object-contain"
               />
             </div>

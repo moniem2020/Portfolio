@@ -19,7 +19,7 @@ const spotlight = [
 
 export default function Projects() {
   return (
-    <div className="relative isolate overflow-hidden bg-gradient-to-b from-[#f5f3ff] via-white to-[#e0f2fe]">
+    <div className="relative isolate overflow-hidden bg-gradient-to-b from-[#f5f3ff] via-white to-[#e0f2fe] pt-24">
       <section className="mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-24 pt-12 lg:px-8">
         <header className="space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-indigo-700">

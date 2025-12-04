@@ -15,7 +15,7 @@ const skills = [
 
 export default function Skills() {
     return (
-        <div className="relative min-h-screen overflow-hidden bg-slate-50">
+        <div className="relative min-h-screen overflow-hidden bg-slate-50 pt-24">
             {/* Animated Mesh Gradient Background */}
             <div className="fixed inset-0 -z-10 bg-mesh opacity-30" />
 

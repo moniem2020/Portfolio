@@ -382,11 +382,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      {/* Footer */}
-      <footer className="container-custom py-12 text-center text-sm text-slate-600">
-        <p>© 2025 Abdelmoniem Ghazal. Crafted with passion for AI & automation.</p>
-      </footer>
     </div>
   );
 }
