@@ -3,14 +3,13 @@ import { motion } from 'framer-motion';
 import RotatingSkills from '@/components/RotatingSkills';
 
 const skills = [
-    'LangChain',
     'Python',
-    'TypeScript',
-    'LangGraph',
+    'LangChain',
+    'TensorFlow',
     'n8n',
     'Power BI',
     'RAG Systems',
-    'ARIS BPM',
+    'SQL',
 ];
 
 export default function Skills() {
@@ -55,23 +54,23 @@ export default function Skills() {
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                     {[
                         {
-                            category: 'AI/ML',
-                            items: ['LangChain', 'LangGraph', 'RAG Systems', 'Gemini API'],
-                            color: 'from-violet-500 to-purple-600',
-                        },
-                        {
                             category: 'Programming',
-                            items: ['Python', 'TypeScript', 'JavaScript', 'SQL'],
+                            items: ['Python', 'C++', 'Java', 'C#', 'Scala', 'TypeScript'],
                             color: 'from-cyan-500 to-blue-600',
                         },
                         {
-                            category: 'Automation',
-                            items: ['n8n', 'ARIS BPM', 'Workflow Design', 'API Integration'],
+                            category: 'AI & ML',
+                            items: ['LangChain', 'RAG Systems', 'TensorFlow', 'DenseNet', 'Few-Shot Learning'],
+                            color: 'from-violet-500 to-purple-600',
+                        },
+                        {
+                            category: 'Automation & Tools',
+                            items: ['n8n', 'Power BI', 'SQL', 'Git', 'VS Code'],
                             color: 'from-emerald-500 to-teal-600',
                         },
                         {
-                            category: 'Analytics',
-                            items: ['Power BI', 'Data Visualization', 'ML Models', 'Dashboards'],
+                            category: 'Web & Frameworks',
+                            items: ['React', 'Next.js', 'Flask', 'Full-Stack Development'],
                             color: 'from-amber-500 to-orange-600',
                         },
                     ].map((skillGroup, index) => (

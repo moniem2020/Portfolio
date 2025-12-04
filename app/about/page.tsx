@@ -30,17 +30,22 @@ const milestones = [
   {
     year: "2025",
     title: "AI & Automation Intern - Intercom Enterprises",
-    description: "Delivering cross-department automations: ARIS BPM scripting, document generation, and LangChain/LangGraph RAG pipelines integrated with n8n.",
+    description: "Delivering cross-department automations: RAG-powered AI assistants, n8n workflows, and LangChain/LangGraph pipelines.",
   },
   {
     year: "2024",
-    title: "Data Scientist - Phoenix Consulting",
-    description: "Built Power BI dashboards and ML pricing models that help real-estate clients act on market signals in real time.",
+    title: "Data Science Intern - Phoenix Consulting",
+    description: "Built Power BI dashboards, ML pricing models for real-estate analytics, and property-price prediction systems.",
   },
   {
     year: "2023",
     title: "Data Science Intern - Phoenix Consulting",
-    description: "Strengthened the toolkit with Python, web scraping, and data cleaning foundations while supporting analytics teams.",
+    description: "Enhanced Python proficiency, web scraping, data preprocessing, and supported early-stage model design.",
+  },
+  {
+    year: "2021-2025",
+    title: "MSc in Scientific Computing - Ain Shams University",
+    description: "In progress. Specializing in AI, machine learning, and computational methods.",
   },
 ];
 
@@ -94,7 +99,7 @@ export default function About() {
             className="text-4xl font-semibold text-slate-900 md:text-5xl"
           />
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            I&apos;m Abdelmoniem Ghazal, an AI & Automation intern at Intercom Enterprises. I build retrieval systems, document automations, and ops dashboards so teams can focus on decisions-not busywork. Previously, I worked as a data scientist at Phoenix Consulting.
+            I&apos;m Abdelmoniem Ghazal, pursuing an MSc in Scientific Computing at Ain Shams University while working as an AI & Automation intern at Intercom Enterprises. I build retrieval-augmented generation systems, automation workflows, and data-driven solutions. Previously interned at Phoenix Consulting, developing Power BI dashboards and ML pricing models.
           </p>
         </header>
 

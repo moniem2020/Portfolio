@@ -18,24 +18,31 @@ const skills = [
 
 const projects = [
   {
+    title: 'AutoBella',
+    description: 'Mobile car washing service website with React & Next.js',
+    impact: 'Live at autobella-eg.com',
+    tags: ['React', 'Next.js', 'Full-Stack'],
+    gradient: 'from-cyan-500 to-blue-600',
+  },
+  {
+    title: 'MRI Tumor Detection',
+    description: 'DenseNet deep-learning model for brain tumor classification',
+    impact: 'Graduation Project',
+    tags: ['DenseNet', 'Flask', 'Healthcare AI'],
+    gradient: 'from-violet-500 to-purple-600',
+  },
+  {
     title: 'AI Support Agent',
     description: 'Multi-agent workflow automating customer support with 6s response time',
     impact: '65% ticket deflection',
     tags: ['LangChain', 'RAG', 'n8n'],
-    gradient: 'from-violet-500 to-purple-600',
-  },
-  {
-    title: 'ECM Automation Suite',
-    description: 'Document generation and retrieval pipelines for enterprise workflows',
-    impact: '40% time saved',
-    tags: ['ARIS', 'LangGraph', 'Gemini'],
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
-    title: 'ML Pricing Model',
-    description: 'Real-estate pricing analytics with Power BI and Python ML models',
-    impact: '3-month pilot success',
-    tags: ['Python', 'Power BI', 'ML'],
+    title: 'Plant Disease Detection',
+    description: 'CNN & Siamese Networks with Few-Shot Learning for disease classification',
+    impact: 'Limited training data',
+    tags: ['TensorFlow', 'OpenCV', 'Few-Shot'],
     gradient: 'from-amber-500 to-orange-600',
   },
 ];
@@ -44,8 +51,8 @@ const experiences = [
   {
     role: 'AI & Automation Intern',
     company: 'Intercom Enterprises',
-    period: 'Current',
-    description: 'Building autonomous support workflows with LangChain, LangGraph, and Gemini API',
+    period: 'Jul 2025 - Present',
+    description: 'Building RAG-powered AI assistants and automation workflows with LangChain, n8n, and Gemini API',
     icon: Bot,
   },
   {
