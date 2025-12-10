@@ -41,13 +41,13 @@ const milestones = [
   },
   {
     year: "Jul - Sep 2024",
-    role: "Data Scientist",
+    role: "Data Scientist Intern",
     company: "Phoenix Consulting",
     description: "Applied Power BI and machine learning to real estate data, building interactive dashboards and a predictive pricing model.",
   },
   {
     year: "Jul - Sep 2023",
-    role: "Data Scientist",
+    role: "Data Scientist Intern",
     company: "Phoenix Consulting",
     description: "Strengthened foundation in Python programming, web scraping for data acquisition, and data cleaning methodologies.",
   },
