@@ -29,27 +29,32 @@ const certifications = [
 const milestones = [
   {
     year: "Nov 2025",
-    title: "Software Engineer - Intercom Enterprises",
+    role: "Software Engineer",
+    company: "Intercom Enterprises",
     description: "Building software solutions that help teams work smarter through automation and practical technology impact.",
   },
   {
     year: "Jul - Oct 2025",
-    title: "AI & Automation - Intercom Enterprises",
+    role: "AI & Automation Intern",
+    company: "Intercom Enterprises",
     description: "Delivered automation solutions for multiple departments, ARIS BPM scripts, and RAG pipelines with LangChain, LangGraph, and Gemini API.",
   },
   {
     year: "Jul - Sep 2024",
-    title: "Data Scientist - Phoenix Consulting",
+    role: "Data Scientist",
+    company: "Phoenix Consulting",
     description: "Applied Power BI and machine learning to real estate data, building interactive dashboards and a predictive pricing model.",
   },
   {
     year: "Jul - Sep 2023",
-    title: "Data Scientist - Phoenix Consulting",
+    role: "Data Scientist",
+    company: "Phoenix Consulting",
     description: "Strengthened foundation in Python programming, web scraping for data acquisition, and data cleaning methodologies.",
   },
   {
     year: "2021 - 2025",
-    title: "Bachelor's in Computer Science - Ain Shams University",
+    role: "Bachelor's in Computer Science",
+    company: "Ain Shams University",
     description: "Graduated with focus on AI, machine learning, and software engineering.",
   },
 ];
@@ -144,13 +149,14 @@ export default function About() {
           <div className="space-y-6">
             {milestones.map((milestone) => (
               <Reveal
-                key={`${milestone.title}-${milestone.year}`}
+                key={`${milestone.role}-${milestone.year}`}
                 as="article"
                 className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm shadow-slate-900/5 md:flex-row md:items-start md:gap-8"
               >
                 <div className="md:min-w-[320px] md:max-w-[320px] flex-shrink-0">
                   <p className="text-sm font-semibold uppercase tracking-wide text-indigo-500">{milestone.year}</p>
-                  <h3 className="mt-1 text-lg font-semibold text-slate-900">{milestone.title}</h3>
+                  <h3 className="mt-1 text-lg font-semibold text-slate-900">{milestone.role}</h3>
+                  <p className="font-bold text-slate-700">{milestone.company}</p>
                 </div>
                 <p className="text-sm leading-relaxed text-slate-600 md:pt-5">{milestone.description}</p>
               </Reveal>
