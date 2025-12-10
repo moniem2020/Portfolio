@@ -53,13 +53,14 @@ export default function AnimatedText({
   className = "",
   once = false,
   align = "center",
-  clip = true,
+  clip = false,
 }: AnimatedTextProps) {
   const words = text.split(" ");
 
   return (
     <motion.div
       className={`w-full mx-auto flex flex-wrap items-center gap-x-3 gap-y-1 ${alignmentClasses[align]} ${className}`.trim()}
+      style={{ lineHeight: '1.3', paddingBottom: '0.15em' }}
       variants={container}
       initial="hidden"
       animate={!once ? "visible" : undefined}

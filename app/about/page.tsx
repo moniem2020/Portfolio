@@ -28,62 +28,33 @@ const certifications = [
 
 const milestones = [
   {
-    year: "2025",
-    title: "AI & Automation Intern - Intercom Enterprises",
-    description: "Delivering cross-department automations: RAG-powered AI assistants, n8n workflows, and LangChain/LangGraph pipelines.",
+    year: "Nov 2025",
+    title: "Software Engineer - Intercom Enterprises",
+    description: "Building software solutions that help teams work smarter through automation and practical technology impact.",
   },
   {
-    year: "2024",
-    title: "Data Science Intern - Phoenix Consulting",
-    description: "Built Power BI dashboards, ML pricing models for real-estate analytics, and property-price prediction systems.",
+    year: "Jul - Oct 2025",
+    title: "AI & Automation - Intercom Enterprises",
+    description: "Delivered automation solutions for multiple departments, ARIS BPM scripts, and RAG pipelines with LangChain, LangGraph, and Gemini API.",
   },
   {
-    year: "2023",
-    title: "Data Science Intern - Phoenix Consulting",
-    description: "Enhanced Python proficiency, web scraping, data preprocessing, and supported early-stage model design.",
+    year: "Jul - Sep 2024",
+    title: "Data Scientist - Phoenix Consulting",
+    description: "Applied Power BI and machine learning to real estate data, building interactive dashboards and a predictive pricing model.",
   },
   {
-    year: "2021-2025",
-    title: "MSc in Scientific Computing - Ain Shams University",
-    description: "In progress. Specializing in AI, machine learning, and computational methods.",
+    year: "Jul - Sep 2023",
+    title: "Data Scientist - Phoenix Consulting",
+    description: "Strengthened foundation in Python programming, web scraping for data acquisition, and data cleaning methodologies.",
+  },
+  {
+    year: "2021 - 2025",
+    title: "Bachelor's in Computer Science - Ain Shams University",
+    description: "Graduated with focus on AI, machine learning, and software engineering.",
   },
 ];
 
-const skillStack = [
-  {
-    category: "AI & Automation",
-    skills: [
-      "LangChain",
-      "LangGraph",
-      "Gemini API",
-      "Retrieval-augmented generation",
-      "Prompt engineering",
-    ],
-  },
-  {
-    category: "Automation & Ops",
-    skills: ["ARIS BPM", "n8n", "Workflow design", "Document generation"],
-  },
-  {
-    category: "Data & Strategy",
-    skills: ["Power BI", "Machine learning", "Lean startup", "Cross-team facilitation"],
-  },
-];
 
-const principles = [
-  {
-    title: "Start with the operator",
-    description: "Understand the people in the loop before designing the agent. Clear roles unlock adoption.",
-  },
-  {
-    title: "Ship transparent automation",
-    description: "Every workflow needs observability, guardrails, and documentation so teams trust it on day two.",
-  },
-  {
-    title: "Iterate in the open",
-    description: "Prototype quickly, share learnings, and let data and conversations steer the roadmap.",
-  },
-];
 
 export default function About() {
   return (
@@ -94,12 +65,12 @@ export default function About() {
       <section className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pb-24 pt-12 lg:px-8">
         <header className="space-y-6">
           <AnimatedText
-            text="Learning fast, shipping faster"
+            text="Building software that matters"
             align="left"
             className="text-4xl font-semibold text-slate-900 md:text-5xl"
           />
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            I&apos;m Abdelmoniem Ghazal, pursuing an MSc in Scientific Computing at Ain Shams University while working as an AI & Automation intern at Intercom Enterprises. I build retrieval-augmented generation systems, automation workflows, and data-driven solutions. Previously interned at Phoenix Consulting, developing Power BI dashboards and ML pricing models.
+            I&apos;m Abdelmoniem Ghazal, a Software Engineer at Intercom Enterprises with a Bachelor&apos;s in Computer Science from Ain Shams University. I build software that helps teams work smarter not harder ,solving problems, automating tasks, and turning technology into practical impact.
           </p>
         </header>
 
@@ -161,9 +132,9 @@ export default function About() {
           </div>
           <div className="flex flex-col gap-6 rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-500 via-indigo-400 to-violet-400 p-8 text-white">
             <p className="text-xs font-semibold uppercase tracking-[0.26em] text-white/80">Currently</p>
-            <h3 className="text-2xl font-semibold">AI & Automation Intern - Intercom Enterprises</h3>
+            <h3 className="text-2xl font-semibold">Software Engineer - Intercom Enterprises</h3>
             <p className="text-sm leading-relaxed text-white/80">
-              Delivering automation for ECM and CX teams: ARIS BPM scripts, LangChain/LangGraph retrieval systems, Gemini-powered document pipelines, and n8n hand-offs that keep humans in control.
+              Building software that helps teams work smarter through automation, solving problems, and turning technology into practical impact across multiple departments.
             </p>
           </div>
         </section>
@@ -175,48 +146,19 @@ export default function About() {
               <Reveal
                 key={milestone.title}
                 as="article"
-                className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm shadow-slate-900/5 md:flex-row md:items-center md:justify-between"
+                className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm shadow-slate-900/5 md:flex-row md:items-start md:gap-8"
               >
-                <div>
+                <div className="md:min-w-[320px] md:max-w-[320px] flex-shrink-0">
                   <p className="text-sm font-semibold uppercase tracking-wide text-indigo-500">{milestone.year}</p>
                   <h3 className="mt-1 text-lg font-semibold text-slate-900">{milestone.title}</h3>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-600 md:max-w-xl">{milestone.description}</p>
+                <p className="text-sm leading-relaxed text-slate-600 md:pt-5">{milestone.description}</p>
               </Reveal>
             ))}
           </div>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-2">
-          <div className="space-y-5 rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-sm shadow-slate-900/5">
-            <h2 className="text-2xl font-semibold text-slate-900">Principles</h2>
-            <div className="space-y-5">
-              {principles.map((principle) => (
-                <div key={principle.title} className="space-y-2 rounded-2xl border border-slate-200 bg-white/70 p-5">
-                  <h3 className="text-base font-semibold text-slate-900">{principle.title}</h3>
-                  <p className="text-sm leading-relaxed text-slate-600">{principle.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="space-y-5 rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-sm shadow-slate-900/5">
-            <h2 className="text-2xl font-semibold text-slate-900">Toolkit</h2>
-            <div className="space-y-4">
-              {skillStack.map((stack) => (
-                <div key={stack.category} className="space-y-2 rounded-2xl border border-slate-200 bg-white/70 p-5">
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-500">{stack.category}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {stack.skills.map((skill) => (
-                      <span key={skill} className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-600">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+
       </section>
     </div>
   );

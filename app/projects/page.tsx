@@ -62,7 +62,43 @@ export default function Projects() {
                   <h3 className="text-2xl font-semibold text-slate-900">{project.title}</h3>
                   <span className="text-sm font-medium text-indigo-500">0{index + 1}</span>
                 </div>
+
+                {/* Tech Stack Badges */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 px-3 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-200/50"
+                    >
+                      <span className="text-indigo-500">🧩</span> {tech}
+                    </span>
+                  ))}
+                </div>
+
                 <p className="mt-4 text-base leading-relaxed text-slate-600">{project.description}</p>
+
+                {/* Challenge & Solution - Case Study Style */}
+                {project.challenge && (
+                  <div className="mt-4 space-y-3">
+                    <div className="rounded-xl bg-slate-50 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Challenge</p>
+                      <p className="mt-1 text-sm text-slate-600">{project.challenge}</p>
+                    </div>
+                    {project.solution && (
+                      <div className="rounded-xl bg-indigo-50/50 p-4">
+                        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-500">Solution</p>
+                        <p className="mt-1 text-sm text-slate-600">{project.solution}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Impact */}
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="text-emerald-500">📈</span>
+                  <p className="text-sm font-medium text-emerald-700">{project.impact}</p>
+                </div>
+
                 <div className="mt-6 flex flex-wrap items-center gap-3">
                   {project.demo && (
                     <a

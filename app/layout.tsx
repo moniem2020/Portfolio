@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abdelmoniem Ghazal – AI & Automation Engineer",
-  description: "Building intelligent AI systems with LangChain, RAG pipelines, and workflow automation. Specializing in production-ready AI agents.",
+  title: "Abdelmoniem Ghazal – Software Engineer",
+  description: "I build software that helps teams work smarter, not harder—solving problems, automating tasks, and turning technology into practical impact.",
 };
 
 export default function RootLayout({

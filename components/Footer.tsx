@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Linkedin, Github, Mail, MapPin, Phone } from 'lucide-react';
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdelmoniem-ghazal-40613925a', icon: Linkedin },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdelmoniemghazal-40613925a', icon: Linkedin },
   { name: 'GitHub', href: 'https://github.com/moniem2020', icon: Github },
   { name: 'Email', href: 'mailto:moniemghazal@gmail.com', icon: Mail },
 ];
@@ -37,7 +37,7 @@ export default function Footer() {
               <span className="text-xl font-bold">Abdelmoniem Ghazal</span>
             </div>
             <p className="text-sm leading-relaxed text-slate-300">
-              AI & Automation Engineer building intelligent systems that scale. Passionate about LangChain, RAG pipelines, and workflow automation.
+              Software Engineer building software that helps teams work smarter. Passionate about automation, problem-solving, and turning technology into practical impact.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((link) => (
@@ -98,7 +98,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-slate-400">
-          <p>© {new Date().getFullYear()} Abdelmoniem Ghazal. Crafted with passion for AI & automation.</p>
+          <p>© {new Date().getFullYear()} Abdelmoniem Ghazal. Building software that matters.</p>
         </div>
       </div>
     </footer>

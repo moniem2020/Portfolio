@@ -3,63 +3,61 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Rocket, Bot, BarChart3, MapPin, Mail, Phone, Sparkles } from 'lucide-react';
-import RotatingSkills from '@/components/RotatingSkills';
+import SkillsBentoGrid from '@/components/SkillsBentoGrid';
 
-const skills = [
-  'LangChain',
-  'Python',
-  'TypeScript',
-  'LangGraph',
-  'n8n',
-  'Power BI',
-  'RAG Systems',
-  'ARIS BPM',
-];
+
 
 const projects = [
   {
     title: 'AutoBella',
-    description: 'Mobile car washing service website with React & Next.js',
+    description: 'Modern mobile car services platform with booking and membership management',
     impact: 'Live at autobella-eg.com',
-    tags: ['React', 'Next.js', 'Full-Stack'],
+    techStack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'shadcn/ui'],
     gradient: 'from-cyan-500 to-blue-600',
   },
   {
     title: 'MRI Tumor Detection',
-    description: 'DenseNet deep-learning model for brain tumor classification',
+    description: 'AI-powered brain tumor classification system for automated medical imaging',
     impact: 'Graduation Project',
-    tags: ['DenseNet', 'Flask', 'Healthcare AI'],
+    techStack: ['Python', 'TensorFlow', 'DenseNet', 'Flask'],
     gradient: 'from-violet-500 to-purple-600',
   },
   {
     title: 'AI Support Agent',
-    description: 'Multi-agent workflow automating customer support with 6s response time',
+    description: 'Multi-agent RAG system automating customer support with 6s response time',
     impact: '65% ticket deflection',
-    tags: ['LangChain', 'RAG', 'n8n'],
+    techStack: ['Python', 'LangChain', 'RAG', 'Gemini API', 'FAISS'],
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
     title: 'Plant Disease Detection',
-    description: 'CNN & Siamese Networks with Few-Shot Learning for disease classification',
-    impact: 'Limited training data',
-    tags: ['TensorFlow', 'OpenCV', 'Few-Shot'],
+    description: 'Few-Shot Learning with Siamese Networks for agricultural disease detection',
+    impact: 'Accurate with limited data',
+    techStack: ['Python', 'TensorFlow', 'CNN', 'OpenCV'],
     gradient: 'from-amber-500 to-orange-600',
   },
 ];
 
 const experiences = [
   {
-    role: 'AI & Automation Intern',
+    role: 'Software Engineer',
     company: 'Intercom Enterprises',
-    period: 'Jul 2025 - Present',
-    description: 'Building RAG-powered AI assistants and automation workflows with LangChain, n8n, and Gemini API',
+    period: 'Nov 2025 - Present',
+    description: 'Building software solutions that help teams work smarter through automation and practical technology impact',
+    icon: Rocket,
+  },
+  {
+    role: 'AI & Automation',
+    company: 'Intercom Enterprises',
+    period: 'Jul - Oct 2025',
+    description: 'Delivered automation solutions, ARIS BPM scripts, and RAG pipelines with LangChain, LangGraph, and Gemini API',
     icon: Bot,
   },
   {
     role: 'Data Scientist',
     company: 'Phoenix Consulting',
-    period: '2023',
-    description: 'Power BI dashboards and ML pricing models for real-estate',
+    period: '2023 - 2024',
+    description: 'Power BI dashboards and ML pricing models for real-estate market analysis',
     icon: BarChart3,
   },
 ];
@@ -121,13 +119,11 @@ export default function Home() {
               </h1>
 
               <p className="text-xl text-slate-600 md:text-2xl">
-                AI & Automation Engineer crafting intelligent systems that scale
+                Software Engineer building solutions that make teams work smarter
               </p>
 
               <p className="max-w-xl text-lg leading-relaxed text-slate-600">
-                Specializing in <span className="font-semibold text-indigo-600">LangChain</span>,{' '}
-                <span className="font-semibold text-purple-600">RAG pipelines</span>, and{' '}
-                <span className="font-semibold text-cyan-600">workflow automation</span>. Building AI agents that deliver real business value.
+                I build software that helps teams work smarter, not harder—solving problems, <span className="font-semibold text-indigo-600">automating tasks</span>, and turning <span className="font-semibold text-purple-600">technology</span> into <span className="font-semibold text-cyan-600">practical impact</span>.
               </p>
             </div>
 
@@ -269,7 +265,7 @@ export default function Home() {
             <p className="mt-4 text-lg text-slate-600">Proficiency across the AI & automation stack</p>
           </div>
 
-          <RotatingSkills skills={skills} />
+          <SkillsBentoGrid compact />
         </motion.div>
       </section>
 
@@ -315,12 +311,12 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
+                    {project.techStack.map((tech) => (
                       <span
-                        key={tag}
-                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                        key={tech}
+                        className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 px-3 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-200/50"
                       >
-                        {tag}
+                        <span className="text-indigo-500">🧩</span> {tech}
                       </span>
                     ))}
                   </div>
