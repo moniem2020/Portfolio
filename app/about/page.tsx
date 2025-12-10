@@ -144,7 +144,7 @@ export default function About() {
           <div className="space-y-6">
             {milestones.map((milestone) => (
               <Reveal
-                key={milestone.title}
+                key={`${milestone.title}-${milestone.year}`}
                 as="article"
                 className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm shadow-slate-900/5 md:flex-row md:items-start md:gap-8"
               >
