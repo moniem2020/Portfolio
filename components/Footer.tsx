@@ -11,7 +11,6 @@ const socialLinks = [
 const quickLinks = [
   { name: 'About', href: '/about' },
   { name: 'Projects', href: '/projects' },
-  { name: 'Blog', href: '/blog' },
 ];
 
 export default function Footer() {

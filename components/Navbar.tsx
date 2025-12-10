@@ -7,7 +7,6 @@ import Image from 'next/image';
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Blog', href: '/blog' },
 ];
 
 export default function Navbar() {
@@ -32,7 +31,7 @@ export default function Navbar() {
         }`}
     >
       <div className="container-custom">
-        <div className="flex h-20 items-center justify-between">
+        <div className="relative flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="group flex items-center space-x-2">
             <div className="relative h-14 w-14 transition-transform group-hover:scale-110">
@@ -48,8 +47,8 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden items-center gap-8 md:flex">
+          {/* Desktop Nav - Centered Links */}
+          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -67,6 +66,8 @@ export default function Navbar() {
               Let&apos;s Talk
             </Link>
           </div>
+
+
 
           {/* Mobile Menu Button */}
           <button

@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Abdelmoniem Ghazal – Software Engineer",
-  description: "I build software that helps teams work smarter, not harder—solving problems, automating tasks, and turning technology into practical impact.",
+  description: "I build software that helps teams work smarter, not harder ,solving problems, automating tasks, and turning technology into practical impact.",
 };
 
 export default function RootLayout({
