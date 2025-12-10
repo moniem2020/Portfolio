@@ -89,16 +89,16 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="container-custom section-spacing relative">
+      <section className="container-custom relative min-h-screen flex items-center pt-20 pb-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col justify-center space-y-8"
+            className="flex flex-col justify-center space-y-5"
           >
-            <div className="space-y-4">
+            <div className="space-y-3">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -123,7 +123,7 @@ export default function Home() {
               </p>
 
               <p className="max-w-xl text-lg leading-relaxed text-slate-600">
-                I build software that helps teams work smarter, not harder—solving problems, <span className="font-semibold text-indigo-600">automating tasks</span>, and turning <span className="font-semibold text-purple-600">technology</span> into <span className="font-semibold text-cyan-600">practical impact</span>.
+                I build software that helps teams work smarter not harder, solving problems, <span className="font-semibold text-indigo-600">automating tasks</span>, and turning <span className="font-semibold text-purple-600">technology</span> into <span className="font-semibold text-cyan-600">practical impact</span>.
               </p>
             </div>
 
@@ -136,27 +136,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8">
-              {[
-                { value: '20+', label: 'Projects Shipped' },
-                { value: '15', label: 'AI Workflows' },
-                { value: '1', label: 'Startup Award' },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + i * 0.1 }}
-                  className="space-y-1"
-                >
-                  <div className="text-3xl font-bold text-gradient bg-gradient-to-r from-indigo-600 to-purple-600">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-slate-600">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Right Column - 3D Card */}
@@ -164,7 +143,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="relative"
+            className="relative mt-12"
           >
             <div className="glass card-hover rounded-3xl p-8">
               {/* Floating Orbs */}
@@ -178,18 +157,18 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold uppercase tracking-wide text-indigo-600">Current Role</h3>
-                    <p className="text-lg font-semibold text-slate-900">AI & Automation Intern</p>
+                    <p className="text-lg font-semibold text-slate-900">Software Engineer</p>
                     <p className="text-sm text-slate-600">Intercom Enterprises</p>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-slate-900">Recent Highlight</h4>
+                  <h4 className="font-semibold text-slate-900">What I Do</h4>
                   <p className="text-sm leading-relaxed text-slate-600">
-                    Shipped autonomous support agent processing 1000+ tickets/day with 65% deflection rate using LangChain + RAG
+                    Building full-stack web applications and AI-powered automation systems that streamline workflows and deliver real business value.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['LangChain', '6s Response', 'RAG', 'Gemini API'].map((tag) => (
+                    {['Next.js', 'Express.js', 'LangChain', 'RAG', 'TypeScript'].map((tag) => (
                       <span
                         key={tag}
                         className="rounded-full bg-gradient-to-r from-indigo-500/10 to-purple-500/10 px-3 py-1 text-xs font-semibold text-indigo-700"
@@ -203,7 +182,7 @@ export default function Home() {
                 <div className="rounded-2xl bg-gradient-to-br from-indigo-50 to-purple-50 p-4">
                   <div className="flex items-center gap-2 text-sm font-semibold text-indigo-700">
                     <span className="animate-pulse">●</span>
-                    Building production-ready AI systems
+                    Building web apps & AI systems
                   </div>
                 </div>
               </div>
@@ -230,7 +209,7 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-3">
             {experiences.map((exp, i) => (
               <motion.div
-                key={exp.company}
+                key={exp.role}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -345,7 +324,9 @@ export default function Home() {
 
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="mailto:moniemghazal@gmail.com"
+                href="mailto:moniemghazal@gmail.com?subject=Collaboration%20Inquiry&body=Hi%20Abdelmoniem%2C%0A%0AI%20would%20like%20to%20discuss%20a%20potential%20collaboration.%0A%0ABest%20regards"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-white px-8 py-4 font-semibold text-indigo-600 transition-all hover:scale-105 hover:shadow-2xl"
               >
                 Get In Touch

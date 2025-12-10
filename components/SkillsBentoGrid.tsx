@@ -15,13 +15,12 @@ const skillsData: Skill[] = [
     { name: 'Express.js', icon: '🚀', category: 'backend', level: 85 },
     { name: 'TypeScript', icon: '📘', category: 'frontend', level: 88 },
     { name: 'LangChain', icon: '🔗', category: 'ai', level: 92 },
-    { name: 'TensorFlow', icon: '🧠', category: 'ai', level: 85 },
+    { name: 'Machine Learning', icon: '🧠', category: 'ai', level: 85 },
     { name: 'RAG Systems', icon: '📚', category: 'ai', level: 90 },
     { name: 'n8n', icon: '⚙️', category: 'tools', level: 88 },
     { name: 'LangGraph', icon: '📊', category: 'ai', level: 85 },
     { name: 'React', icon: '⚛️', category: 'frontend', level: 92 },
     { name: 'Flask', icon: '🌶️', category: 'backend', level: 88 },
-    { name: 'FAISS', icon: '🔍', category: 'ai', level: 82 },
 ];
 
 const categoryColors = {
@@ -61,8 +60,8 @@ export default function SkillsBentoGrid({ compact = false }: SkillsBentoGridProp
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setActiveCategory(null)}
                     className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${activeCategory === null
-                            ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25'
-                            : 'bg-white/80 text-slate-600 hover:bg-white hover:shadow-md ring-1 ring-slate-200/50'
+                        ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25'
+                        : 'bg-white/80 text-slate-600 hover:bg-white hover:shadow-md ring-1 ring-slate-200/50'
                         }`}
                 >
                     All Skills
@@ -74,8 +73,8 @@ export default function SkillsBentoGrid({ compact = false }: SkillsBentoGridProp
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setActiveCategory(category === activeCategory ? null : category)}
                         className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${activeCategory === category
-                                ? `bg-gradient-to-r ${categoryColors[category]} text-white shadow-lg`
-                                : 'bg-white/80 text-slate-600 hover:bg-white hover:shadow-md ring-1 ring-slate-200/50'
+                            ? `bg-gradient-to-r ${categoryColors[category]} text-white shadow-lg`
+                            : 'bg-white/80 text-slate-600 hover:bg-white hover:shadow-md ring-1 ring-slate-200/50'
                             }`}
                     >
                         {categoryLabels[category]}
@@ -87,8 +86,8 @@ export default function SkillsBentoGrid({ compact = false }: SkillsBentoGridProp
             <motion.div
                 layout
                 className={`grid gap-4 ${compact
-                        ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'
-                        : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'
+                    ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'
+                    : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6'
                     }`}
             >
                 {filteredSkills.map((skill, index) => (
@@ -105,8 +104,8 @@ export default function SkillsBentoGrid({ compact = false }: SkillsBentoGridProp
                     >
                         <div
                             className={`relative overflow-hidden rounded-2xl bg-white/90 backdrop-blur-sm p-5 shadow-lg shadow-slate-900/5 ring-1 ring-slate-200/50 transition-all duration-300 ${hoveredSkill === skill.name
-                                    ? 'scale-105 shadow-xl ring-2 ring-indigo-300'
-                                    : 'hover:shadow-lg'
+                                ? 'scale-105 shadow-xl ring-2 ring-indigo-300'
+                                : 'hover:shadow-lg'
                                 }`}
                         >
                             {/* Gradient Background on Hover */}
