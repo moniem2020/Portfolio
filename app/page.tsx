@@ -7,6 +7,7 @@ import SkillsBentoGrid from '@/components/SkillsBentoGrid';
 
 
 
+
 const projects = [
   {
     title: 'AutoBella',
@@ -323,12 +324,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="mailto:moniemghazal@gmail.com?subject=Collaboration%20Inquiry&body=Hi%20Abdelmoniem%2C%0A%0AI%20would%20like%20to%20discuss%20a%20potential%20collaboration.%0A%0ABest%20regards"
-                className="rounded-full bg-white px-8 py-4 font-semibold text-indigo-600 transition-all hover:scale-105 hover:shadow-2xl"
-              >
-                Get In Touch
-              </a>
+
               <a
                 href="https://linkedin.com/in/abdelmoniem-ghazal-40613925a"
                 target="_blank"
