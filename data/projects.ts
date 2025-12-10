@@ -21,7 +21,7 @@ export const projects: Project[] = [
     impact: "Live production website serving customers with streamlined booking flow",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     demo: "https://autobella-eg.com",
-    github: "https://github.com/moniem2020/AutoBella",
+    github: undefined,
   },
   {
     title: "MRI Tumor Detection Model",
