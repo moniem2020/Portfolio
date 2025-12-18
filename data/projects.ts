@@ -18,8 +18,8 @@ export const projects = [
   {
     title: "AI Support Agent for SaaS",
     description:
-      "Enterprise-grade AI-powered customer support agent with RAG (Retrieval-Augmented Generation), semantic caching, and multi-agent orchestration using LangGraph.",
-    impact: "LangGraph orchestration with PII detection and auto-escalation",
+      "Startup-grade AI-powered customer support agent with RAG (Retrieval-Augmented Generation), semantic caching, and multi-agent orchestration using LangGraph.",
+    impact: "Production-ready architecture with security and observability",
     demo: undefined,
     github: "https://github.com/moniem2020/AI-Support-Agent-for-Saas",
   },
