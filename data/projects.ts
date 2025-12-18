@@ -37,17 +37,17 @@ export const projects: Project[] = [
     github: "https://github.com/moniem2020/mri-tumor-detection",
   },
   {
-    title: "AI Support Agent",
+    title: "AI Support Agent for SaaS",
     description:
-      "Intelligent multi-agent system automating customer support with context-aware responses.",
+      "Startup-grade AI-powered customer support agent with RAG (Retrieval-Augmented Generation), semantic caching, and multi-agent orchestration using LangGraph.",
     challenge:
-      "Support teams overwhelmed by repetitive queries, causing slow response times and customer dissatisfaction.",
+      "Support teams need efficient automation while maintaining quality and security standards.",
     solution:
-      "Engineered a RAG-powered multi-agent workflow using LangChain, enabling automated ticket routing and intelligent response generation.",
-    impact: "65% ticket deflection rate | 6s response time | 1000+ tickets/day",
-    techStack: ["Python", "LangChain", "RAG", "Gemini API", "FAISS"],
+      "Engineered a multi-agent workflow using LangGraph with hybrid RAG, semantic caching, PII detection, and automated escalation.",
+    impact: "Production-ready architecture with security and observability",
+    techStack: ["Python", "LangGraph", "RAG", "Gemini API", "FAISS", "Semantic Caching"],
     demo: undefined,
-    github: "https://github.com/moniem2020/ai-support-agent",
+    github: "https://github.com/moniem2020/AI-Support-Agent-for-Saas",
   },
   {
     title: "Plant Disease Prediction & Recognition",

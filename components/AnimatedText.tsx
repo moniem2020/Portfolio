@@ -70,7 +70,7 @@ export default function AnimatedText({
       {words.map((word, index) => (
         <span
           key={`${word}-${index}`}
-          className={clip ? "inline-block overflow-hidden" : "inline-block"}
+          className={clip ? "inline-block overflow-hidden pb-1" : "inline-block"}
         >
           <motion.span
             variants={child}

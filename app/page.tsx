@@ -24,10 +24,10 @@ const projects = [
     gradient: 'from-violet-500 to-purple-600',
   },
   {
-    title: 'AI Support Agent',
-    description: 'Multi-agent RAG system automating customer support with 6s response time',
-    impact: '65% ticket deflection',
-    techStack: ['Python', 'LangChain', 'RAG', 'Gemini API', 'FAISS'],
+    title: 'AI Support Agent for SaaS',
+    description: 'Startup-grade AI support with RAG, semantic caching, and multi-agent orchestration using LangGraph',
+    impact: 'Production-ready architecture with security and observability',
+    techStack: ['LangGraph', 'RAG', 'Semantic Caching', 'Python'],
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
