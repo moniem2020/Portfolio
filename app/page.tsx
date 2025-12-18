@@ -34,7 +34,7 @@ const projects = [
   {
     title: 'AI Support Agent for SaaS',
     description: 'Enterprise-grade AI support with RAG, semantic caching, and multi-agent orchestration using LangGraph',
-    impact: '65% ticket deflection',
+    impact: 'LangGraph orchestration with PII detection',
     tags: ['LangGraph', 'RAG', 'Semantic Caching'],
     gradient: 'from-emerald-500 to-teal-600',
   },
