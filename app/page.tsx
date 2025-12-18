@@ -32,10 +32,10 @@ const projects = [
     gradient: 'from-violet-500 to-purple-600',
   },
   {
-    title: 'AI Support Agent',
-    description: 'Multi-agent workflow automating customer support with 6s response time',
+    title: 'AI Support Agent for SaaS',
+    description: 'Enterprise-grade AI support with RAG, semantic caching, and multi-agent orchestration using LangGraph',
     impact: '65% ticket deflection',
-    tags: ['LangChain', 'RAG', 'n8n'],
+    tags: ['LangGraph', 'RAG', 'Semantic Caching'],
     gradient: 'from-emerald-500 to-teal-600',
   },
   {
