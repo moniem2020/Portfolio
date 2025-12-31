@@ -21,7 +21,7 @@ export const projects: Project[] = [
     impact: "Live production website with mobile-friendly navigation and integrated email functionality",
     techStack: ["Next.js 14", "React 18", "Nodemailer", "CSS"],
     demo: "https://itlogistic.net",
-    github: "https://github.com/moniem2020/ITL-Logistics-Website",
+    github: undefined,
   },
   {
     title: "AutoBella - Mobile Car Washing Service",
