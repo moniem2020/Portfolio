@@ -11,6 +11,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "ITL Logistics Egypt - Freight Forwarding Website",
+    description:
+      "Modern, professional website for ITL Logistics Egypt - a leading freight forwarding company with global logistics solutions.",
+    challenge:
+      "The company needed a modern digital presence to showcase their services and provide easy quote requests for potential clients.",
+    solution:
+      "Built a 6-page Next.js 14 website with responsive design, email backend for contact forms and quote requests using Nodemailer, and premium UI with smooth animations.",
+    impact: "Live production website with mobile-friendly navigation and integrated email functionality",
+    techStack: ["Next.js 14", "React 18", "Nodemailer", "CSS"],
+    demo: "https://itlogistic.net",
+    github: "https://github.com/moniem2020/ITL-Logistics-Website",
+  },
+  {
     title: "AutoBella - Mobile Car Washing Service",
     description:
       "A modern mobile car services platform bringing professional washing and detailing to customers' doorsteps.",
