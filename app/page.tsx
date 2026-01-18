@@ -343,7 +343,7 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="mt-8 flex justify-center gap-8 text-sm text-white/80">
+            <div className="mt-8 flex flex-col items-center gap-4 text-sm text-white/80 md:flex-row md:justify-center md:gap-8">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
                 <span>Cairo, Egypt</span>
