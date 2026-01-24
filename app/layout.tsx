@@ -6,6 +6,7 @@ import TransitionEffect from "@/components/TransitionEffect";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abdelmoniem Ghazal – Software Engineer",
+  title: "Moniem Ghazal – Software Engineer",
   description: "I build software that helps teams work smarter, not harder ,solving problems, automating tasks, and turning technology into practical impact.",
 };
 
@@ -38,6 +39,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+
       </body>
     </html>
   );
