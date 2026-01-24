@@ -75,7 +75,7 @@ export default function About() {
             className="text-4xl font-semibold text-slate-900 md:text-5xl pb-2"
           />
           <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            I&apos;m Abdelmoniem Ghazal, a Software Engineer at Intercom Enterprises with a Bachelor&apos;s in Computer Science from Ain Shams University. I build software that helps teams work smarter not harder ,solving problems, automating tasks, and turning technology into practical impact.
+            I&apos;m Moniem Ghazal, a Software Engineer at Intercom Enterprises with a Bachelor&apos;s in Computer Science from Ain Shams University. I build software that helps teams work smarter not harder ,solving problems, automating tasks, and turning technology into practical impact.
           </p>
         </header>
 

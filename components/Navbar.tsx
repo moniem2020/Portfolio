@@ -37,13 +37,13 @@ export default function Navbar() {
             <div className="relative h-14 w-14 transition-transform group-hover:scale-110">
               <Image
                 src="/logo.png"
-                alt="Abdelmoniem Ghazal"
+                alt="Moniem Ghazal"
                 fill
                 className="object-contain"
               />
             </div>
             <span className="text-xl font-bold text-gradient bg-gradient-to-r from-indigo-600 to-purple-600">
-              Abdelmoniem
+              Moniem
             </span>
           </Link>
 

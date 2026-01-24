@@ -29,12 +29,12 @@ export default function Footer() {
               <div className="relative h-14 w-14">
                 <Image
                   src="/logo.png"
-                  alt="Abdelmoniem Ghazal"
+                  alt="Moniem Ghazal"
                   fill
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-bold">Abdelmoniem Ghazal</span>
+              <span className="text-xl font-bold">Moniem Ghazal</span>
             </div>
             <p className="text-sm leading-relaxed text-slate-300">
               Software Engineer building software that helps teams work smarter. Passionate about automation, problem-solving, and turning technology into practical impact.
@@ -101,7 +101,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-slate-400">
-          <p>© {new Date().getFullYear()} Abdelmoniem Ghazal. Building software that matters.</p>
+          <p>© {new Date().getFullYear()} Moniem Ghazal. Building software that matters.</p>
         </div>
       </div>
     </footer>

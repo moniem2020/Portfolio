@@ -1,4 +1,4 @@
-﻿# Abdelmoniem Ghazal – AI & Automation Portfolio
+﻿# Moniem Ghazal – AI & Automation Portfolio
 
 > AI & Automation intern at Intercom Enterprises. Previously co-founded Remotized and shipped data products at Phoenix Consulting.
 

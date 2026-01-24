@@ -21,14 +21,14 @@ export default function ContactForm() {
 
   const updateField =
     (field: Field) =>
-    (
-      event: ChangeEvent<
-        HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >,
-    ) => {
-      const { value } = event.target;
-      setFormState((current) => ({ ...current, [field]: value }));
-    };
+      (
+        event: ChangeEvent<
+          HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+        >,
+      ) => {
+        const { value } = event.target;
+        setFormState((current) => ({ ...current, [field]: value }));
+      };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -38,7 +38,7 @@ export default function ContactForm() {
       : "Automation project inquiry";
 
     const bodyLines = [
-      "Hi Abdelmoniem,",
+      "Hi Moniem,",
       "",
       formState.name
         ? `I'm ${formState.name}${formState.company ? ` from ${formState.company}` : ""}.`

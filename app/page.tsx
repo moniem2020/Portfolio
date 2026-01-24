@@ -115,7 +115,7 @@ export default function Home() {
 
               <h1 className="text-5xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl">
                 <span className="text-gradient bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-                  Abdelmoniem Ghazal
+                  Moniem Ghazal
                 </span>
               </h1>
 

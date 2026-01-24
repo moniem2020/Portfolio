@@ -116,7 +116,7 @@ export default function Home() {
                 <span className="inline-flex h-2 w-2 rounded-full bg-indigo-400 shadow-sm shadow-indigo-400/80" />
               </div>
               <AnimatedText
-                text="Abdelmoniem Ghazal"
+                text="Moniem Ghazal"
                 align="left"
                 className="text-5xl font-semibold tracking-tight text-slate-900 sm:text-6xl"
               />
@@ -278,7 +278,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-6 rounded-2xl border border-indigo-100 bg-white/70 p-4 text-sm font-medium text-slate-600">
-                  &ldquo;Abdelmoniem helped us move from an unwieldy ops backlog to a self-serve automation engine in weeks, not months. The team finally has bandwidth to focus on high-touch moments.&rdquo;
+                  &ldquo;Moniem helped us move from an unwieldy ops backlog to a self-serve automation engine in weeks, not months. The team finally has bandwidth to focus on high-touch moments.&rdquo;
                 </div>
               </div>
             </Reveal>
@@ -439,7 +439,7 @@ export default function Home() {
                     boxShadow: "0 12px 30px rgba(99, 102, 241, 0.18)",
                   }}
                 >
-                  Email Abdelmoniem
+                  Email Moniem
                 </a>
                 <Link
                   href="/projects"
