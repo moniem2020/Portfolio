@@ -4,7 +4,7 @@
 
 ## Quick Facts
 - 🏢 Based in Cairo, Egypt · open to select automation and advisory collaborations
-- 📧 moniemghazal@gmail.com · 📞 +20 100 944 1336 · [LinkedIn](https://www.linkedin.com/in/abdelmoniem-ghazal-40613925a/)
+- 📧 moniemghazal@gmail.com · 📞 +20 100 944 1336 · [LinkedIn](https://www.linkedin.com/in/moniem-ghazal-49617438a/)
 - 🛠️ Strengths: LangChain/LangGraph RAG systems, ARIS BPM scripting, n8n orchestration, Power BI storytelling
 - 🏆 Winner of Startup Power Egypt 2025 (Remotized)
 

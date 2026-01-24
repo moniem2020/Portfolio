@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Linkedin, Github, Mail, MapPin, Phone } from 'lucide-react';
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/abdelmoniemghazal-40613925a', icon: Linkedin },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/moniem-ghazal-49617438a/', icon: Linkedin },
   { name: 'GitHub', href: 'https://github.com/moniem2020', icon: Github },
   { name: 'Email', href: 'mailto:moniemghazal@gmail.com', icon: Mail },
 ];

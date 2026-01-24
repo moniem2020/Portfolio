@@ -326,7 +326,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4">
 
               <a
-                href="https://linkedin.com/in/abdelmoniem-ghazal-40613925a"
+                href="https://www.linkedin.com/in/moniem-ghazal-49617438a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 font-semibold backdrop-blur-sm transition-all hover:scale-105 hover:bg-white/20"
