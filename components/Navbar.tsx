@@ -43,7 +43,7 @@ export default function Navbar() {
               />
             </div>
             <span className="text-xl font-bold text-gradient bg-gradient-to-r from-indigo-600 to-purple-600">
-              Moniem
+              Moniem Ghazal
             </span>
           </Link>
 
