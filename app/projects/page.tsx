@@ -1,15 +1,23 @@
-﻿import { projects } from "@/data/projects";
-import AnimatedText from "@/components/AnimatedText";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ExternalLink, Github, Sparkles, ArrowUpRight } from "lucide-react";
+import { projects } from "@/data/projects";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Work — Moniem Ghazal",
+  description:
+    "Selected projects by Moniem Ghazal — AI assistants, RAG copilots, automation pipelines, and full-stack web apps with measurable impact.",
+};
 
 const spotlight = [
   {
     label: "Automation",
-    body: "I design systems that shrink repetitive operations, keep humans in the loop, and surface the right context automatically.",
+    body: "Systems that shrink repetitive operations, keep humans in the loop, and surface the right context automatically.",
   },
   {
     label: "AI assistants",
-    body: "From retrieval-augmented copilots to personalised routing agents, each project pairs LLMs with robust guardrails.",
+    body: "From retrieval-augmented copilots to routing agents — each project pairs LLMs with robust guardrails.",
   },
   {
     label: "Product velocity",
@@ -19,95 +27,105 @@ const spotlight = [
 
 export default function Projects() {
   return (
-    <div className="relative isolate overflow-hidden bg-gradient-to-b from-[#f5f3ff] via-white to-[#e0f2fe] pt-24">
-      <section className="mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-24 pt-12 lg:px-8">
-        <header className="space-y-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-indigo-700">
-            Selected projects
+    <div className="pt-28">
+      <section className="container-x pb-24">
+        {/* Header */}
+        <header className="max-w-3xl space-y-5">
+          <span className="eyebrow">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            Selected work
           </span>
-          <AnimatedText
-            text="Work that pairs automation with measurable impact"
-            align="left"
-            className="text-4xl font-semibold text-slate-900 md:text-5xl"
-          />
-          <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            Each engagement starts with the desired business outcome. I partner with cross-functional teams to design the right agentic workflows, instrumentation, and handoffs that keep quality high while reducing operational drag.
+          <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+            Work that pairs automation with measurable impact
+          </h1>
+          <p className="text-lg leading-relaxed text-ink-500">
+            Every engagement starts with the business outcome. I partner with teams to design the
+            right agentic workflows, instrumentation, and handoffs that keep quality high while
+            reducing operational drag.
           </p>
         </header>
-        <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        {/* Spotlight */}
+        <div className="mt-12 grid gap-5 sm:grid-cols-3">
           {spotlight.map((item) => (
-            <div key={item.label} className="rounded-3xl border border-slate-200/80 bg-white/80 p-6 shadow-sm shadow-slate-900/5">
-              <p className="text-xs font-semibold uppercase tracking-wide text-indigo-500">{item.label}</p>
-              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.body}</p>
+            <div key={item.label} className="card p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
+                {item.label}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-500">{item.body}</p>
             </div>
           ))}
-        </section>
-        <section className="space-y-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="text-3xl font-semibold text-slate-900">Case studies</h2>
-            <p className="max-w-xl text-sm text-slate-600">
-              Explore the approach, tooling, and outcomes behind shipped automation projects. Each write-up includes what worked, what changed, and the next iteration planned.
-            </p>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-2">
-            {projects.map((project, index) => (
-              <Reveal
-                key={project.title}
-                as="article"
-                delay={index * 0.06}
-                className="group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 p-8 shadow-lg shadow-slate-900/5"
-              >
-                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-white to-indigo-50 opacity-0 transition group-hover:opacity-100" />
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-2xl font-semibold text-slate-900">{project.title}</h3>
-                  <span className="text-sm font-medium text-indigo-500">0{index + 1}</span>
-                </div>
+        </div>
 
-                {/* Tech Stack Badges */}
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50 px-3 py-1 text-xs font-medium text-indigo-700 ring-1 ring-inset ring-indigo-200/50"
-                    >
-                      <span className="text-indigo-500">🧩</span> {tech}
-                    </span>
-                  ))}
-                </div>
+        {/* Case studies */}
+        <div className="mt-16 flex items-end justify-between gap-4">
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-ink md:text-3xl">
+            Case studies
+          </h2>
+          <span className="font-mono text-xs text-ink-400">{projects.length} projects</span>
+        </div>
 
-                <p className="mt-4 text-base leading-relaxed text-slate-600">{project.description}</p>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          {projects.map((project, index) => (
+            <Reveal
+              key={project.title}
+              as="article"
+              delay={index * 0.06}
+              className="card card-hover flex flex-col p-8"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <h3 className="font-display text-2xl font-semibold tracking-tight text-ink">
+                  {project.title}
+                </h3>
+                <span className="font-mono text-sm text-ink-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
 
-                {/* Challenge & Solution - Case Study Style */}
-                {project.challenge && (
-                  <div className="mt-4 space-y-3">
-                    <div className="rounded-xl bg-slate-50 p-4">
-                      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Challenge</p>
-                      <p className="mt-1 text-sm text-slate-600">{project.challenge}</p>
-                    </div>
-                    {project.solution && (
-                      <div className="rounded-xl bg-indigo-50/50 p-4">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-indigo-500">Solution</p>
-                        <p className="mt-1 text-sm text-slate-600">{project.solution}</p>
-                      </div>
-                    )}
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.techStack.map((tech) => (
+                  <span key={tech} className="chip">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <p className="mt-4 text-base leading-relaxed text-ink-500">{project.description}</p>
+
+              {project.challenge && (
+                <div className="mt-5 space-y-3">
+                  <div className="rounded-xl border border-line bg-paper p-4">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
+                      Challenge
+                    </p>
+                    <p className="mt-1.5 text-sm text-ink-700">{project.challenge}</p>
                   </div>
-                )}
-
-                {/* Impact */}
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="text-emerald-500">📈</span>
-                  <p className="text-sm font-medium text-emerald-700">{project.impact}</p>
+                  {project.solution && (
+                    <div className="rounded-xl border border-accent/20 bg-accent-soft p-4">
+                      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
+                        Solution
+                      </p>
+                      <p className="mt-1.5 text-sm text-ink-700">{project.solution}</p>
+                    </div>
+                  )}
                 </div>
+              )}
 
-                <div className="mt-6 flex flex-wrap items-center gap-3">
+              <div className="mt-5 flex items-center gap-2">
+                <Sparkles className="h-4 w-4 shrink-0 text-accent" />
+                <p className="text-sm font-medium text-ink-700">{project.impact}</p>
+              </div>
+
+              {(project.demo || project.github) && (
+                <div className="mt-6 flex items-center gap-4 border-t border-line pt-5">
                   {project.demo && (
                     <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full bg-white px-4 py-2 text-sm font-semibold text-indigo-600 shadow-sm ring-1 ring-indigo-100 transition hover:bg-indigo-50"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-accent"
                     >
-                      See demo
+                      <ExternalLink className="h-4 w-4" /> Live site
                     </a>
                   )}
                   {project.github && (
@@ -115,16 +133,35 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center rounded-full border border-indigo-200 bg-white/70 px-4 py-2 text-sm font-semibold text-indigo-700 transition hover:border-indigo-300 hover:bg-white"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-accent"
                     >
-                      View GitHub
+                      <Github className="h-4 w-4" /> View code
                     </a>
                   )}
                 </div>
-              </Reveal>
-            ))}
+              )}
+            </Reveal>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 flex flex-col items-start gap-4 rounded-2xl bg-ink p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
+          <div>
+            <h2 className="font-display text-2xl font-semibold tracking-tight">
+              Want results like these?
+            </h2>
+            <p className="mt-1.5 text-sm text-white/60">
+              I take on a limited number of freelance projects at a time.
+            </p>
           </div>
-        </section>
+          <Link
+            href="/#contact"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-white"
+          >
+            Book a call
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
       </section>
     </div>
   );
