@@ -13,19 +13,19 @@ const groups = [
   {
     label: "Data Science & AI",
     icon: BrainCircuit,
-    color: "#8b5cf6",
+    color: "#f97316",
     skills: ["Machine Learning", "RAG", "LangChain", "Few-Shot Learning", "Data Cleaning", "Web Scraping"],
   },
   {
     label: "Automation & Tools",
     icon: Workflow,
-    color: "#f43f5e",
+    color: "#2563eb",
     skills: ["n8n", "Power BI", "SQL", "TensorFlow", "Git", "GitHub", "VS Code"],
   },
   {
     label: "Strengths",
     icon: Users,
-    color: "#f59e0b",
+    color: "#f97316",
     skills: ["Cross-Team Collaboration", "Research", "Issue Prioritization", "Problem Solving"],
   },
 ];

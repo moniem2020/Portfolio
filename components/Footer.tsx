@@ -21,7 +21,7 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-ink text-white">
-      <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] via-[#8b5cf6] via-[#f43f5e] to-[#f59e0b]" />
+      <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] to-[#f97316]" />
       <div className="bg-grid absolute inset-0 opacity-[0.08]" />
       <div className="container-x relative">
         {/* CTA band */}
@@ -39,7 +39,7 @@ export default function Footer() {
           </div>
           <Link
             href="/#contact"
-            className="btn-grad w-fit shrink-0"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-white"
           >
             Start a project
             <ArrowUpRight className="h-4 w-4" />
