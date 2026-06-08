@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moniemghazal.vercel.app"),
-  title: "Moniem Ghazal — AI, Automation & Full-Stack Developer",
+  title: "Moniem Ghazal | AI, Automation & Full-Stack Developer",
   description:
     "Freelance AI, Automation & Full-Stack Web Developer. I build RAG copilots, AI automations, and full-stack web apps that help teams work smarter. Available for freelance projects.",
   keywords: [
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Moniem Ghazal" }],
   openGraph: {
-    title: "Moniem Ghazal — AI, Automation & Full-Stack Developer",
+    title: "Moniem Ghazal | AI, Automation & Full-Stack Developer",
     description:
       "Freelance AI, Automation & Full-Stack Web Developer building RAG copilots, AI automations, and full-stack web apps.",
     type: "website",

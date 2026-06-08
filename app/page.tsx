@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import Services from "@/components/Services";
 import SkillsMatrix from "@/components/SkillsMatrix";
-import ContactForm from "@/components/ContactForm";
 import { NextjsMark, PythonMark, TailwindMark, VercelMark, N8nMark } from "@/components/BrandMarks";
 import { projects } from "@/data/projects";
 
@@ -29,32 +28,32 @@ const stats = [
 
 const experiences = [
   {
-    period: "Jul 2025 — Present",
+    period: "Jul 2025 to Present",
     role: "AI & Automation",
     company: "Intercom Enterprises",
     description:
-      "Designing automation workflows with n8n, building RAG-powered assistants with LangChain and prompt engineering, and integrating LLMs into business solutions.",
+      "Designing automation workflows with n8n, building RAG powered assistants with LangChain and prompt engineering, and integrating LLMs into business solutions.",
     icon: Sparkles,
     current: true,
   },
   {
-    period: "Jul — Sep 2024",
+    period: "Jul to Sep 2024",
     role: "Data Scientist Intern",
     company: "Phoenix Consulting",
     description:
-      "Collected and structured datasets in SQL, built Power BI dashboards for real-estate trends, and trained an ML model for property-price prediction.",
+      "Collected and structured datasets in SQL, built Power BI dashboards for real estate trends, and trained an ML model for property price prediction.",
     icon: BarChart3,
   },
   {
-    period: "Jul — Sep 2023",
+    period: "Jul to Sep 2023",
     role: "Data Scientist Intern",
     company: "Phoenix Consulting",
     description:
-      "Strengthened Python, web scraping, and data preprocessing; automated data-collection workflows and contributed to early-stage model design.",
+      "Strengthened Python, web scraping, and data preprocessing; automated data collection workflows and contributed to early stage model design.",
     icon: BarChart3,
   },
   {
-    period: "2021 — 2025",
+    period: "2021 to 2025",
     role: "B.Sc. Computer Science",
     company: "Ain Shams University",
     description: "Graduated with a focus on artificial intelligence, machine learning, and software engineering.",
@@ -110,7 +109,7 @@ export default function Home() {
                   <span className="text-pop">&amp; Full-Stack.</span>
                 </h1>
                 <p className="max-w-xl text-lg leading-relaxed text-ink-500">
-                  I&apos;m Moniem — a developer building RAG copilots, AI automations, and{" "}
+                  I&apos;m Moniem, a developer building RAG copilots, AI automations, and{" "}
                   <span className="font-semibold text-ink">full-stack web apps</span> that make teams
                   work smarter, not harder.
                 </p>
@@ -121,7 +120,7 @@ export default function Home() {
                   View my work
                   <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/#contact" className="btn-outline">
+                <Link href="/contact" className="btn-outline">
                   Book a call
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
@@ -139,7 +138,7 @@ export default function Home() {
               </dl>
             </motion.div>
 
-            {/* Right — profile card */}
+            {/* Right: profile card */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -376,40 +375,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Contact ===== */}
+      {/* ===== Contact CTA ===== */}
       <section id="contact" className="section-y scroll-mt-20">
-        <div className="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="space-y-6">
-            <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#2563eb" }} />
-              Let&apos;s work together
-            </span>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-              Tell me what you <span className="text-pop">want to build</span>
-            </h2>
-            <p className="text-base leading-relaxed text-ink-500">
-              Whether it&apos;s an AI assistant, a RAG copilot, an automation pipeline, or a
-              full-stack web app — share the outcome you&apos;re after and I&apos;ll come back with
-              how I&apos;d approach it, a rough timeline, and next steps.
-            </p>
-            <div className="space-y-3 border-t border-line pt-6 text-sm">
-              <a href="mailto:moniemghazal@gmail.com" className="flex items-center gap-3 text-ink-700 transition-colors hover:text-ink">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#2563eb" }}>@</span>
-                moniemghazal@gmail.com
-              </a>
-              <a href="tel:+201009441336" className="flex items-center gap-3 text-ink-700 transition-colors hover:text-ink">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg font-mono text-[10px] text-white" style={{ backgroundColor: "#f97316" }}>+20</span>
-                +20 100 944 1336
-              </a>
-              <p className="flex items-center gap-3 text-ink-700">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#2563eb" }}>
-                  <MapPin className="h-4 w-4" />
-                </span>
-                Nasr City, Cairo · Remote-friendly
+        <div className="container-x">
+          <div className="relative overflow-hidden rounded-3xl bg-ink p-10 text-white md:p-14">
+            <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] to-[#f97316]" />
+            <div className="max-w-2xl space-y-5">
+              <span className="font-mono text-xs uppercase tracking-[0.22em] text-white/50">
+                Let&apos;s work together
+              </span>
+              <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+                Tell me what you want to build
+              </h2>
+              <p className="text-base leading-relaxed text-white/60">
+                Whether it&apos;s an AI assistant, a RAG copilot, an automation pipeline, or a
+                full-stack web app, share the outcome you&apos;re after. I&apos;ll get back to you
+                with how I&apos;d approach it, a rough timeline, and next steps.
               </p>
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-white"
+                >
+                  Send a message
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+                <a href="mailto:moniemghazal@gmail.com" className="text-sm font-medium text-white/70 transition-colors hover:text-white">
+                  moniemghazal@gmail.com
+                </a>
+              </div>
             </div>
           </div>
-          <ContactForm />
         </div>
       </section>
     </div>
