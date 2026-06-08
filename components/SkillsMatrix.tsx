@@ -14,7 +14,7 @@ const groups = [
     label: "Data Science & AI",
     icon: BrainCircuit,
     color: "#f97316",
-    skills: ["Machine Learning", "RAG", "LangChain", "Few-Shot Learning", "Data Cleaning", "Web Scraping"],
+    skills: ["Machine Learning", "RAG", "LangChain", "Few Shot Learning", "Data Cleaning", "Web Scraping"],
   },
   {
     label: "Automation & Tools",
@@ -26,7 +26,7 @@ const groups = [
     label: "Strengths",
     icon: Users,
     color: "#f97316",
-    skills: ["Cross-Team Collaboration", "Research", "Issue Prioritization", "Problem Solving"],
+    skills: ["Cross Team Collaboration", "Research", "Issue Prioritization", "Problem Solving"],
   },
 ];
 

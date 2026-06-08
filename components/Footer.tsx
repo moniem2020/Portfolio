@@ -6,14 +6,14 @@ import { Linkedin, Github, Mail, MapPin, Phone, ArrowUpRight } from "lucide-reac
 const socialLinks = [
   { name: "LinkedIn", href: "https://www.linkedin.com/in/moniem-ghazal-49617438a/", icon: Linkedin },
   { name: "GitHub", href: "https://github.com/moniem2020", icon: Github },
-  { name: "Email", href: "mailto:moniemghazal@gmail.com", icon: Mail },
+  { name: "Email", href: "/contact", icon: Mail },
 ];
 
 const quickLinks = [
   { name: "Services", href: "/#services" },
   { name: "Work", href: "/projects" },
   { name: "About", href: "/about" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -34,11 +34,11 @@ export default function Footer() {
               Have a workflow worth automating?
             </h2>
             <p className="text-sm leading-relaxed text-white/60">
-              Tell me what&apos;s slowing your team down — I&apos;ll tell you how I&apos;d ship it.
+              Tell me what&apos;s slowing your team down, and I&apos;ll tell you how I&apos;d ship it.
             </p>
           </div>
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-white"
           >
             Start a project
@@ -107,7 +107,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 border-t border-white/10 py-7 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} Moniem Ghazal. Built with Next.js &amp; Tailwind.</p>
+          <p>© {year} Moniem Ghazal. All rights reserved.</p>
           <p className="font-mono uppercase tracking-[0.18em]">Building software that matters</p>
         </div>
       </div>

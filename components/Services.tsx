@@ -68,14 +68,14 @@ export default function Services() {
               What I can build for you
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-              Freelance services, <span className="text-pop">shipped end-to-end</span>
+              Freelance services, <span className="text-pop">shipped end to end</span>
             </h2>
             <p className="text-base leading-relaxed text-ink-500">
               I partner with founders and teams to design, build, and ship AI and automation
-              that pays for itself — scoped to your outcome, not billable hours.
+              that pays for itself, scoped to your outcome, not billable hours.
             </p>
           </div>
-          <Link href="/#contact" className="btn-grad w-fit shrink-0">
+          <Link href="/contact" className="btn-grad w-fit shrink-0">
             Get a quote
             <ArrowUpRight className="h-4 w-4" />
           </Link>

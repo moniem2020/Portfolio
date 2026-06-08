@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Services", href: "/#services" },
   { label: "Work", href: "/projects" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -55,7 +56,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/#contact" className="btn-grad px-5 py-2 text-sm">
+          <Link href="/contact" className="btn-grad px-5 py-2 text-sm">
             Book a call
             <ArrowUpRight className="h-4 w-4" />
           </Link>
@@ -92,7 +93,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/#contact"
+                href="/contact"
                 onClick={() => setOpen(false)}
                 className="btn-grad mt-2 w-full"
               >
