@@ -19,10 +19,12 @@ import ContactForm from "@/components/ContactForm";
 import { NextjsMark, PythonMark, TailwindMark, VercelMark, N8nMark } from "@/components/BrandMarks";
 import { projects } from "@/data/projects";
 
+const POP = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b", "#65a30d", "#06b6d4"];
+
 const stats = [
-  { value: "3+", label: "Years building" },
-  { value: "7", label: "Projects shipped" },
-  { value: "2", label: "Live products" },
+  { value: "3+", label: "Years building", color: "#2563eb" },
+  { value: "7", label: "Projects shipped", color: "#f43f5e" },
+  { value: "2", label: "Live products", color: "#8b5cf6" },
 ];
 
 const experiences = [
@@ -82,7 +84,8 @@ export default function Home() {
     <div className="overflow-hidden">
       {/* ===== Hero ===== */}
       <section className="relative">
-        <div className="bg-grid pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_40%,transparent_100%)]" />
+        <div className="bg-blobs pointer-events-none absolute inset-0 -z-10" />
+        <div className="bg-grid pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,#000_30%,transparent_100%)]" />
         <div className="container-x pb-16 pt-32 md:pt-40">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
             {/* Left */}
@@ -92,7 +95,7 @@ export default function Home() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="space-y-7"
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-medium text-ink-700">
+              <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-medium text-ink-700 shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
@@ -101,10 +104,10 @@ export default function Home() {
               </span>
 
               <div className="space-y-5">
-                <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink md:text-6xl lg:text-7xl">
-                  AI, Automation
+                <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
+                  <span className="text-ink">AI, Automation</span>
                   <br />
-                  &amp; Full-Stack.
+                  <span className="text-pop">&amp; Full-Stack.</span>
                 </h1>
                 <p className="max-w-xl text-lg leading-relaxed text-ink-500">
                   I&apos;m Moniem — a developer building RAG copilots, AI automations, and{" "}
@@ -114,7 +117,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                <Link href="/projects" className="btn-primary">
+                <Link href="/projects" className="btn-grad">
                   View my work
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -127,7 +130,7 @@ export default function Home() {
               <dl className="grid max-w-md grid-cols-3 gap-6 border-t border-line pt-7">
                 {stats.map((stat) => (
                   <div key={stat.label}>
-                    <dt className="font-display text-3xl font-semibold tracking-tight text-ink">
+                    <dt className="font-display text-3xl font-semibold tracking-tight" style={{ color: stat.color }}>
                       {stat.value}
                     </dt>
                     <dd className="mt-1 text-xs leading-snug text-ink-500">{stat.label}</dd>
@@ -141,9 +144,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-              className="card p-7"
+              className="card relative overflow-hidden p-7"
             >
-              <div className="flex items-center justify-between">
+              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] via-[#8b5cf6] to-[#f43f5e]" />
+              <div className="flex items-center justify-between pt-1.5">
                 <span className="eyebrow">Currently</span>
                 <span className="flex items-center gap-1.5 text-xs text-ink-500">
                   <MapPin className="h-3.5 w-3.5" /> Cairo, Egypt
@@ -159,7 +163,7 @@ export default function Home() {
 
               <div className="mt-6 rounded-2xl border border-line bg-paper p-4">
                 <div className="flex items-start gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent text-white">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#f59e0b" }}>
                     <Award className="h-5 w-5" />
                   </span>
                   <div>
@@ -173,11 +177,18 @@ export default function Home() {
                 Focus areas
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {["RAG", "LangChain", "n8n", "Next.js", "Power BI", "Python"].map((tag) => (
-                  <span key={tag} className="chip">
-                    {tag}
-                  </span>
-                ))}
+                {["RAG", "LangChain", "n8n", "Next.js", "Power BI", "Python"].map((tag, i) => {
+                  const c = POP[i % POP.length];
+                  return (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium"
+                      style={{ color: c, borderColor: `${c}40`, backgroundColor: `${c}0d` }}
+                    >
+                      {tag}
+                    </span>
+                  );
+                })}
               </div>
             </motion.div>
           </div>
@@ -195,7 +206,7 @@ export default function Home() {
               <span
                 key={name}
                 title={name}
-                className="text-ink-700 opacity-50 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0"
+                className="text-ink-700 opacity-60 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0"
               >
                 <Mark className="h-7 w-auto" />
               </span>
@@ -212,48 +223,51 @@ export default function Home() {
         <div className="container-x">
           <div className="max-w-2xl space-y-4">
             <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#8b5cf6" }} />
               The path so far
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-              Experience &amp; education
+              Experience &amp; <span className="text-pop">education</span>
             </h2>
           </div>
 
           <ol className="mt-12 space-y-3">
-            {experiences.map((exp, i) => (
-              <motion.li
-                key={`${exp.role}-${exp.period}`}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="card card-hover grid gap-4 p-6 md:grid-cols-[200px_1fr] md:items-start md:gap-8"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-paper text-ink">
-                    <exp.icon className="h-5 w-5" />
-                  </span>
-                  <span className="font-mono text-xs uppercase tracking-[0.14em] text-ink-400">
-                    {exp.period}
-                  </span>
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-baseline gap-x-2">
-                    <h3 className="font-display text-lg font-semibold tracking-tight text-ink">
-                      {exp.role}
-                    </h3>
-                    {exp.current && (
-                      <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-600">
-                        Now
-                      </span>
-                    )}
+            {experiences.map((exp, i) => {
+              const c = POP[i % POP.length];
+              return (
+                <motion.li
+                  key={`${exp.role}-${exp.period}`}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="card card-hover grid gap-4 p-6 md:grid-cols-[200px_1fr] md:items-start md:gap-8"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white" style={{ backgroundColor: c }}>
+                      <exp.icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs uppercase tracking-[0.14em] text-ink-400">
+                      {exp.period}
+                    </span>
                   </div>
-                  <p className="text-sm font-medium text-accent">{exp.company}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-500">{exp.description}</p>
-                </div>
-              </motion.li>
-            ))}
+                  <div>
+                    <div className="flex flex-wrap items-baseline gap-x-2">
+                      <h3 className="font-display text-lg font-semibold tracking-tight text-ink">
+                        {exp.role}
+                      </h3>
+                      {exp.current && (
+                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-600">
+                          Now
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm font-medium" style={{ color: c }}>{exp.company}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-500">{exp.description}</p>
+                  </div>
+                </motion.li>
+              );
+            })}
           </ol>
         </div>
       </section>
@@ -264,11 +278,11 @@ export default function Home() {
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl space-y-4">
               <span className="eyebrow">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f43f5e" }} />
                 Selected work
               </span>
               <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-                Projects with measurable impact
+                Projects with <span className="text-pop">measurable impact</span>
               </h2>
             </div>
             <Link href="/projects" className="btn-outline w-fit shrink-0">
@@ -278,64 +292,68 @@ export default function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {featured.map((project, i) => (
-              <motion.article
-                key={project.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="card card-hover flex flex-col p-7"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-display text-xl font-semibold tracking-tight text-ink">
-                    {project.title}
-                  </h3>
-                  <span className="font-mono text-xs text-ink-400">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-ink-500">{project.description}</p>
-
-                <div className="mt-4 flex items-center gap-2 rounded-xl bg-accent-soft px-3 py-2">
-                  <Sparkles className="h-4 w-4 shrink-0 text-accent" />
-                  <p className="text-xs font-medium text-accent-strong">{project.impact}</p>
-                </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span key={tech} className="chip">
-                      {tech}
+            {featured.map((project, i) => {
+              const c = POP[i % POP.length];
+              return (
+                <motion.article
+                  key={project.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="card card-hover relative flex flex-col overflow-hidden p-7"
+                >
+                  <span className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: c }} />
+                  <div className="flex items-start justify-between gap-4 pt-1.5">
+                    <h3 className="font-display text-xl font-semibold tracking-tight text-ink">
+                      {project.title}
+                    </h3>
+                    <span className="font-mono text-xl font-semibold" style={{ color: c }}>
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                  ))}
-                </div>
-
-                {(project.demo || project.github) && (
-                  <div className="mt-6 flex items-center gap-4 border-t border-line pt-5">
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-accent"
-                      >
-                        <ExternalLink className="h-4 w-4" /> Live site
-                      </a>
-                    )}
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-accent"
-                      >
-                        <Github className="h-4 w-4" /> Code
-                      </a>
-                    )}
                   </div>
-                )}
-              </motion.article>
-            ))}
+                  <p className="mt-3 text-sm leading-relaxed text-ink-500">{project.description}</p>
+
+                  <div className="mt-4 flex items-center gap-2 rounded-xl px-3 py-2" style={{ backgroundColor: `${c}12` }}>
+                    <Sparkles className="h-4 w-4 shrink-0" style={{ color: c }} />
+                    <p className="text-xs font-medium" style={{ color: c }}>{project.impact}</p>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
+                      <span key={tech} className="chip">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {(project.demo || project.github) && (
+                    <div className="mt-6 flex items-center gap-4 border-t border-line pt-5">
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-opacity hover:opacity-70"
+                        >
+                          <ExternalLink className="h-4 w-4" /> Live site
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-opacity hover:opacity-70"
+                        >
+                          <Github className="h-4 w-4" /> Code
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </motion.article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -345,11 +363,11 @@ export default function Home() {
         <div className="container-x">
           <div className="max-w-2xl space-y-4">
             <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f59e0b" }} />
               Toolkit
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-              The stack I reach for
+              The stack I <span className="text-pop">reach for</span>
             </h2>
           </div>
           <div className="mt-12">
@@ -363,11 +381,11 @@ export default function Home() {
         <div className="container-x grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="space-y-6">
             <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#2563eb" }} />
               Let&apos;s work together
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-              Tell me what you want to build
+              Tell me what you <span className="text-pop">want to build</span>
             </h2>
             <p className="text-base leading-relaxed text-ink-500">
               Whether it&apos;s an AI assistant, a RAG copilot, an automation pipeline, or a
@@ -375,16 +393,16 @@ export default function Home() {
               how I&apos;d approach it, a rough timeline, and next steps.
             </p>
             <div className="space-y-3 border-t border-line pt-6 text-sm">
-              <a href="mailto:moniemghazal@gmail.com" className="flex items-center gap-3 text-ink-700 transition-colors hover:text-accent">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-line">@</span>
+              <a href="mailto:moniemghazal@gmail.com" className="flex items-center gap-3 text-ink-700 transition-colors hover:text-ink">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#2563eb" }}>@</span>
                 moniemghazal@gmail.com
               </a>
-              <a href="tel:+201009441336" className="flex items-center gap-3 text-ink-700 transition-colors hover:text-accent">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-line font-mono text-xs">+20</span>
+              <a href="tel:+201009441336" className="flex items-center gap-3 text-ink-700 transition-colors hover:text-ink">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg font-mono text-[10px] text-white" style={{ backgroundColor: "#f43f5e" }}>+20</span>
                 +20 100 944 1336
               </a>
               <p className="flex items-center gap-3 text-ink-700">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-line">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#8b5cf6" }}>
                   <MapPin className="h-4 w-4" />
                 </span>
                 Nasr City, Cairo · Remote-friendly
