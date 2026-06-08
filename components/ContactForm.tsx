@@ -146,7 +146,7 @@ export default function ContactForm() {
         </select>
       </div>
 
-      <button type="submit" disabled={isSubmitDisabled} className="btn-accent disabled:cursor-not-allowed disabled:bg-line disabled:text-ink-400">
+      <button type="submit" disabled={isSubmitDisabled} className="btn-grad disabled:cursor-not-allowed disabled:opacity-40">
         Send project brief
         <ArrowUpRight className="h-4 w-4" />
       </button>

@@ -12,21 +12,29 @@ const iconMap = {
   chart: BarChart3,
 } as const;
 
+const colors = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b"];
+
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = iconMap[service.icon];
+  const color = colors[index % colors.length];
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
-      className="card card-hover group flex flex-col p-7"
+      className="card card-hover group relative flex flex-col overflow-hidden p-7"
     >
-      <div className="flex items-center justify-between">
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-white transition-colors group-hover:bg-accent">
+      <span className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: color }} />
+
+      <div className="flex items-center justify-between pt-1.5">
+        <span
+          className="flex h-12 w-12 items-center justify-center rounded-xl text-white transition-transform group-hover:scale-105"
+          style={{ backgroundColor: color }}
+        >
           <Icon className="h-6 w-6" />
         </span>
-        <span className="font-mono text-xs text-ink-400">
+        <span className="font-mono text-2xl font-semibold" style={{ color }}>
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
@@ -39,7 +47,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       <ul className="mt-5 space-y-2.5 border-t border-line pt-5">
         {service.deliverables.map((item) => (
           <li key={item} className="flex items-start gap-2.5 text-sm text-ink-700">
-            <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+            <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color }} />
             {item}
           </li>
         ))}
@@ -55,18 +63,18 @@ export default function Services() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl space-y-4">
             <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f43f5e" }} />
               What I can build for you
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
-              Freelance services, shipped end-to-end
+              Freelance services, <span className="text-pop">shipped end-to-end</span>
             </h2>
             <p className="text-base leading-relaxed text-ink-500">
               I partner with founders and teams to design, build, and ship AI and automation
               that pays for itself — scoped to your outcome, not billable hours.
             </p>
           </div>
-          <Link href="/#contact" className="btn-outline w-fit shrink-0">
+          <Link href="/#contact" className="btn-grad w-fit shrink-0">
             Get a quote
             <ArrowUpRight className="h-4 w-4" />
           </Link>

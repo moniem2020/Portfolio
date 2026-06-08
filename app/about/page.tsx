@@ -9,10 +9,13 @@ export const metadata: Metadata = {
     "Moniem Ghazal — AI, Automation & Full-Stack Developer in Cairo. Milestones, certifications, and how I approach building software for teams.",
 };
 
+const POP = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b", "#65a30d"];
+
 const certifications = [
   {
     provider: "McKinsey & Company",
     badge: "Forward",
+    color: "#f59e0b",
     course: "McKinsey.org Forward Program",
     year: "Jul 2025",
     highlight: "Leadership labs, issue prioritisation, and decision sprints for fast-moving teams.",
@@ -20,6 +23,7 @@ const certifications = [
   {
     provider: "DeepLearning.AI",
     badge: "LangChain",
+    color: "#8b5cf6",
     course: "LangChain for LLM Application Development",
     year: "Aug 2025",
     highlight: "Retrieval-augmented workflows, guardrails, and evaluation harnesses for production LLM apps.",
@@ -63,10 +67,10 @@ const milestones = [
 ];
 
 const craft = [
-  "Automation workflows with n8n & internal AI tools",
-  "RAG assistants with LangChain & prompt engineering",
-  "ML models & Power BI dashboards",
-  "Full-stack Next.js apps shipped to production",
+  { text: "Automation workflows with n8n & internal AI tools", color: "#2563eb" },
+  { text: "RAG assistants with LangChain & prompt engineering", color: "#8b5cf6" },
+  { text: "ML models & Power BI dashboards", color: "#f43f5e" },
+  { text: "Full-stack Next.js apps shipped to production", color: "#f59e0b" },
 ];
 
 export default function About() {
@@ -76,11 +80,11 @@ export default function About() {
         {/* Header */}
         <header className="space-y-5">
           <span className="eyebrow">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#8b5cf6" }} />
             About
           </span>
           <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
-            Building software that matters
+            Building software that <span className="text-pop">matters</span>
           </h1>
           <p className="max-w-3xl text-lg leading-relaxed text-ink-500">
             I&apos;m Moniem Ghazal — I work on AI &amp; automation at Intercom Enterprises and build
@@ -103,15 +107,16 @@ export default function About() {
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {craft.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm text-ink-700">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                  {item}
+                <li key={item.text} className="flex items-start gap-2.5 text-sm text-ink-700">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0" style={{ color: item.color }} />
+                  {item.text}
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="flex flex-col justify-between rounded-2xl bg-ink p-8 text-white">
+          <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-ink p-8 text-white">
+            <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] via-[#8b5cf6] to-[#f43f5e]" />
             <div>
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/50">
                 Currently
@@ -131,9 +136,9 @@ export default function About() {
         {/* Certifications */}
         <section className="mt-20">
           <div className="flex items-center gap-3">
-            <Award className="h-5 w-5 text-accent" />
+            <Award className="h-5 w-5" style={{ color: "#f59e0b" }} />
             <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
-              Certified &amp; always learning
+              Certified &amp; <span className="text-pop">always learning</span>
             </h2>
           </div>
           <p className="mt-2 max-w-2xl text-sm text-ink-500">
@@ -142,16 +147,20 @@ export default function About() {
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             {certifications.map((cert) => (
-              <div key={cert.course} className="card card-hover p-5">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-accent-soft px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">
+              <div key={cert.course} className="card card-hover relative overflow-hidden p-5">
+                <span className="absolute inset-y-0 left-0 w-1.5" style={{ backgroundColor: cert.color }} />
+                <div className="flex items-center justify-between pl-1.5">
+                  <span
+                    className="rounded-full px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-white"
+                    style={{ backgroundColor: cert.color }}
+                  >
                     {cert.badge}
                   </span>
                   <span className="text-xs text-ink-400">{cert.year}</span>
                 </div>
-                <p className="mt-3 text-sm font-semibold text-ink">{cert.course}</p>
-                <p className="text-xs font-medium text-ink-500">{cert.provider}</p>
-                <p className="mt-2 text-xs leading-relaxed text-ink-500">{cert.highlight}</p>
+                <p className="mt-3 pl-1.5 text-sm font-semibold text-ink">{cert.course}</p>
+                <p className="pl-1.5 text-xs font-medium text-ink-500">{cert.provider}</p>
+                <p className="mt-2 pl-1.5 text-xs leading-relaxed text-ink-500">{cert.highlight}</p>
               </div>
             ))}
           </div>
@@ -161,25 +170,29 @@ export default function About() {
         <section className="mt-20">
           <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">Milestones</h2>
           <div className="mt-8 space-y-3">
-            {milestones.map((milestone, i) => (
-              <Reveal
-                key={`${milestone.role}-${milestone.year}`}
-                as="article"
-                delay={i * 0.05}
-                className="card grid gap-3 p-6 md:grid-cols-[260px_1fr] md:items-start md:gap-8"
-              >
-                <div>
-                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-400">
-                    {milestone.year}
-                  </p>
-                  <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-ink">
-                    {milestone.role}
-                  </h3>
-                  <p className="text-sm font-medium text-accent">{milestone.company}</p>
-                </div>
-                <p className="text-sm leading-relaxed text-ink-500">{milestone.description}</p>
-              </Reveal>
-            ))}
+            {milestones.map((milestone, i) => {
+              const c = POP[i % POP.length];
+              return (
+                <Reveal
+                  key={`${milestone.role}-${milestone.year}`}
+                  as="article"
+                  delay={i * 0.05}
+                  className="card relative grid gap-3 overflow-hidden p-6 md:grid-cols-[260px_1fr] md:items-start md:gap-8"
+                >
+                  <span className="absolute inset-y-0 left-0 w-1.5" style={{ backgroundColor: c }} />
+                  <div className="pl-1.5">
+                    <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-400">
+                      {milestone.year}
+                    </p>
+                    <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-ink">
+                      {milestone.role}
+                    </h3>
+                    <p className="text-sm font-medium" style={{ color: c }}>{milestone.company}</p>
+                  </div>
+                  <p className="text-sm leading-relaxed text-ink-500">{milestone.description}</p>
+                </Reveal>
+              );
+            })}
           </div>
         </section>
 
@@ -193,7 +206,7 @@ export default function About() {
               I&apos;m available for freelance AI, automation, and web projects.
             </p>
           </div>
-          <Link href="/#contact" className="btn-accent shrink-0">
+          <Link href="/#contact" className="btn-grad shrink-0">
             Start a project
             <ArrowUpRight className="h-4 w-4" />
           </Link>

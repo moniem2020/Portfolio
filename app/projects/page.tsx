@@ -10,17 +10,22 @@ export const metadata: Metadata = {
     "Selected projects by Moniem Ghazal — AI assistants, RAG copilots, automation pipelines, and full-stack web apps with measurable impact.",
 };
 
+const POP = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b", "#65a30d", "#06b6d4"];
+
 const spotlight = [
   {
     label: "Automation",
+    color: "#2563eb",
     body: "Systems that shrink repetitive operations, keep humans in the loop, and surface the right context automatically.",
   },
   {
     label: "AI assistants",
+    color: "#8b5cf6",
     body: "From retrieval-augmented copilots to routing agents — each project pairs LLMs with robust guardrails.",
   },
   {
     label: "Product velocity",
+    color: "#f43f5e",
     body: "I ship quickly, validate with the team, and iterate until the experience becomes second nature.",
   },
 ];
@@ -32,11 +37,11 @@ export default function Projects() {
         {/* Header */}
         <header className="max-w-3xl space-y-5">
           <span className="eyebrow">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f43f5e" }} />
             Selected work
           </span>
           <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
-            Work that pairs automation with measurable impact
+            Work that pairs automation with <span className="text-pop">measurable impact</span>
           </h1>
           <p className="text-lg leading-relaxed text-ink-500">
             Every engagement starts with the business outcome. I partner with teams to design the
@@ -48,8 +53,9 @@ export default function Projects() {
         {/* Spotlight */}
         <div className="mt-12 grid gap-5 sm:grid-cols-3">
           {spotlight.map((item) => (
-            <div key={item.label} className="card p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">
+            <div key={item.label} className="card relative overflow-hidden p-6">
+              <span className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: item.color }} />
+              <p className="pt-1.5 font-mono text-xs uppercase tracking-[0.16em]" style={{ color: item.color }}>
                 {item.label}
               </p>
               <p className="mt-3 text-sm leading-relaxed text-ink-500">{item.body}</p>
@@ -66,86 +72,91 @@ export default function Projects() {
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <Reveal
-              key={project.title}
-              as="article"
-              delay={index * 0.06}
-              className="card card-hover flex flex-col p-8"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-2xl font-semibold tracking-tight text-ink">
-                  {project.title}
-                </h3>
-                <span className="font-mono text-sm text-ink-400">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.techStack.map((tech) => (
-                  <span key={tech} className="chip">
-                    {tech}
+          {projects.map((project, index) => {
+            const c = POP[index % POP.length];
+            return (
+              <Reveal
+                key={project.title}
+                as="article"
+                delay={index * 0.06}
+                className="card card-hover relative flex flex-col overflow-hidden p-8"
+              >
+                <span className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: c }} />
+                <div className="flex items-start justify-between gap-4 pt-1.5">
+                  <h3 className="font-display text-2xl font-semibold tracking-tight text-ink">
+                    {project.title}
+                  </h3>
+                  <span className="font-mono text-2xl font-semibold" style={{ color: c }}>
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                ))}
-              </div>
+                </div>
 
-              <p className="mt-4 text-base leading-relaxed text-ink-500">{project.description}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span key={tech} className="chip">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
 
-              {project.challenge && (
-                <div className="mt-5 space-y-3">
-                  <div className="rounded-xl border border-line bg-paper p-4">
-                    <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
-                      Challenge
-                    </p>
-                    <p className="mt-1.5 text-sm text-ink-700">{project.challenge}</p>
-                  </div>
-                  {project.solution && (
-                    <div className="rounded-xl border border-accent/20 bg-accent-soft p-4">
-                      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">
-                        Solution
+                <p className="mt-4 text-base leading-relaxed text-ink-500">{project.description}</p>
+
+                {project.challenge && (
+                  <div className="mt-5 space-y-3">
+                    <div className="rounded-xl border border-line bg-paper p-4">
+                      <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-ink-400">
+                        Challenge
                       </p>
-                      <p className="mt-1.5 text-sm text-ink-700">{project.solution}</p>
+                      <p className="mt-1.5 text-sm text-ink-700">{project.challenge}</p>
                     </div>
-                  )}
-                </div>
-              )}
+                    {project.solution && (
+                      <div className="rounded-xl p-4" style={{ backgroundColor: `${c}12` }}>
+                        <p className="font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: c }}>
+                          Solution
+                        </p>
+                        <p className="mt-1.5 text-sm text-ink-700">{project.solution}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
 
-              <div className="mt-5 flex items-center gap-2">
-                <Sparkles className="h-4 w-4 shrink-0 text-accent" />
-                <p className="text-sm font-medium text-ink-700">{project.impact}</p>
-              </div>
-
-              {(project.demo || project.github) && (
-                <div className="mt-6 flex items-center gap-4 border-t border-line pt-5">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-accent"
-                    >
-                      <ExternalLink className="h-4 w-4" /> Live site
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-colors hover:text-accent"
-                    >
-                      <Github className="h-4 w-4" /> View code
-                    </a>
-                  )}
+                <div className="mt-5 flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 shrink-0" style={{ color: c }} />
+                  <p className="text-sm font-medium text-ink-700">{project.impact}</p>
                 </div>
-              )}
-            </Reveal>
-          ))}
+
+                {(project.demo || project.github) && (
+                  <div className="mt-6 flex items-center gap-4 border-t border-line pt-5">
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-opacity hover:opacity-70"
+                      >
+                        <ExternalLink className="h-4 w-4" /> Live site
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink transition-opacity hover:opacity-70"
+                      >
+                        <Github className="h-4 w-4" /> View code
+                      </a>
+                    )}
+                  </div>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* CTA */}
-        <div className="mt-16 flex flex-col items-start gap-4 rounded-2xl bg-ink p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
+        <div className="relative mt-16 flex flex-col items-start gap-4 overflow-hidden rounded-2xl bg-ink p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
+          <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] via-[#8b5cf6] via-[#f43f5e] to-[#f59e0b]" />
           <div>
             <h2 className="font-display text-2xl font-semibold tracking-tight">
               Want results like these?
@@ -154,10 +165,7 @@ export default function Projects() {
               I take on a limited number of freelance projects at a time.
             </p>
           </div>
-          <Link
-            href="/#contact"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-white"
-          >
+          <Link href="/#contact" className="btn-grad shrink-0">
             Book a call
             <ArrowUpRight className="h-4 w-4" />
           </Link>
