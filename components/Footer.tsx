@@ -6,7 +6,6 @@ import { Linkedin, Github, Mail, MapPin, Phone, ArrowUpRight } from "lucide-reac
 const socialLinks = [
   { name: "LinkedIn", href: "https://www.linkedin.com/in/moniem-ghazal-49617438a/", icon: Linkedin },
   { name: "GitHub", href: "https://github.com/moniem2020", icon: Github },
-  { name: "Email", href: "/contact", icon: Mail },
 ];
 
 const quickLinks = [
