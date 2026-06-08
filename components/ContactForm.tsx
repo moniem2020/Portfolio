@@ -16,9 +16,6 @@ type FormState = typeof defaultState;
 type Field = keyof FormState;
 type Status = "idle" | "submitting" | "success" | "error";
 
-const ACCESS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "c3529407-f9f7-4616-b81d-5db8e6bd05b4";
-
 const inputClasses =
   "mt-2 w-full rounded-xl border border-line bg-paper px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-400 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-2 focus:ring-accent/15";
 const labelClasses = "block text-xs font-semibold uppercase tracking-[0.16em] text-ink-500";
@@ -26,6 +23,7 @@ const labelClasses = "block text-xs font-semibold uppercase tracking-[0.16em] te
 export default function ContactForm() {
   const [formState, setFormState] = useState<FormState>(defaultState);
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const updateField =
     (field: Field) =>
@@ -37,31 +35,22 @@ export default function ContactForm() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: formState.projectSummary
-            ? `Portfolio inquiry: ${formState.projectSummary.slice(0, 60)}`
-            : "New freelance inquiry from your portfolio",
-          from_name: formState.name || "Portfolio visitor",
-          name: formState.name,
-          email: formState.email,
-          company: formState.company,
-          timeline: formState.timeline,
-          message: formState.projectSummary,
-        }),
+        body: JSON.stringify(formState),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({ success: false }));
 
       if (data.success) {
         setStatus("success");
         setFormState(defaultState);
       } else {
+        setErrorMessage(data.message ?? "");
         setStatus("error");
       }
     } catch {
@@ -199,7 +188,8 @@ export default function ContactForm() {
 
       {status === "error" && (
         <p className="text-xs text-rose-600">
-          Something went wrong while sending. Please email me directly at{" "}
+          {errorMessage ? `${errorMessage} ` : "Something went wrong while sending. "}
+          You can also email me directly at{" "}
           <a href="mailto:moniemghazal@gmail.com" className="font-semibold underline">
             moniemghazal@gmail.com
           </a>
