@@ -16,7 +16,8 @@ type FormState = typeof defaultState;
 type Field = keyof FormState;
 type Status = "idle" | "submitting" | "success" | "error";
 
-const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
+const ACCESS_KEY =
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "c3529407-f9f7-4616-b81d-5db8e6bd05b4";
 
 const inputClasses =
   "mt-2 w-full rounded-xl border border-line bg-paper px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-400 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-2 focus:ring-accent/15";
