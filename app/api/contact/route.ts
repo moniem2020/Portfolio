@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 
-const ACCESS_KEY =
-  process.env.WEB3FORMS_ACCESS_KEY ||
-  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
-  "c3529407-f9f7-4616-b81d-5db8e6bd05b4";
+const RESEND_API_KEY = process.env.RESEND_API_KEY || "";
+const TO_EMAIL = "moniemghazal@gmail.com";
+// Resend lets you send from this address without verifying a domain.
+const FROM_EMAIL = "Portfolio Contact <onboarding@resend.dev>";
 
 export async function POST(request: Request) {
   try {
@@ -16,42 +16,62 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!RESEND_API_KEY) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Email is not configured yet. Please email moniemghazal@gmail.com directly for now.",
+        },
+        { status: 503 },
+      );
+    }
+
     const { name, email, company, projectSummary, timeline } = data;
 
-    const res = await fetch("https://api.web3forms.com/submit", {
+    const bodyText = [
+      "New message from your portfolio contact form.",
+      "",
+      `Name: ${name || "(not provided)"}`,
+      `Email: ${email}`,
+      `Company: ${company || "(not provided)"}`,
+      `Timeline: ${timeline || "(not provided)"}`,
+      "",
+      "Project context:",
+      projectSummary,
+    ].join("\n");
+
+    const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
         "Content-Type": "application/json",
-        Accept: "application/json",
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
       },
       body: JSON.stringify({
-        access_key: ACCESS_KEY,
-        subject: projectSummary
-          ? `Portfolio inquiry: ${String(projectSummary).slice(0, 60)}`
-          : "New freelance inquiry from your portfolio",
-        from_name: name || "Portfolio visitor",
-        name,
-        email,
-        company,
-        timeline,
-        message: projectSummary,
+        from: FROM_EMAIL,
+        to: [TO_EMAIL],
+        reply_to: email,
+        subject: `Portfolio inquiry from ${name || email}`,
+        text: bodyText,
       }),
     });
 
     const text = await res.text();
-    let result: { success?: boolean; message?: string };
+    let result: { id?: string; message?: string; name?: string };
     try {
       result = JSON.parse(text);
     } catch {
-      result = {
-        success: false,
-        message: `Email provider returned ${res.status}. ${text.slice(0, 160)}`.trim(),
-      };
+      result = { message: `Email provider returned ${res.status}.` };
     }
 
-    return NextResponse.json(result, { status: result.success ? 200 : 502 });
+    if (res.ok && result.id) {
+      return NextResponse.json({ success: true });
+    }
+
+    return NextResponse.json(
+      { success: false, message: result.message || `Email provider returned ${res.status}.` },
+      { status: 502 },
+    );
   } catch {
     return NextResponse.json(
       { success: false, message: "Server error while sending your message." },
