@@ -55,7 +55,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/#contact" className="btn-accent px-5 py-2 text-sm">
+          <Link href="/#contact" className="btn-grad px-5 py-2 text-sm">
             Book a call
             <ArrowUpRight className="h-4 w-4" />
           </Link>
@@ -94,7 +94,7 @@ export default function Navbar() {
               <Link
                 href="/#contact"
                 onClick={() => setOpen(false)}
-                className="btn-accent mt-2 w-full"
+                className="btn-grad mt-2 w-full"
               >
                 Book a call
                 <ArrowUpRight className="h-4 w-4" />

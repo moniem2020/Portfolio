@@ -2,28 +2,25 @@
 
 import { motion } from "framer-motion";
 
+const bars = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b", "#65a30d"];
+
 export default function TransitionEffect() {
   return (
-    <>
-      <motion.div
-        className="fixed top-0 bottom-0 right-full z-[60] h-screen w-screen bg-ink"
-        initial={{ x: "100%", width: "100%" }}
-        animate={{ x: "0%", width: "0%" }}
-        exit={{ x: ["0%", "100%"], width: ["0%", "100%"] }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="fixed top-0 bottom-0 right-full z-[55] h-screen w-screen bg-accent"
-        initial={{ x: "100%", width: "100%" }}
-        animate={{ x: "0%", width: "0%" }}
-        transition={{ delay: 0.1, duration: 0.6, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="fixed top-0 bottom-0 right-full z-[50] h-screen w-screen bg-ink-700"
-        initial={{ x: "100%", width: "100%" }}
-        animate={{ x: "0%", width: "0%" }}
-        transition={{ delay: 0.2, duration: 0.6, ease: "easeInOut" }}
-      />
-    </>
+    <div className="pointer-events-none fixed inset-0 z-[70] flex">
+      {bars.map((color, i) => (
+        <motion.div
+          key={color}
+          className="h-full flex-1"
+          style={{ backgroundColor: color, transformOrigin: "top" }}
+          initial={{ scaleY: 1 }}
+          animate={{ scaleY: 0 }}
+          transition={{
+            duration: 0.7,
+            delay: 0.15 + i * 0.08,
+            ease: [0.76, 0, 0.24, 1],
+          }}
+        />
+      ))}
+    </div>
   );
 }
