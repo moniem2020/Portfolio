@@ -1,107 +1,113 @@
-﻿'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { Linkedin, Github, Mail, MapPin, Phone } from 'lucide-react';
+import Link from "next/link";
+import { Linkedin, Github, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 
 const socialLinks = [
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/moniem-ghazal-49617438a/', icon: Linkedin },
-  { name: 'GitHub', href: 'https://github.com/moniem2020', icon: Github },
-  { name: 'Email', href: 'mailto:moniemghazal@gmail.com', icon: Mail },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/moniem-ghazal-49617438a/", icon: Linkedin },
+  { name: "GitHub", href: "https://github.com/moniem2020", icon: Github },
+  { name: "Email", href: "mailto:moniemghazal@gmail.com", icon: Mail },
 ];
 
 const quickLinks = [
-  { name: 'About', href: '/about' },
-  { name: 'Projects', href: '/projects' },
+  { name: "Services", href: "/#services" },
+  { name: "Work", href: "/projects" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Footer() {
-  return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 text-white">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
+  const year = new Date().getFullYear();
 
-      <div className="container-custom relative py-12">
-        <div className="flex flex-col gap-12 md:flex-row md:justify-between">
-          {/* Brand Section */}
-          <div className="space-y-4 md:max-w-md">
-            <div className="flex items-center gap-2">
-              <div className="relative h-14 w-14">
-                <Image
-                  src="/logo.png"
-                  alt="Moniem Ghazal"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="text-xl font-bold">Moniem Ghazal</span>
-            </div>
-            <p className="text-sm leading-relaxed text-slate-300">
-              Software Engineer building software that helps teams work smarter. Passionate about automation, problem-solving, and turning technology into practical impact.
+  return (
+    <footer className="relative overflow-hidden bg-ink text-white">
+      <div className="bg-grid absolute inset-0 opacity-[0.08]" />
+      <div className="container-x relative">
+        {/* CTA band */}
+        <div className="flex flex-col gap-6 border-b border-white/10 py-14 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-xl space-y-3">
+            <p className="font-mono text-xs uppercase tracking-[0.22em] text-white/50">
+              Available for freelance
             </p>
-            <div className="flex gap-3">
+            <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
+              Have a workflow worth automating?
+            </h2>
+            <p className="text-sm leading-relaxed text-white/60">
+              Tell me what&apos;s slowing your team down — I&apos;ll tell you how I&apos;d ship it.
+            </p>
+          </div>
+          <Link
+            href="/#contact"
+            className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-white"
+          >
+            Start a project
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        {/* Main */}
+        <div className="grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div className="space-y-4">
+            <span className="font-display text-lg font-semibold">Moniem Ghazal</span>
+            <p className="max-w-sm text-sm leading-relaxed text-white/55">
+              AI &amp; Automation Engineer building RAG copilots, AI assistants, and full-stack apps
+              that turn messy operations into reliable workflows.
+            </p>
+            <div className="flex gap-2.5 pt-1">
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm transition-all hover:scale-110 hover:bg-white/20"
-                  title={link.name}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/80 transition-colors hover:border-white hover:bg-white hover:text-ink"
+                  aria-label={link.name}
                 >
-                  <link.icon className="h-5 w-5" />
+                  <link.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Links Group */}
-          <div className="flex flex-col gap-8 sm:flex-row sm:gap-16">
-            {/* Quick Links */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-300">Quick Links</h3>
-              <ul className="space-y-2">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-slate-300 transition-colors hover:text-white"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="space-y-4">
+            <h3 className="font-mono text-xs uppercase tracking-[0.22em] text-white/40">Navigate</h3>
+            <ul className="space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-sm text-white/65 transition-colors hover:text-white">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Contact Info */}
-            <div className="space-y-4">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-indigo-300">Get In Touch</h3>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
-                  <span>Cairo, Egypt</span>
-                </li>
-                <li>
-                  <a href="mailto:moniemghazal@gmail.com" className="flex items-center gap-2 hover:text-white">
-                    <Mail className="h-4 w-4" />
-                    <span>moniemghazal@gmail.com</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:+201009441336" className="flex items-center gap-2 hover:text-white">
-                    <Phone className="h-4 w-4" />
-                    <span>+20 100 944 1336</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="space-y-4">
+            <h3 className="font-mono text-xs uppercase tracking-[0.22em] text-white/40">Get in touch</h3>
+            <ul className="space-y-3 text-sm text-white/65">
+              <li className="flex items-center gap-2.5">
+                <MapPin className="h-4 w-4 text-white/40" />
+                Nasr City, Cairo
+              </li>
+              <li>
+                <a href="mailto:moniemghazal@gmail.com" className="flex items-center gap-2.5 transition-colors hover:text-white">
+                  <Mail className="h-4 w-4 text-white/40" />
+                  moniemghazal@gmail.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+201009441336" className="flex items-center gap-2.5 transition-colors hover:text-white">
+                  <Phone className="h-4 w-4 text-white/40" />
+                  +20 100 944 1336
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-slate-400">
-          <p>© {new Date().getFullYear()} Moniem Ghazal. Building software that matters.</p>
+        <div className="flex flex-col gap-2 border-t border-white/10 py-7 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} Moniem Ghazal. Built with Next.js &amp; Tailwind.</p>
+          <p className="font-mono uppercase tracking-[0.18em]">Building software that matters</p>
         </div>
       </div>
     </footer>

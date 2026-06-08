@@ -1,25 +1,53 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import TransitionEffect from "@/components/TransitionEffect";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Moniem Ghazal – Software Engineer",
-  description: "I build software that helps teams work smarter, not harder ,solving problems, automating tasks, and turning technology into practical impact.",
+  metadataBase: new URL("https://moniemghazal.vercel.app"),
+  title: "Moniem Ghazal — AI & Automation Engineer",
+  description:
+    "Freelance AI & Automation Engineer. I build RAG copilots, AI agents, automation pipelines, and full-stack web apps that help teams work smarter. Available for freelance projects.",
+  keywords: [
+    "AI Engineer",
+    "Automation",
+    "Freelance",
+    "LangChain",
+    "RAG",
+    "n8n",
+    "Power BI",
+    "Cairo",
+    "Moniem Ghazal",
+  ],
+  authors: [{ name: "Moniem Ghazal" }],
+  openGraph: {
+    title: "Moniem Ghazal — AI & Automation Engineer",
+    description:
+      "Freelance AI & Automation Engineer building RAG copilots, AI assistants, and full-stack apps that help teams work smarter.",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export default function RootLayout({
@@ -28,18 +56,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${archivo.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} scroll-smooth`}
+    >
+      <body className="min-h-screen bg-paper text-ink antialiased">
         <TransitionEffect />
         <Navbar />
-        <main className="relative">
-          {children}
-        </main>
+        <main className="relative">{children}</main>
         <Footer />
         <Analytics />
-
       </body>
     </html>
   );
