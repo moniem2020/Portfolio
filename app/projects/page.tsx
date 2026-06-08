@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Selected projects by Moniem Ghazal — AI assistants, RAG copilots, automation pipelines, and full-stack web apps with measurable impact.",
 };
 
-const POP = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b", "#65a30d", "#06b6d4"];
+const POP = ["#2563eb", "#f97316"];
 
 const spotlight = [
   {
@@ -20,12 +20,12 @@ const spotlight = [
   },
   {
     label: "AI assistants",
-    color: "#8b5cf6",
+    color: "#f97316",
     body: "From retrieval-augmented copilots to routing agents — each project pairs LLMs with robust guardrails.",
   },
   {
     label: "Product velocity",
-    color: "#f43f5e",
+    color: "#2563eb",
     body: "I ship quickly, validate with the team, and iterate until the experience becomes second nature.",
   },
 ];
@@ -37,7 +37,7 @@ export default function Projects() {
         {/* Header */}
         <header className="max-w-3xl space-y-5">
           <span className="eyebrow">
-            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f43f5e" }} />
+            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f97316" }} />
             Selected work
           </span>
           <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
@@ -156,7 +156,7 @@ export default function Projects() {
 
         {/* CTA */}
         <div className="relative mt-16 flex flex-col items-start gap-4 overflow-hidden rounded-2xl bg-ink p-8 text-white sm:flex-row sm:items-center sm:justify-between sm:p-10">
-          <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] via-[#8b5cf6] via-[#f43f5e] to-[#f59e0b]" />
+          <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] to-[#f97316]" />
           <div>
             <h2 className="font-display text-2xl font-semibold tracking-tight">
               Want results like these?

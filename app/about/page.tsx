@@ -9,13 +9,13 @@ export const metadata: Metadata = {
     "Moniem Ghazal — AI, Automation & Full-Stack Developer in Cairo. Milestones, certifications, and how I approach building software for teams.",
 };
 
-const POP = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b", "#65a30d"];
+const POP = ["#2563eb", "#f97316"];
 
 const certifications = [
   {
     provider: "McKinsey & Company",
     badge: "Forward",
-    color: "#f59e0b",
+    color: "#2563eb",
     course: "McKinsey.org Forward Program",
     year: "Jul 2025",
     highlight: "Leadership labs, issue prioritisation, and decision sprints for fast-moving teams.",
@@ -23,7 +23,7 @@ const certifications = [
   {
     provider: "DeepLearning.AI",
     badge: "LangChain",
-    color: "#8b5cf6",
+    color: "#f97316",
     course: "LangChain for LLM Application Development",
     year: "Aug 2025",
     highlight: "Retrieval-augmented workflows, guardrails, and evaluation harnesses for production LLM apps.",
@@ -68,9 +68,9 @@ const milestones = [
 
 const craft = [
   { text: "Automation workflows with n8n & internal AI tools", color: "#2563eb" },
-  { text: "RAG assistants with LangChain & prompt engineering", color: "#8b5cf6" },
-  { text: "ML models & Power BI dashboards", color: "#f43f5e" },
-  { text: "Full-stack Next.js apps shipped to production", color: "#f59e0b" },
+  { text: "RAG assistants with LangChain & prompt engineering", color: "#2563eb" },
+  { text: "ML models & Power BI dashboards", color: "#f97316" },
+  { text: "Full-stack Next.js apps shipped to production", color: "#f97316" },
 ];
 
 export default function About() {
@@ -80,7 +80,7 @@ export default function About() {
         {/* Header */}
         <header className="space-y-5">
           <span className="eyebrow">
-            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#8b5cf6" }} />
+            <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#2563eb" }} />
             About
           </span>
           <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
@@ -116,7 +116,7 @@ export default function About() {
           </div>
 
           <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-ink p-8 text-white">
-            <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] via-[#8b5cf6] to-[#f43f5e]" />
+            <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] to-[#f97316]" />
             <div>
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/50">
                 Currently
@@ -136,7 +136,7 @@ export default function About() {
         {/* Certifications */}
         <section className="mt-20">
           <div className="flex items-center gap-3">
-            <Award className="h-5 w-5" style={{ color: "#f59e0b" }} />
+            <Award className="h-5 w-5" style={{ color: "#f97316" }} />
             <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
               Certified &amp; <span className="text-pop">always learning</span>
             </h2>

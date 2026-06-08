@@ -1,10 +1,8 @@
 @import "tailwindcss";
 
-/* Color Pop rebuild — Moniem Ghazal portfolio */
 /* ============================================================
-   Color Pop — design tokens
-   White base · bold vivid color blocks
-   blue · lime · coral · violet · amber
+   Cobalt — design tokens
+   White base · Cobalt Blue primary + Amber-Orange accent (duotone)
    Display: Space Grotesk · Body: Archivo · Mono: JetBrains Mono
    ============================================================ */
 @theme {
@@ -16,18 +14,15 @@
   --color-ink-400: #71717a;
   --color-line: #ececf0;
 
-  /* Vivid palette */
-  --color-blue: #2563eb;
-  --color-lime: #65a30d;
-  --color-coral: #f43f5e;
-  --color-violet: #8b5cf6;
-  --color-amber: #f59e0b;
-  --color-cyan: #06b6d4;
-
-  /* Primary accent */
+  /* Primary: Cobalt Blue */
   --color-accent: #2563eb;
   --color-accent-strong: #1d4ed8;
   --color-accent-soft: #eff6ff;
+
+  /* Fit color: Amber-Orange */
+  --color-accent2: #f97316;
+  --color-accent2-strong: #ea580c;
+  --color-accent2-soft: #fff7ed;
 
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: var(--font-space-grotesk), var(--font-archivo), ui-sans-serif, sans-serif;
@@ -52,7 +47,7 @@ body {
 }
 
 ::selection {
-  background-color: #8b5cf6;
+  background-color: #2563eb;
   color: #ffffff;
 }
 
@@ -62,13 +57,11 @@ body {
   background-size: 28px 28px;
 }
 
-/* Colorful blurred blobs for the hero */
+/* Soft tinted blobs for the hero (cobalt + a touch of orange) */
 .bg-blobs {
   background-image:
-    radial-gradient(38% 44% at 12% 18%, rgba(37, 99, 235, 0.20) 0%, transparent 60%),
-    radial-gradient(34% 40% at 88% 12%, rgba(139, 92, 246, 0.20) 0%, transparent 60%),
-    radial-gradient(40% 44% at 78% 82%, rgba(244, 63, 94, 0.16) 0%, transparent 60%),
-    radial-gradient(34% 40% at 20% 88%, rgba(245, 158, 11, 0.16) 0%, transparent 60%);
+    radial-gradient(40% 46% at 14% 16%, rgba(37, 99, 235, 0.20) 0%, transparent 60%),
+    radial-gradient(38% 44% at 86% 84%, rgba(249, 115, 22, 0.14) 0%, transparent 60%);
 }
 
 @layer components {
@@ -80,12 +73,9 @@ body {
     @apply py-20 md:py-28;
   }
 
-  /* Multi-color gradient text */
+  /* Highlighted word — solid cobalt (no gradient) */
   .text-pop {
-    background-image: linear-gradient(100deg, #2563eb 0%, #8b5cf6 34%, #f43f5e 68%, #f59e0b 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--color-accent);
   }
 
   /* Eyebrow / kicker label */
@@ -95,16 +85,16 @@ body {
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
   }
 
+  /* Primary CTA — solid cobalt */
   .btn-grad {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(139,92,246,0.6)] transition-all duration-200 hover:brightness-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
-    background-image: linear-gradient(100deg, #2563eb, #8b5cf6 55%, #f43f5e);
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_30px_-12px_rgba(37,99,235,0.7)] transition-all duration-200 hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
   }
 
   .btn-outline {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-line bg-surface px-6 py-3 text-sm font-semibold text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full border border-line bg-surface px-6 py-3 text-sm font-semibold text-ink transition-all duration-200 hover:border-ink hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
   }
 
   /* Cards */
@@ -147,7 +137,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#8b5cf6, #2563eb);
+  background: #2563eb;
   border-radius: 9999px;
   border: 2px solid #f4f4f5;
 }

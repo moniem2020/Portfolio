@@ -19,12 +19,12 @@ import ContactForm from "@/components/ContactForm";
 import { NextjsMark, PythonMark, TailwindMark, VercelMark, N8nMark } from "@/components/BrandMarks";
 import { projects } from "@/data/projects";
 
-const POP = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b", "#65a30d", "#06b6d4"];
+const POP = ["#2563eb", "#f97316"];
 
 const stats = [
   { value: "3+", label: "Years building", color: "#2563eb" },
-  { value: "7", label: "Projects shipped", color: "#f43f5e" },
-  { value: "2", label: "Live products", color: "#8b5cf6" },
+  { value: "7", label: "Projects shipped", color: "#f97316" },
+  { value: "2", label: "Live products", color: "#2563eb" },
 ];
 
 const experiences = [
@@ -146,7 +146,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
               className="card relative overflow-hidden p-7"
             >
-              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] via-[#8b5cf6] to-[#f43f5e]" />
+              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#2563eb] to-[#f97316]" />
               <div className="flex items-center justify-between pt-1.5">
                 <span className="eyebrow">Currently</span>
                 <span className="flex items-center gap-1.5 text-xs text-ink-500">
@@ -163,7 +163,7 @@ export default function Home() {
 
               <div className="mt-6 rounded-2xl border border-line bg-paper p-4">
                 <div className="flex items-start gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#f59e0b" }}>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#f97316" }}>
                     <Award className="h-5 w-5" />
                   </span>
                   <div>
@@ -223,7 +223,7 @@ export default function Home() {
         <div className="container-x">
           <div className="max-w-2xl space-y-4">
             <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#8b5cf6" }} />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#2563eb" }} />
               The path so far
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
@@ -278,7 +278,7 @@ export default function Home() {
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl space-y-4">
               <span className="eyebrow">
-                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f43f5e" }} />
+                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f97316" }} />
                 Selected work
               </span>
               <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
@@ -363,7 +363,7 @@ export default function Home() {
         <div className="container-x">
           <div className="max-w-2xl space-y-4">
             <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f59e0b" }} />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f97316" }} />
               Toolkit
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
@@ -398,11 +398,11 @@ export default function Home() {
                 moniemghazal@gmail.com
               </a>
               <a href="tel:+201009441336" className="flex items-center gap-3 text-ink-700 transition-colors hover:text-ink">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg font-mono text-[10px] text-white" style={{ backgroundColor: "#f43f5e" }}>+20</span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg font-mono text-[10px] text-white" style={{ backgroundColor: "#f97316" }}>+20</span>
                 +20 100 944 1336
               </a>
               <p className="flex items-center gap-3 text-ink-700">
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#8b5cf6" }}>
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg text-white" style={{ backgroundColor: "#2563eb" }}>
                   <MapPin className="h-4 w-4" />
                 </span>
                 Nasr City, Cairo · Remote-friendly

@@ -12,7 +12,7 @@ const iconMap = {
   chart: BarChart3,
 } as const;
 
-const colors = ["#2563eb", "#8b5cf6", "#f43f5e", "#f59e0b"];
+const colors = ["#2563eb", "#f97316", "#2563eb", "#f97316"];
 
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const Icon = iconMap[service.icon];
@@ -25,6 +25,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
       transition={{ duration: 0.45, delay: index * 0.08 }}
       className="card card-hover group relative flex flex-col overflow-hidden p-7"
     >
+      {/* color top bar */}
       <span className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: color }} />
 
       <div className="flex items-center justify-between pt-1.5">
@@ -63,7 +64,7 @@ export default function Services() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl space-y-4">
             <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#f43f5e" }} />
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#2563eb" }} />
               What I can build for you
             </span>
             <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl">
