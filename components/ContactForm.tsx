@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 
 const defaultState = {
   name: "",
@@ -14,6 +14,9 @@ const defaultState = {
 
 type FormState = typeof defaultState;
 type Field = keyof FormState;
+type Status = "idle" | "submitting" | "success" | "error";
+
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 
 const inputClasses =
   "mt-2 w-full rounded-xl border border-line bg-paper px-3.5 py-2.5 text-sm text-ink placeholder:text-ink-400 transition-colors focus:border-accent focus:bg-surface focus:outline-none focus:ring-2 focus:ring-accent/15";
@@ -21,7 +24,7 @@ const labelClasses = "block text-xs font-semibold uppercase tracking-[0.16em] te
 
 export default function ContactForm() {
   const [formState, setFormState] = useState<FormState>(defaultState);
-  const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
   const updateField =
     (field: Field) =>
@@ -30,38 +33,67 @@ export default function ContactForm() {
       setFormState((current) => ({ ...current, [field]: value }));
     };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setStatus("submitting");
 
-    const subject = formState.projectSummary
-      ? `Project inquiry: ${formState.projectSummary.slice(0, 60)}`
-      : "Freelance project inquiry";
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: formState.projectSummary
+            ? `Portfolio inquiry: ${formState.projectSummary.slice(0, 60)}`
+            : "New freelance inquiry from your portfolio",
+          from_name: formState.name || "Portfolio visitor",
+          name: formState.name,
+          email: formState.email,
+          company: formState.company,
+          timeline: formState.timeline,
+          message: formState.projectSummary,
+        }),
+      });
 
-    const bodyLines = [
-      "Hi Moniem,",
-      "",
-      formState.name
-        ? `I'm ${formState.name}${formState.company ? ` from ${formState.company}` : ""}.`
-        : formState.company
-          ? `I'm reaching out from ${formState.company}.`
-          : "I'm reaching out about a freelance project.",
-      "",
-      formState.projectSummary ? `Project context: ${formState.projectSummary}` : undefined,
-      formState.timeline ? `Desired timeline: ${formState.timeline}` : undefined,
-      formState.email ? `You can reach me at ${formState.email}.` : undefined,
-      "",
-      "Looking forward to connecting!",
-    ].filter(Boolean);
+      const data = await response.json();
 
-    const mailtoUrl = `mailto:moniemghazal@gmail.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-
-    window.location.href = mailtoUrl;
-    setHasSubmitted(true);
+      if (data.success) {
+        setStatus("success");
+        setFormState(defaultState);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
-  const isSubmitDisabled = !formState.email.trim() || !formState.projectSummary.trim();
+  if (status === "success") {
+    return (
+      <div className="card flex flex-col items-center gap-4 p-10 text-center">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+          <CheckCircle2 className="h-7 w-7" />
+        </span>
+        <h3 className="font-display text-xl font-semibold tracking-tight text-ink">
+          Message sent successfully
+        </h3>
+        <p className="max-w-sm text-sm leading-relaxed text-ink-500">
+          Thanks for reaching out. Your message landed in my inbox and I&apos;ll get back to you
+          shortly.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="btn-outline mt-1"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
+
+  const isSubmitDisabled =
+    status === "submitting" || !formState.email.trim() || !formState.projectSummary.trim();
 
   return (
     <form onSubmit={handleSubmit} className="card flex flex-col gap-5 p-6 sm:p-8">
@@ -140,21 +172,34 @@ export default function ContactForm() {
           className={inputClasses}
         >
           <option value="">Select an option</option>
-          <option value="0-2 weeks">0–2 weeks (rapid)</option>
-          <option value="1-2 months">1–2 months</option>
+          <option value="0 to 2 weeks">0 to 2 weeks (rapid)</option>
+          <option value="1 to 2 months">1 to 2 months</option>
           <option value="Exploring options">Exploring options</option>
         </select>
       </div>
 
-      <button type="submit" disabled={isSubmitDisabled} className="btn-grad disabled:cursor-not-allowed disabled:opacity-40">
-        Send project brief
-        <ArrowUpRight className="h-4 w-4" />
+      <button
+        type="submit"
+        disabled={isSubmitDisabled}
+        className="btn-grad disabled:cursor-not-allowed disabled:opacity-40"
+      >
+        {status === "submitting" ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Sending
+          </>
+        ) : (
+          <>
+            Send project brief
+            <ArrowUpRight className="h-4 w-4" />
+          </>
+        )}
       </button>
 
-      {hasSubmitted && (
-        <p className="text-xs text-ink-500">
-          Thanks for the details — your email client should have opened. If not, reach me at{" "}
-          <a href="mailto:moniemghazal@gmail.com" className="font-semibold text-accent">
+      {status === "error" && (
+        <p className="text-xs text-rose-600">
+          Something went wrong while sending. Please email me directly at{" "}
+          <a href="mailto:moniemghazal@gmail.com" className="font-semibold underline">
             moniemghazal@gmail.com
           </a>
           .

@@ -5,12 +5,12 @@ import { projects } from "@/data/projects";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Work — Moniem Ghazal",
+  title: "Work | Moniem Ghazal",
   description:
-    "Selected projects by Moniem Ghazal — AI assistants, RAG copilots, automation pipelines, and full-stack web apps with measurable impact.",
+    "Selected projects by Moniem Ghazal: AI assistants, RAG copilots, automation pipelines, and full-stack web apps with measurable impact.",
 };
 
-const POP = ["#2563eb", "#f97316"];
+const POP = ["#2563eb", "#2563eb", "#f97316", "#f97316", "#2563eb", "#2563eb"];
 
 const spotlight = [
   {
@@ -20,12 +20,12 @@ const spotlight = [
   },
   {
     label: "AI assistants",
-    color: "#f97316",
-    body: "From retrieval-augmented copilots to routing agents — each project pairs LLMs with robust guardrails.",
+    color: "#2563eb",
+    body: "From retrieval augmented copilots to routing agents, each project pairs LLMs with robust guardrails.",
   },
   {
     label: "Product velocity",
-    color: "#2563eb",
+    color: "#f97316",
     body: "I ship quickly, validate with the team, and iterate until the experience becomes second nature.",
   },
 ];
@@ -165,7 +165,7 @@ export default function Projects() {
               I take on a limited number of freelance projects at a time.
             </p>
           </div>
-          <Link href="/#contact" className="btn-grad shrink-0">
+          <Link href="/contact" className="btn-grad shrink-0">
             Book a call
             <ArrowUpRight className="h-4 w-4" />
           </Link>

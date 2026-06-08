@@ -4,9 +4,9 @@ import { ArrowUpRight, Award, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "About — Moniem Ghazal",
+  title: "About | Moniem Ghazal",
   description:
-    "Moniem Ghazal — AI, Automation & Full-Stack Developer in Cairo. Milestones, certifications, and how I approach building software for teams.",
+    "Moniem Ghazal, AI, Automation & Full-Stack Developer in Cairo. Milestones, certifications, and how I approach building software for teams.",
 };
 
 const POP = ["#2563eb", "#f97316"];
@@ -18,7 +18,7 @@ const certifications = [
     color: "#2563eb",
     course: "McKinsey.org Forward Program",
     year: "Jul 2025",
-    highlight: "Leadership labs, issue prioritisation, and decision sprints for fast-moving teams.",
+    highlight: "Leadership labs, issue prioritisation, and decision sprints for fast moving teams.",
   },
   {
     provider: "DeepLearning.AI",
@@ -26,34 +26,34 @@ const certifications = [
     color: "#f97316",
     course: "LangChain for LLM Application Development",
     year: "Aug 2025",
-    highlight: "Retrieval-augmented workflows, guardrails, and evaluation harnesses for production LLM apps.",
+    highlight: "Retrieval augmented workflows, guardrails, and evaluation harnesses for production LLM apps.",
   },
 ];
 
 const milestones = [
   {
-    year: "Jul 2025 — Present",
+    year: "Jul 2025 to Present",
     role: "AI & Automation Intern",
     company: "Intercom Enterprises",
     description:
-      "Designing automation workflows with n8n and internal AI tools, building RAG-powered assistants with LangChain and prompt engineering, and integrating LLMs into business solutions.",
+      "Designing automation workflows with n8n and internal AI tools, building RAG powered assistants with LangChain and prompt engineering, and integrating LLMs into business solutions.",
   },
   {
-    year: "Jul — Sep 2024",
+    year: "Jul to Sep 2024",
     role: "Data Scientist Intern",
     company: "Phoenix Consulting",
     description:
-      "Collected, cleaned, and structured datasets in SQL, built Power BI dashboards for real-estate trends, and trained a property-price prediction model with regression and feature selection.",
+      "Collected, cleaned, and structured datasets in SQL, built Power BI dashboards for real estate trends, and trained a property price prediction model with regression and feature selection.",
   },
   {
-    year: "Jul — Sep 2023",
+    year: "Jul to Sep 2023",
     role: "Data Scientist Intern",
     company: "Phoenix Consulting",
     description:
-      "Strengthened foundations in Python, web scraping for data acquisition, and data preprocessing; automated data-collection workflows and contributed to early-stage model design.",
+      "Strengthened foundations in Python, web scraping for data acquisition, and data preprocessing; automated data collection workflows and contributed to early stage model design.",
   },
   {
-    year: "2021 — 2025",
+    year: "2021 to 2025",
     role: "B.Sc. Computer Science",
     company: "Ain Shams University",
     description: "Graduated with a focus on AI, machine learning, and software engineering.",
@@ -87,10 +87,10 @@ export default function About() {
             Building software that <span className="text-pop">matters</span>
           </h1>
           <p className="max-w-3xl text-lg leading-relaxed text-ink-500">
-            I&apos;m Moniem Ghazal — I work on AI &amp; automation at Intercom Enterprises and build
+            I&apos;m Moniem Ghazal. I work on AI &amp; automation at Intercom Enterprises and build
             full-stack web apps as a freelancer. With a B.Sc. in Computer Science from Ain Shams
-            University, I help teams work smarter not harder — solving problems, automating the
-            repetitive, and shipping software that delivers practical impact end-to-end.
+            University, I help teams work smarter not harder, solving problems, automating the
+            repetitive, and shipping software that delivers practical impact end to end.
           </p>
         </header>
 
@@ -128,7 +128,7 @@ export default function About() {
             </div>
             <p className="mt-6 text-sm leading-relaxed text-white/60">
               Building software that helps teams work smarter through automation across multiple
-              departments — and turning technology into practical impact.
+              departments, and turning technology into practical impact.
             </p>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function About() {
             </h2>
           </div>
           <p className="mt-2 max-w-2xl text-sm text-ink-500">
-            Cohort-based programs and labs that keep my leadership, experimentation, and LLM delivery
+            Cohort based programs and labs that keep my leadership, experimentation, and LLM delivery
             sharp.
           </p>
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -206,7 +206,7 @@ export default function About() {
               I&apos;m available for freelance AI, automation, and web projects.
             </p>
           </div>
-          <Link href="/#contact" className="btn-grad shrink-0">
+          <Link href="/contact" className="btn-grad shrink-0">
             Start a project
             <ArrowUpRight className="h-4 w-4" />
           </Link>
