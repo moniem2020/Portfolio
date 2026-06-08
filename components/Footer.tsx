@@ -50,8 +50,8 @@ export default function Footer() {
           <div className="space-y-4">
             <span className="font-display text-lg font-semibold">Moniem Ghazal</span>
             <p className="max-w-sm text-sm leading-relaxed text-white/55">
-              AI &amp; Automation Engineer building RAG copilots, AI assistants, and full-stack apps
-              that turn messy operations into reliable workflows.
+              AI, Automation &amp; Full-Stack Developer building RAG copilots, AI automations, and
+              web apps that turn messy operations into reliable software.
             </p>
             <div className="flex gap-2.5 pt-1">
               {socialLinks.map((link) => (

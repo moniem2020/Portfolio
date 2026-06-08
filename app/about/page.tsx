@@ -1,170 +1,203 @@
-import AnimatedText from "@/components/AnimatedText";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight, Award, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "About — Moniem Ghazal",
+  description:
+    "Moniem Ghazal — AI, Automation & Full-Stack Developer in Cairo. Milestones, certifications, and how I approach building software for teams.",
+};
 
 const certifications = [
   {
-    provider: "McKinsey Forward",
+    provider: "McKinsey & Company",
     badge: "Forward",
-    course: "Forward Program",
+    course: "McKinsey.org Forward Program",
     year: "Jul 2025",
     highlight: "Leadership labs, issue prioritisation, and decision sprints for fast-moving teams.",
-    credentialId: "122c2c51-df55-4169-924f-1a0fba322cdc",
-  },
-  {
-    provider: "DeepLearning.AI",
-    badge: "Replit",
-    course: "Vibe Coding 101 with Replit",
-    year: "2024",
-    highlight: "Creative coding experiments that combine prompt design with realtime feedback loops.",
   },
   {
     provider: "DeepLearning.AI",
     badge: "LangChain",
     course: "LangChain for LLM Application Development",
-    year: "2024",
-    highlight: "Built retrieval-augmented workflows, guardrails, and evaluation harnesses for production LLM apps.",
+    year: "Aug 2025",
+    highlight: "Retrieval-augmented workflows, guardrails, and evaluation harnesses for production LLM apps.",
   },
 ];
 
 const milestones = [
   {
-    year: "Nov 2025",
-    role: "Software Engineer",
-    company: "Intercom Enterprises",
-    description: "Building software solutions that help teams work smarter through automation and practical technology impact.",
-  },
-  {
-    year: "Jul - Oct 2025",
+    year: "Jul 2025 — Present",
     role: "AI & Automation Intern",
     company: "Intercom Enterprises",
-    description: "Delivered automation solutions for multiple departments, ARIS BPM scripts, and RAG pipelines with LangChain, LangGraph, and Gemini API.",
+    description:
+      "Designing automation workflows with n8n and internal AI tools, building RAG-powered assistants with LangChain and prompt engineering, and integrating LLMs into business solutions.",
   },
   {
-    year: "Jul - Sep 2024",
+    year: "Jul — Sep 2024",
     role: "Data Scientist Intern",
     company: "Phoenix Consulting",
-    description: "Applied Power BI and machine learning to real estate data, building interactive dashboards and a predictive pricing model.",
+    description:
+      "Collected, cleaned, and structured datasets in SQL, built Power BI dashboards for real-estate trends, and trained a property-price prediction model with regression and feature selection.",
   },
   {
-    year: "Jul - Sep 2023",
+    year: "Jul — Sep 2023",
     role: "Data Scientist Intern",
     company: "Phoenix Consulting",
-    description: "Strengthened foundation in Python programming, web scraping for data acquisition, and data cleaning methodologies.",
+    description:
+      "Strengthened foundations in Python, web scraping for data acquisition, and data preprocessing; automated data-collection workflows and contributed to early-stage model design.",
   },
   {
-    year: "2021 - 2025",
-    role: "Bachelor's in Computer Science",
+    year: "2021 — 2025",
+    role: "B.Sc. Computer Science",
     company: "Ain Shams University",
-    description: "Graduated with focus on AI, machine learning, and software engineering.",
+    description: "Graduated with a focus on AI, machine learning, and software engineering.",
+  },
+  {
+    year: "In progress",
+    role: "M.Sc. Scientific Computing",
+    company: "Ain Shams University",
+    description: "Deepening the mathematical and computational foundations behind modern AI systems.",
   },
 ];
 
-
+const craft = [
+  "Automation workflows with n8n & internal AI tools",
+  "RAG assistants with LangChain & prompt engineering",
+  "ML models & Power BI dashboards",
+  "Full-stack Next.js apps shipped to production",
+];
 
 export default function About() {
   return (
-    <div className="relative isolate overflow-hidden pt-24">
-      <div className="pointer-events-none absolute inset-x-0 top-[-140px] -z-10 flex justify-center blur-3xl">
-        <div className="h-[280px] w-[540px] bg-gradient-to-r from-indigo-300 via-violet-200 to-sky-200 opacity-60" />
-      </div>
-      <section className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pb-24 pt-12 lg:px-8">
-        <header className="space-y-6">
-          <AnimatedText
-            text="Building software that matters"
-            align="left"
-            className="text-4xl font-semibold text-slate-900 md:text-5xl pb-2"
-          />
-          <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
-            I&apos;m Moniem Ghazal, a Software Engineer at Intercom Enterprises with a Bachelor&apos;s in Computer Science from Ain Shams University. I build software that helps teams work smarter not harder ,solving problems, automating tasks, and turning technology into practical impact.
+    <div className="pt-28">
+      <section className="container-x max-w-5xl pb-24">
+        {/* Header */}
+        <header className="space-y-5">
+          <span className="eyebrow">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            About
+          </span>
+          <h1 className="font-display text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+            Building software that matters
+          </h1>
+          <p className="max-w-3xl text-lg leading-relaxed text-ink-500">
+            I&apos;m Moniem Ghazal — I work on AI &amp; automation at Intercom Enterprises and build
+            full-stack web apps as a freelancer. With a B.Sc. in Computer Science from Ain Shams
+            University, I help teams work smarter not harder — solving problems, automating the
+            repetitive, and shipping software that delivers practical impact end-to-end.
           </p>
         </header>
 
-        <section className="rounded-3xl border border-indigo-100 bg-white/70 px-6 py-10 shadow-sm shadow-indigo-200/30 sm:px-10">
-          <div className="mx-auto flex max-w-4xl flex-col gap-5 text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-500">Certified by</span>
-            <h2 className="text-2xl font-semibold text-slate-900">Continuous learning that keeps my automation stack current</h2>
-            <p className="text-sm text-slate-600">
-              Cohort-based programs and labs that sharpen leadership, experimentation, and LLM delivery.
+        {/* Snapshot + currently */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+          <div className="card p-8">
+            <h2 className="font-display text-xl font-semibold tracking-tight text-ink">
+              A quick snapshot
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-ink-500">
+              I pair automation pilots with clear operators, measurable telemetry, and documentation
+              people actually use. Whether it&apos;s an automation workflow, a RAG copilot, or a
+              full-stack web app, I translate messy needs into reliable software.
             </p>
-            <div className="relative flex flex-wrap justify-center gap-4 pt-4">
-              {certifications.map((cert) => (
-                <div key={cert.course} className="group relative">
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-white/80 px-5 py-2 text-sm font-semibold text-slate-700 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 group-hover:border-indigo-200 group-hover:bg-white"
-                  >
-                    <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.26em] text-indigo-500">
-                      {cert.badge}
-                    </span>
-                    {cert.provider}
-                  </button>
-                  <div className="pointer-events-none absolute left-1/2 top-full z-20 mt-3 hidden w-64 -translate-x-1/2 rounded-xl border border-slate-200 bg-white/95 p-4 text-left shadow-xl shadow-indigo-300/20 transition group-hover:block group-focus-within:block">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-400">{cert.provider}</p>
-                    <p className="mt-1 text-sm font-semibold text-slate-900">{cert.course}</p>
-                    <p className="text-xs text-slate-500">{cert.year}</p>
-                    <p className="mt-2 text-xs leading-relaxed text-slate-600">{cert.highlight}</p>
-                    {cert.credentialId && (
-                      <p className="mt-2 text-[11px] text-slate-400">Credential ID: {cert.credentialId}</p>
-                    )}
-                  </div>
-                  <div className="mt-3 space-y-1 rounded-xl border border-slate-200/70 bg-white/80 p-4 text-left text-xs text-slate-600 sm:hidden">
-                    <p className="font-semibold text-slate-900">{cert.course}</p>
-                    <p className="text-slate-500">{cert.year}</p>
-                    <p>{cert.highlight}</p>
-                  </div>
-                </div>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              {craft.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 text-sm text-ink-700">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  {item}
+                </li>
               ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col justify-between rounded-2xl bg-ink p-8 text-white">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-white/50">
+                Currently
+              </span>
+              <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight">
+                AI &amp; Automation
+              </h3>
+              <p className="mt-1 text-sm text-white/60">Intercom Enterprises · Cairo</p>
             </div>
+            <p className="mt-6 text-sm leading-relaxed text-white/60">
+              Building software that helps teams work smarter through automation across multiple
+              departments — and turning technology into practical impact.
+            </p>
+          </div>
+        </div>
+
+        {/* Certifications */}
+        <section className="mt-20">
+          <div className="flex items-center gap-3">
+            <Award className="h-5 w-5 text-accent" />
+            <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
+              Certified &amp; always learning
+            </h2>
+          </div>
+          <p className="mt-2 max-w-2xl text-sm text-ink-500">
+            Cohort-based programs and labs that keep my leadership, experimentation, and LLM delivery
+            sharp.
+          </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {certifications.map((cert) => (
+              <div key={cert.course} className="card card-hover p-5">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-accent-soft px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">
+                    {cert.badge}
+                  </span>
+                  <span className="text-xs text-ink-400">{cert.year}</span>
+                </div>
+                <p className="mt-3 text-sm font-semibold text-ink">{cert.course}</p>
+                <p className="text-xs font-medium text-ink-500">{cert.provider}</p>
+                <p className="mt-2 text-xs leading-relaxed text-ink-500">{cert.highlight}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        <section className="grid gap-8 lg:grid-cols-[1.25fr,0.75fr]">
-          <div className="space-y-6 rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-lg shadow-slate-900/5">
-            <h2 className="text-xl font-semibold text-slate-900">A quick snapshot</h2>
-            <p className="text-base leading-relaxed text-slate-600">
-              I focus on pairing automation pilots with clear operators, measurable telemetry, and documentation people will actually use. Whether it&apos;s ECM scripting, RAG copilots, or remote talent ops, I translate messy needs into reliable workflows.
-            </p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-200 bg-white/70 p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Craft</p>
-                <p className="mt-2 text-sm text-slate-600">Automation audits, LangChain/LangGraph builds, ARIS BPM scripting, and n8n orchestration.</p>
-              </div>
-              <div className="rounded-2xl border border-slate-200 bg-white/70 p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Impact zones</p>
-                <p className="mt-2 text-sm text-slate-600">Customer support, ECM, remote talent operations, and analytics-driven decision support.</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-6 rounded-3xl border border-indigo-200 bg-gradient-to-br from-indigo-500 via-indigo-400 to-violet-400 p-8 text-white">
-            <p className="text-xs font-semibold uppercase tracking-[0.26em] text-white/80">Currently</p>
-            <h3 className="text-2xl font-semibold">Software Engineer - Intercom Enterprises</h3>
-            <p className="text-sm leading-relaxed text-white/80">
-              Building software that helps teams work smarter through automation, solving problems, and turning technology into practical impact across multiple departments.
-            </p>
-          </div>
-        </section>
-
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-slate-900">Milestones</h2>
-          <div className="space-y-6">
-            {milestones.map((milestone) => (
+        {/* Milestones */}
+        <section className="mt-20">
+          <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">Milestones</h2>
+          <div className="mt-8 space-y-3">
+            {milestones.map((milestone, i) => (
               <Reveal
                 key={`${milestone.role}-${milestone.year}`}
                 as="article"
-                className="flex flex-col gap-3 rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm shadow-slate-900/5 md:flex-row md:items-start md:gap-8"
+                delay={i * 0.05}
+                className="card grid gap-3 p-6 md:grid-cols-[260px_1fr] md:items-start md:gap-8"
               >
-                <div className="md:min-w-[320px] md:max-w-[320px] flex-shrink-0">
-                  <p className="text-sm font-semibold uppercase tracking-wide text-indigo-500">{milestone.year}</p>
-                  <h3 className="mt-1 text-lg font-semibold text-slate-900">{milestone.role}</h3>
-                  <p className="font-bold text-slate-700">{milestone.company}</p>
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-400">
+                    {milestone.year}
+                  </p>
+                  <h3 className="mt-2 font-display text-lg font-semibold tracking-tight text-ink">
+                    {milestone.role}
+                  </h3>
+                  <p className="text-sm font-medium text-accent">{milestone.company}</p>
                 </div>
-                <p className="text-sm leading-relaxed text-slate-600 md:pt-5">{milestone.description}</p>
+                <p className="text-sm leading-relaxed text-ink-500">{milestone.description}</p>
               </Reveal>
             ))}
           </div>
         </section>
 
-
+        {/* CTA */}
+        <div className="mt-16 flex flex-col items-start gap-4 rounded-2xl border border-line bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h2 className="font-display text-xl font-semibold tracking-tight text-ink">
+              Have something in mind?
+            </h2>
+            <p className="mt-1 text-sm text-ink-500">
+              I&apos;m available for freelance AI, automation, and web projects.
+            </p>
+          </div>
+          <Link href="/#contact" className="btn-accent shrink-0">
+            Start a project
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
       </section>
     </div>
   );
